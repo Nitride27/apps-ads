@@ -4,9 +4,45 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Samridha Shrestha — Apps</title>
-<meta http-equiv="refresh" content="0;url=https://samridhashrestha.com.np/gta6guide/">
+<meta name="description" content="Android apps by Samridha Shrestha.">
+<style>
+:root{--bg:#0A0A0F;--accent:#F43F5E;--text:#fff;--sub:#A1A1AA;--muted:#71717A;--border:rgba(255,255,255,.08);--card:rgba(255,255,255,.03)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.6}
+.wrap{max-width:860px;margin:0 auto;padding:48px 20px 64px}
+h1{font-size:32px;letter-spacing:-.5px}
+.sub{color:var(--sub);margin:6px 0 28px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:10px}
+.icon{font-size:44px;line-height:1}
+.card h2{font-size:20px}
+.card p{color:var(--sub);font-size:14px}
+.badges{display:flex;gap:6px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+.badges span{border:1px solid var(--border);border-radius:1000px;padding:2px 10px}
+.btn{display:inline-block;background:var(--accent);color:#fff;font-weight:700;text-decoration:none;padding:10px 22px;border-radius:1000px;margin-top:6px;text-align:center}
+.btn.ghost{background:transparent;border:1px solid var(--border);color:var(--text)}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--border);font-size:13px;color:var(--muted)}
+a{color:var(--accent)}
+</style>
 </head>
 <body>
-<p><a href="https://samridhashrestha.com.np/gta6guide/">GTA 6 Guide</a></p>
+<main class="wrap">
+<h1>Apps</h1>
+<p class="sub">Android apps by Samridha Shrestha.</p>
+<div class="grid" id="apps"></div>
+<noscript><div class="card"><h2>GTA 6 Guide</h2><p>Countdown, story, Leonida map &amp; gameplay.</p><a href="https://samridhashrestha.com.np/gta6guide/">Learn more</a></div></noscript>
+<footer>Contact: <a href="mailto:samridhashrestha10@gmail.com">samridhashrestha10@gmail.com</a></footer>
+</main>
+<script>
+// TO ADD YOUR NEXT APP: copy one {...} block below, comma-separated.
+var APPS=[
+{name:"GTA 6 Guide",icon:"\u{1F9B8}",tagline:"Tips, Maps & VI",desc:"Countdown, story, Leonida map & gameplay — offline-first companion app.",badges:["Android","Offline-first","Free"],learn:"https://samridhashrestha.com.np/gta6guide/",play:"https://play.google.com/store/apps/details?id=com.samridha.gta6"}
+];
+var el=document.getElementById("apps");
+el.innerHTML=APPS.map(function(a){
+return '<div class="card"><div class="icon">'+a.icon+'</div><h2>'+a.name+'</h2><p><b>'+a.tagline+'</b><br>'+a.desc+'</p><div class="badges">'+a.badges.map(function(b){return '<span>'+b+'</span>'}).join("")+'</div><div class="row"><a class="btn ghost" href="'+a.learn+'">Open</a><a class="btn" href="'+a.play+'">Google Play</a></div></div>'
+}).join("");
+</script>
 </body>
 </html>
