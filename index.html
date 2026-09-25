@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Samridha Shrestha — Apps</title>
-<meta name="description" content="Android apps by Samridha Shrestha.">
+<meta name="description" content="Android apps by Samridha Shrestha: StayT and GTA 6 Guide.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Samridha Shrestha — Apps">
-<meta property="og:description" content="Android apps by Samridha Shrestha. Featuring GTA 6 Guide: Tips, Maps & VI.">
+<meta property="og:description" content="Android apps by Samridha Shrestha. Featuring StayT and GTA 6 Guide: Tips, Maps & VI.">
 <meta property="og:image" content="https://apps.samridhashrestha.com.np/gta6-icon.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://apps.samridhashrestha.com.np/gta6-icon.png">
@@ -20,8 +20,8 @@ body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-ser
 h1{font-size:32px;letter-spacing:-.5px}
 .sub{color:var(--sub);margin:6px 0 28px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
-.card{background:radial-gradient(120% 100% at 50% 0%,#3b0a1e 0%,#1A0510 45%,rgba(255,255,255,.03) 100%);border:1px solid var(--border);border-top:2px solid var(--accent);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:10px;box-shadow:0 0 28px rgba(244,63,94,.12)}
-.appicon{width:96px;height:96px;border-radius:22px;border:2px solid var(--accent);box-shadow:0 0 24px rgba(244,63,94,.35)}
+.card{background:radial-gradient(120% 100% at 50% 0%,var(--t1,#3b0a1e) 0%,var(--t2,#1A0510) 45%,rgba(255,255,255,.03) 100%);border:1px solid var(--border);border-top:2px solid var(--accent);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:10px;box-shadow:0 0 28px color-mix(in srgb,var(--accent) 12%,transparent)}
+.appicon{width:96px;height:96px;border-radius:22px;border:2px solid var(--accent);box-shadow:0 0 24px color-mix(in srgb,var(--accent) 35%,transparent)}
 .card h2{font-size:20px}
 .card p{color:var(--sub);font-size:14px}
 .badges{display:flex;gap:6px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
@@ -38,18 +38,19 @@ a{color:var(--accent)}
 <h1>Apps</h1>
 <p class="sub">Android apps by Samridha Shrestha.</p>
 <div class="grid" id="apps"></div>
-<noscript><div class="card"><img class="appicon" src="gta6-icon.png" alt="GTA 6 Guide icon"><h2>GTA 6 Guide</h2><p>Countdown, story, Leonida map &amp; gameplay.</p><a href="https://samridhashrestha.com.np/gta6guide/">Learn more</a></div></noscript>
+<noscript><div class="card"><img class="appicon" src="gta6-icon.png" alt="GTA 6 Guide icon"><h2>GTA 6 Guide</h2><p>Countdown, story, Leonida map &amp; gameplay.</p><a href="https://samridhashrestha.com.np/gta6guide/">Learn more</a></div><div class="card"><img class="appicon" src="stayt-icon.png" alt="StayT icon"><h2>StayT</h2><p>Task-based app blocker.</p><a href="privacypolicy_stayt/">Privacy policy</a></div></noscript>
 <footer>Contact: <a href="mailto:samridhashrestha10@gmail.com">samridhashrestha10@gmail.com</a></footer>
 </main>
 <script>
 // TO ADD YOUR NEXT APP: copy one {...} block below, comma-separated.
 // Put the new app's 512x512 icon PNG next to index.html and set img:"its-file.png".
 var APPS=[
-{name:"GTA 6 Guide",img:"gta6-icon.png",tagline:"Tips, Maps & VI",desc:"Countdown, story, Leonida map & gameplay — offline-first companion app.",badges:["Android","Offline-first","Free"],learn:"https://samridhashrestha.com.np/gta6guide/",play:"https://play.google.com/store/apps/details?id=com.samridha.gta6"}
+{name:"GTA 6 Guide",img:"gta6-icon.png",tagline:"Tips, Maps & VI",desc:"Countdown, story, Leonida map & gameplay — offline-first companion app.",badges:["Android","Offline-first","Free"],learn:"https://samridhashrestha.com.np/gta6guide/",play:"https://play.google.com/store/apps/details?id=com.samridha.gta6"},
+{name:"StayT",img:"stayt-icon.png",tagline:"Task-based app blocker",desc:"Pick a task, block the apps and sites that pull you away, and build a focus streak. Everything stays on your phone.",badges:["Android","On-device","Free"],learn:"privacypolicy_stayt/",learnLabel:"Privacy policy",play:"https://play.google.com/store/apps/details?id=com.nitridee.staytapp",style:"--accent:#58CC02;--t1:#1d4a05;--t2:#0c1f03"}
 ];
 var el=document.getElementById("apps");
 el.innerHTML=APPS.map(function(a){
-return '<div class="card"><img class="appicon" src="'+a.img+'" alt="'+a.name+' icon"><h2>'+a.name+'</h2><p><b>'+a.tagline+'</b><br>'+a.desc+'</p><div class="badges">'+a.badges.map(function(b){return '<span>'+b+'</span>'}).join("")+'</div><div class="row"><a class="btn ghost" href="'+a.learn+'">Open</a><a class="btn" href="'+a.play+'">Google Play</a></div></div>'
+return '<div class="card"'+(a.style?' style="'+a.style+'"':'')+'><img class="appicon" src="'+a.img+'" alt="'+a.name+' icon"><h2>'+a.name+'</h2><p><b>'+a.tagline+'</b><br>'+a.desc+'</p><div class="badges">'+a.badges.map(function(b){return '<span>'+b+'</span>'}).join("")+'</div><div class="row"><a class="btn ghost" href="'+a.learn+'">'+(a.learnLabel||"Open")+'</a><a class="btn" href="'+a.play+'">Google Play</a></div></div>'
 }).join("");
 </script>
 </body>
