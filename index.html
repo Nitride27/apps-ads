@@ -3,57 +3,121 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Samridha Shrestha — Apps</title>
-<meta name="description" content="Android apps by Samridha Shrestha: StayT and GTA 6 Guide.">
+<title>Samridha Shrestha Apps</title>
+<meta name="description" content="Android apps by Samridha Shrestha: StayT, the task-based app blocker, and GTA 6 Guide.">
+<link rel="canonical" href="https://apps.samridhashrestha.com.np/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Samridha Shrestha — Apps">
+<meta property="og:title" content="Samridha Shrestha Apps">
 <meta property="og:description" content="Android apps by Samridha Shrestha. Featuring StayT and GTA 6 Guide: Tips, Maps & VI.">
-<meta property="og:image" content="https://apps.samridhashrestha.com.np/gta6-icon.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://apps.samridhashrestha.com.np/gta6-icon.png">
-<link rel="icon" href="gta6-icon.png">
+<meta property="og:image" content="https://apps.samridhashrestha.com.np/stayt-icon.png">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="stayt-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0A0A0F;--accent:#F43F5E;--text:#fff;--sub:#A1A1AA;--muted:#71717A;--border:rgba(255,255,255,.08);--card:rgba(255,255,255,.03)}
+:root{--bg:#09090D;--text:#FAFAFA;--sub:#A1A1AA;--muted:#71717A;--border:rgba(255,255,255,.08);--card:rgba(255,255,255,.03);--link:#E4E4E7}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.6}
-.wrap{max-width:860px;margin:0 auto;padding:48px 20px 64px}
-h1{font-size:32px;letter-spacing:-.5px}
-.sub{color:var(--sub);margin:6px 0 28px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
-.card{background:radial-gradient(120% 100% at 50% 0%,var(--t1,#3b0a1e) 0%,var(--t2,#1A0510) 45%,rgba(255,255,255,.03) 100%);border:1px solid var(--border);border-top:2px solid var(--accent);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:10px;box-shadow:0 0 28px color-mix(in srgb,var(--accent) 12%,transparent)}
-.appicon{width:96px;height:96px;border-radius:22px;border:2px solid var(--accent);box-shadow:0 0 24px color-mix(in srgb,var(--accent) 35%,transparent)}
-.card h2{font-size:20px}
-.card p{color:var(--sub);font-size:14px}
-.badges{display:flex;gap:6px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
-.badges span{border:1px solid var(--border);border-radius:1000px;padding:2px 10px}
-.btn{display:block;background:var(--accent);color:var(--on-accent,#fff);font-weight:700;text-decoration:none;padding:11px 16px;border-radius:1000px;text-align:center;transition:filter .15s,background .15s}
-.btn:hover{filter:brightness(1.08)}
-.btn.play{grid-column:1/-1;display:flex;align-items:center;justify-content:center;gap:8px}
-.btn.ghost{background:transparent;border:1px solid var(--border);color:var(--text);font-weight:600}
-.btn.ghost:hover{background:rgba(255,255,255,.05);filter:none}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:auto;padding-top:8px}
-footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--border);font-size:13px;color:var(--muted)}
-a{color:var(--accent)}
+body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6;min-height:100vh;background-image:radial-gradient(60% 50% at 15% 0%,rgba(244,63,94,.10),transparent 70%),radial-gradient(60% 50% at 85% 0%,rgba(88,204,2,.09),transparent 70%)}
+h1,h2,.brand,.btn{font-family:"Space Grotesk",Inter,system-ui,sans-serif}
+.wrap{max-width:960px;margin:0 auto;padding:0 16px}
+.top{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px;color:var(--text);text-decoration:none}
+.mono{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;font-size:13px;background:linear-gradient(135deg,#F43F5E,#A855F7 55%,#58CC02);color:#fff}
+.top nav a{color:var(--sub);text-decoration:none;font-size:14px;margin-left:18px}
+.top nav a:hover{color:var(--text)}
+.hero{padding:56px 0 40px;display:flex;gap:32px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.hero-text{flex:1;min-width:280px}
+.eyebrow{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+h1{font-size:52px;line-height:1.02;letter-spacing:-1.5px;max-width:14ch}
+h1 span{background:linear-gradient(90deg,#F43F5E,#A855F7 50%,#58CC02);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lede{color:var(--sub);font-size:17px;margin-top:16px;max-width:48ch}
+.stack{position:relative;width:200px;height:170px;flex-shrink:0}
+.stack img{position:absolute;width:120px;height:120px;border-radius:28px;border:1px solid var(--border)}
+.stack img:first-child{left:0;top:30px;transform:rotate(-8deg);box-shadow:0 18px 50px rgba(244,63,94,.35)}
+.stack img:last-child{right:0;top:0;transform:rotate(6deg);box-shadow:0 18px 50px rgba(88,204,2,.3)}
+.section-title{display:flex;align-items:baseline;justify-content:space-between;margin:12px 0 16px;border-top:1px solid var(--border);padding-top:28px}
+.section-title h2{font-size:22px;letter-spacing:-.4px}
+.section-title span{color:var(--muted);font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.card{position:relative;background:radial-gradient(130% 90% at 0% 0%,var(--t1) 0%,var(--t2) 40%,rgba(255,255,255,.02) 100%);border:1px solid var(--border);border-radius:22px;padding:22px;display:flex;flex-direction:column;gap:14px;transition:transform .2s,border-color .2s,box-shadow .2s}
+.card:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--accent) 45%,transparent);box-shadow:0 20px 50px color-mix(in srgb,var(--accent) 16%,transparent)}
+.head{display:flex;gap:16px;align-items:center}
+.appicon{width:76px;height:76px;border-radius:20px;flex-shrink:0;box-shadow:0 8px 28px color-mix(in srgb,var(--accent) 35%,transparent)}
+.card h3{font-family:"Space Grotesk",Inter,sans-serif;font-size:22px;letter-spacing:-.4px;line-height:1.15}
+.tag{color:var(--accent);font-size:14px;font-weight:600}
+.card p{color:var(--sub);font-size:15px}
+.badges{display:flex;gap:6px;flex-wrap:wrap}
+.badges span{font-size:12px;color:var(--sub);border:1px solid var(--border);background:rgba(255,255,255,.03);border-radius:1000px;padding:3px 10px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:auto;padding-top:4px}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;font-weight:700;font-size:15px;text-decoration:none;padding:12px 16px;border-radius:14px;transition:filter .15s,background .15s}
+.btn.play{grid-column:1/-1;background:var(--accent);color:var(--on-accent,#fff)}
+.btn.play:hover{filter:brightness(1.08)}
+.btn.ghost{background:rgba(255,255,255,.03);border:1px solid var(--border);color:var(--text);font-weight:600}
+.btn.ghost:hover{background:rgba(255,255,255,.08)}
+.about{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:8px}
+.about div{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:18px}
+.about b{display:block;font-size:15px;margin-bottom:4px}
+.about p{color:var(--sub);font-size:14px}
+.about a{color:var(--link)}
+footer{margin:56px 0 0;padding:22px 0 40px;border-top:1px solid var(--border);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+footer a{color:var(--sub);text-decoration:none;margin-right:16px}
+footer a:hover{color:var(--text)}
+@media(max-width:600px){h1{font-size:38px}.hero{padding:32px 0 28px}.stack{display:none}.top nav a:first-child{display:none}}
 </style>
 </head>
 <body>
-<main class="wrap">
-<h1>Apps</h1>
-<p class="sub">Android apps by Samridha Shrestha.</p>
-<div class="grid" id="apps"></div>
-<noscript><div class="card"><img class="appicon" src="gta6-icon.png" alt="GTA 6 Guide icon"><h2>GTA 6 Guide</h2><p>Countdown, story, Leonida map &amp; gameplay.</p><a href="gta6guide/">Learn more</a> · <a href="privacypolicy_gta6guide/">Privacy policy</a></div><div class="card"><img class="appicon" src="stayt-icon.png" alt="StayT icon"><h2>StayT</h2><p>Task-based app blocker.</p><a href="stayt/">Learn more</a> · <a href="privacypolicy_stayt/">Privacy policy</a></div></noscript>
-<footer>Contact: <a href="mailto:samridhashrestha10@gmail.com">samridhashrestha10@gmail.com</a></footer>
-</main>
+<div class="wrap">
+<header class="top">
+<a class="brand" href="./"><span class="mono" aria-hidden="true">SS</span>Samridha Shrestha</a>
+<nav><a href="#apps">Apps</a><a href="mailto:samridhashrestha10@gmail.com">Contact</a></nav>
+</header>
+
+<section class="hero">
+<div class="hero-text">
+<div class="eyebrow">Independent Android developer · Nepal</div>
+<h1>Small apps that <span>do one thing well.</span></h1>
+<p class="lede">Focused, free Android apps. No accounts, no sign-up, and your data stays on your phone wherever it can.</p>
+</div>
+<div class="stack" aria-hidden="true"><img src="gta6-icon.png" alt=""><img src="stayt-icon.png" alt=""></div>
+</section>
+
+<div class="section-title" id="apps"><h2>Apps</h2><span id="count">2 on Google Play</span></div>
+<div class="grid" id="grid">
+<noscript>
+<div class="card" style="--accent:#58CC02;--t1:#16380a;--t2:#0b1a05"><div class="head"><img class="appicon" src="stayt-icon.png" alt="StayT icon"><div><h3>StayT</h3><div class="tag">Task-based app blocker</div></div></div><p><a href="stayt/">Details</a> · <a href="privacypolicy_stayt/">Privacy policy</a></p></div>
+<div class="card" style="--accent:#F43F5E;--t1:#3b0a1e;--t2:#1A0510"><div class="head"><img class="appicon" src="gta6-icon.png" alt="GTA 6 Guide icon"><div><h3>GTA 6 Guide</h3><div class="tag">Tips, Maps &amp; VI</div></div></div><p><a href="gta6guide/">Details</a> · <a href="privacypolicy_gta6guide/">Privacy policy</a></p></div>
+</noscript>
+</div>
+
+<div class="section-title"><h2>How these apps work</h2></div>
+<div class="about">
+<div><b>No accounts</b><p>Open the app and use it. Nothing to sign up for, nothing to log in to.</p></div>
+<div><b>On-device first</b><p>Your tasks, bookmarks and history are stored on your phone, not on a server.</p></div>
+<div><b>Free, with ads</b><p>Apps are free and supported by Google AdMob ads. Each app's privacy policy spells out what that means.</p></div>
+</div>
+
+<footer>
+<div><a href="mailto:samridhashrestha10@gmail.com">samridhashrestha10@gmail.com</a><a href="https://samridhashrestha.com.np/">Portfolio</a><a href="app-ads.txt">app-ads.txt</a></div>
+<div>© 2026 Samridha Shrestha</div>
+</footer>
+</div>
 <script>
-// TO ADD YOUR NEXT APP: copy one {...} block below, comma-separated.
-// Put the new app's 512x512 icon PNG next to index.html and set img:"its-file.png".
+// TO ADD YOUR NEXT APP: copy one {...} block below. Put its 512x512 icon PNG next to index.html.
+// accent = button/glow colour, onAccent = button text colour, t1/t2 = card tint.
 var APPS=[
-{name:"GTA 6 Guide",img:"gta6-icon.png",tagline:"Tips, Maps & VI",desc:"Countdown, story, Leonida map & gameplay — offline-first companion app.",badges:["Android","Offline-first","Free"],learn:"gta6guide/",privacy:"privacypolicy_gta6guide/",play:"https://play.google.com/store/apps/details?id=com.samridha.gta6"},
-{name:"StayT",img:"stayt-icon.png",tagline:"Task-based app blocker",desc:"Pick a task, block the apps and sites that pull you away, and build a focus streak. Everything stays on your phone.",badges:["Android","On-device","Free"],learn:"stayt/",privacy:"privacypolicy_stayt/",play:"https://play.google.com/store/apps/details?id=com.nitridee.staytapp",style:"--accent:#58CC02;--on-accent:#000437;--t1:#1d4a05;--t2:#0c1f03"}
+{name:"StayT",img:"stayt-icon.png",tagline:"Task-based app blocker",desc:"Pick a task, block the apps and sites that pull you away, and build a focus streak. Everything stays on your phone.",badges:["Android","On-device","Free"],learn:"stayt/",privacy:"privacypolicy_stayt/",play:"https://play.google.com/store/apps/details?id=com.nitridee.staytapp",accent:"#58CC02",onAccent:"#000437",t1:"#16380a",t2:"#0b1a05"},
+{name:"GTA 6 Guide",img:"gta6-icon.png",tagline:"Tips, Maps & VI",desc:"Countdown, story, Leonida map and gameplay. An offline-first companion for GTA VI, guided by Sonny the flamingo.",badges:["Android","Offline-first","Free"],learn:"gta6guide/",privacy:"privacypolicy_gta6guide/",play:"https://play.google.com/store/apps/details?id=com.samridha.gta6",accent:"#F43F5E",onAccent:"#fff",t1:"#3b0a1e",t2:"#1A0510"}
 ];
-var el=document.getElementById("apps");
-el.innerHTML=APPS.map(function(a){
-return '<div class="card"'+(a.style?' style="'+a.style+'"':'')+'><img class="appicon" src="'+a.img+'" alt="'+a.name+' icon"><h2>'+a.name+'</h2><p><b>'+a.tagline+'</b><br>'+a.desc+'</p><div class="badges">'+a.badges.map(function(b){return '<span>'+b+'</span>'}).join("")+'</div><div class="row"><a class="btn play" href="'+a.play+'"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 2.8v18.4c0 .6.7 1 1.2.7L21 12.7c.5-.3.5-1.1 0-1.4L5.2 2.1C4.7 1.8 4 2.2 4 2.8z"/></svg>Get it on Google Play</a><a class="btn ghost" href="'+a.learn+'">Details</a><a class="btn ghost" href="'+a.privacy+'">Privacy</a></div></div>'
+var esc=function(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;")};
+document.getElementById("count").textContent=APPS.length+" on Google Play";
+document.getElementById("grid").innerHTML=APPS.map(function(a){
+return '<article class="card" style="--accent:'+a.accent+';--on-accent:'+a.onAccent+';--t1:'+a.t1+';--t2:'+a.t2+'">'
++'<div class="head"><img class="appicon" src="'+a.img+'" alt="'+esc(a.name)+' icon"><div><h3>'+esc(a.name)+'</h3><div class="tag">'+esc(a.tagline)+'</div></div></div>'
++'<p>'+esc(a.desc)+'</p>'
++'<div class="badges">'+a.badges.map(function(b){return '<span>'+esc(b)+'</span>'}).join("")+'</div>'
++'<div class="row"><a class="btn play" href="'+a.play+'"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 2.8v18.4c0 .6.7 1 1.2.7L21 12.7c.5-.3.5-1.1 0-1.4L5.2 2.1C4.7 1.8 4 2.2 4 2.8z"/></svg>Get it on Google Play</a>'
++'<a class="btn ghost" href="'+a.learn+'">Details</a><a class="btn ghost" href="'+a.privacy+'">Privacy</a></div></article>'
 }).join("");
 </script>
 </body>
