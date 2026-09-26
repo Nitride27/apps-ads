@@ -220,7 +220,7 @@ b.addEventListener("pointerleave",function(){b.style.translate=""})});
 })();
 </script>
 <script>
-// "How these apps work" toys: play on tap, and once when scrolled into view
+// "How these apps work" toys: play on hover (tap on touch), and once when scrolled into view
 (function(){
 var reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
 function play(d){
@@ -229,7 +229,12 @@ if(d.classList.contains("login")){if(d.classList.contains("gone"))return;d.class
 else if(d.classList.contains("data")){d.classList.remove("go");void d.offsetWidth;d.classList.add("go")}
 else{var b=d.querySelector("b"),t0=performance.now();d.classList.remove("done");
 (function tick(now){var p=reduce?1:Math.min(1,(now-t0)/1100);b.textContent="$"+(4.99*Math.pow(1-p,3)).toFixed(2);if(p<1)requestAnimationFrame(tick);else d.classList.add("done")})(t0)}}
-document.querySelectorAll(".demo").forEach(function(d){d.addEventListener("click",function(){play(d)})});
+var hover=matchMedia("(hover: hover)").matches;
+document.querySelectorAll(".demo").forEach(function(d){
+if(hover)d.querySelector(".hint").textContent="hover";
+d.addEventListener("pointerenter",function(e){if(e.pointerType==="mouse")play(d)});
+// touch and keyboard still use click; a mouse already played it on hover
+d.addEventListener("click",function(e){if(e.pointerType!=="mouse")play(d)})});
 if(reduce)return;
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){io.unobserve(e.target);setTimeout(function(){play(e.target)},600)}})},{threshold:.7});
 document.querySelectorAll(".demo").forEach(function(d){io.observe(d)});
