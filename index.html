@@ -26,9 +26,12 @@ h1{font-size:32px;letter-spacing:-.5px}
 .card p{color:var(--sub);font-size:14px}
 .badges{display:flex;gap:6px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
 .badges span{border:1px solid var(--border);border-radius:1000px;padding:2px 10px}
-.btn{display:inline-block;background:var(--accent);color:#fff;font-weight:700;text-decoration:none;padding:10px 22px;border-radius:1000px;margin-top:6px;text-align:center}
-.btn.ghost{background:transparent;border:1px solid var(--border);color:var(--text)}
-.row{display:flex;gap:8px;flex-wrap:wrap}
+.btn{display:block;background:var(--accent);color:var(--on-accent,#fff);font-weight:700;text-decoration:none;padding:11px 16px;border-radius:1000px;text-align:center;transition:filter .15s,background .15s}
+.btn:hover{filter:brightness(1.08)}
+.btn.play{grid-column:1/-1;display:flex;align-items:center;justify-content:center;gap:8px}
+.btn.ghost{background:transparent;border:1px solid var(--border);color:var(--text);font-weight:600}
+.btn.ghost:hover{background:rgba(255,255,255,.05);filter:none}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:auto;padding-top:8px}
 footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--border);font-size:13px;color:var(--muted)}
 a{color:var(--accent)}
 </style>
@@ -46,11 +49,11 @@ a{color:var(--accent)}
 // Put the new app's 512x512 icon PNG next to index.html and set img:"its-file.png".
 var APPS=[
 {name:"GTA 6 Guide",img:"gta6-icon.png",tagline:"Tips, Maps & VI",desc:"Countdown, story, Leonida map & gameplay — offline-first companion app.",badges:["Android","Offline-first","Free"],learn:"gta6guide/",privacy:"privacypolicy_gta6guide/",play:"https://play.google.com/store/apps/details?id=com.samridha.gta6"},
-{name:"StayT",img:"stayt-icon.png",tagline:"Task-based app blocker",desc:"Pick a task, block the apps and sites that pull you away, and build a focus streak. Everything stays on your phone.",badges:["Android","On-device","Free"],learn:"stayt/",privacy:"privacypolicy_stayt/",play:"https://play.google.com/store/apps/details?id=com.nitridee.staytapp",style:"--accent:#58CC02;--t1:#1d4a05;--t2:#0c1f03"}
+{name:"StayT",img:"stayt-icon.png",tagline:"Task-based app blocker",desc:"Pick a task, block the apps and sites that pull you away, and build a focus streak. Everything stays on your phone.",badges:["Android","On-device","Free"],learn:"stayt/",privacy:"privacypolicy_stayt/",play:"https://play.google.com/store/apps/details?id=com.nitridee.staytapp",style:"--accent:#58CC02;--on-accent:#000437;--t1:#1d4a05;--t2:#0c1f03"}
 ];
 var el=document.getElementById("apps");
 el.innerHTML=APPS.map(function(a){
-return '<div class="card"'+(a.style?' style="'+a.style+'"':'')+'><img class="appicon" src="'+a.img+'" alt="'+a.name+' icon"><h2>'+a.name+'</h2><p><b>'+a.tagline+'</b><br>'+a.desc+'</p><div class="badges">'+a.badges.map(function(b){return '<span>'+b+'</span>'}).join("")+'</div><div class="row"><a class="btn ghost" href="'+a.learn+'">Open</a><a class="btn ghost" href="'+a.privacy+'">Privacy policy</a><a class="btn" href="'+a.play+'">Google Play</a></div></div>'
+return '<div class="card"'+(a.style?' style="'+a.style+'"':'')+'><img class="appicon" src="'+a.img+'" alt="'+a.name+' icon"><h2>'+a.name+'</h2><p><b>'+a.tagline+'</b><br>'+a.desc+'</p><div class="badges">'+a.badges.map(function(b){return '<span>'+b+'</span>'}).join("")+'</div><div class="row"><a class="btn play" href="'+a.play+'"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 2.8v18.4c0 .6.7 1 1.2.7L21 12.7c.5-.3.5-1.1 0-1.4L5.2 2.1C4.7 1.8 4 2.2 4 2.8z"/></svg>Get it on Google Play</a><a class="btn ghost" href="'+a.learn+'">Details</a><a class="btn ghost" href="'+a.privacy+'">Privacy</a></div></div>'
 }).join("");
 </script>
 </body>
