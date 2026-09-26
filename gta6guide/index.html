@@ -60,12 +60,40 @@ code{background:rgba(255,255,255,.06);padding:2px 6px;border-radius:6px;font-siz
 .bubble{position:relative;flex:1;min-width:220px;background:#16161f;border:1px solid rgba(244,63,94,.35);padding:14px 16px;font-size:15px;color:var(--text);box-shadow:0 0 22px rgba(244,63,94,.12)}
 .bubble:before{content:"";position:absolute;left:-9px;top:50%;margin-top:-8px;border:8px solid transparent;border-right-color:rgba(244,63,94,.35);border-left:0}
 .bubble small{display:block;color:var(--muted);font-size:12px;margin-top:8px}
-@media(prefers-reduced-motion:reduce){.sonny img{animation:none}}
+/* motion */
+.progress{position:fixed;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),#fb923c,var(--purple),var(--blue));box-shadow:0 0 12px rgba(244,63,94,.7);transform-origin:0 50%;transform:scaleX(0);z-index:10}
+@supports (animation-timeline:scroll()){.progress{animation:grow linear both;animation-timeline:scroll()}}
+@keyframes grow{to{transform:scaleX(1)}}
+.hero{position:relative}
+.hero::before{content:"";position:absolute;left:-60%;right:-60%;top:250px;height:460px;pointer-events:none;background:repeating-linear-gradient(90deg,rgba(244,63,94,.45) 0 1px,transparent 1px 56px),repeating-linear-gradient(0deg,rgba(168,85,247,.45) 0 1px,transparent 1px 56px);transform:perspective(380px) rotateX(64deg);transform-origin:50% 0;animation:floor 2.4s linear infinite;-webkit-mask:linear-gradient(transparent,#000 35%,#000 50%,transparent);mask:linear-gradient(transparent,#000 35%,#000 50%,transparent);opacity:.55}
+@keyframes floor{to{background-position:0 0,0 56px}}
+.wrap{position:relative}
+h1{background-image:linear-gradient(90deg,#fff,var(--accent) 30%,var(--purple) 50%,var(--accent) 70%,#fff);background-size:200% auto;filter:drop-shadow(0 0 16px rgba(244,63,94,.4));animation:flicker 1.4s steps(1) both,shimmer 7s linear 1.4s infinite}
+@keyframes flicker{0%{opacity:0}8%{opacity:1}11%{opacity:.15}17%{opacity:1}20%{opacity:.4}24%,100%{opacity:1}}
+@keyframes shimmer{to{background-position:200% center}}
+.icon{transform:perspective(600px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .3s ease-out;animation:glow 2.8s ease-in-out infinite alternate}
+@keyframes glow{to{box-shadow:0 0 48px rgba(244,63,94,.7),0 0 110px rgba(168,85,247,.4)}}
+.unit{perspective:220px}
+.unit b.tick{animation:tick .5s cubic-bezier(.2,.7,.2,1)}
+@keyframes tick{from{transform:translateY(-35%) rotateX(85deg);opacity:0;filter:blur(3px)}}
+.sunset{background-size:300% 100%;animation:flow 6s linear infinite}
+@keyframes flow{to{background-position:300% 0}}
+.card{position:relative;background:radial-gradient(320px circle at var(--x,-999px) var(--y,-999px),rgba(244,63,94,.13),transparent 60%),var(--card)}
+.card::after{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1px;pointer-events:none;background:radial-gradient(240px circle at var(--x,-999px) var(--y,-999px),rgba(255,255,255,.55),transparent 60%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.sonny button.hop img{animation:hop .5s cubic-bezier(.3,0,.3,1)}
+@keyframes hop{40%{transform:translateY(-16px) rotate(4deg) scale(1.05)}70%{transform:translateY(0) scale(1.06,.94)}}
+#sonnyLine::after{content:"";display:inline-block;width:2px;height:1em;margin-left:2px;vertical-align:-2px;background:var(--accent);animation:caret 1s steps(1) infinite}
+@keyframes caret{50%{opacity:0}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.rv{opacity:0;translate:0 26px;filter:blur(6px);transition:opacity .8s cubic-bezier(.2,.7,.2,1) var(--d,0s),translate .8s cubic-bezier(.2,.7,.2,1) var(--d,0s),filter .8s var(--d,0s),border-color .2s,transform .2s}
+.rv.in{opacity:1;translate:none;filter:none}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.progress{display:none}}
 @media(max-width:560px){.bubble:before{display:none}.grid{grid-template-columns:1fr}}
-@media(max-width:560px){h1{font-size:32px}.icon{width:120px;height:120px}}
+@media(max-width:560px){h1{font-size:32px}.icon{width:120px;height:120px}.hero::before{opacity:.3;top:170px}}
 </style>
 </head>
 <body>
+<div class="progress" aria-hidden="true"></div>
 <div class="hero"><main class="wrap">
 <div class="hero-grid">
 <img class="icon" src="../gta6-icon.png" alt="GTA 6 Guide app icon — neon flamingo over Vice City sunset">
@@ -89,7 +117,7 @@ code{background:rgba(255,255,255,.06);padding:2px 6px;border-radius:6px;font-siz
 <h2>Meet Sonny</h2>
 <div class="sonny">
 <button type="button" id="sonnyBtn" aria-label="Tap Sonny for another line"><img id="sonnyImg" src="sonny-neutral.png" alt="Sonny, the flamingo mascot in a bucket hat" width="110"></button>
-<div class="bubble" aria-live="polite"><span id="sonnyLine">Hey there, rookie. Name's Sonny. I'm your guide to GTA 6.</span><small>Your flamingo guide inside the app. Tap him for more.</small></div>
+<div class="bubble"><span class="sr" id="sonnySr" aria-live="polite"></span><span id="sonnyLine" aria-hidden="true">Hey there, rookie. Name's Sonny. I'm your guide to GTA 6.</span><small>Your flamingo guide inside the app. Tap him for more.</small></div>
 </div>
 
 <h2>What's inside</h2>
@@ -122,10 +150,30 @@ code{background:rgba(255,255,255,.06);padding:2px 6px;border-radius:6px;font-siz
 <script>
 var t=new Date("2026-11-19T00:00:00Z").getTime();
 function u(){var n=t-Date.now();if(n<=0){document.getElementById("count").innerHTML='<div class="unit"><b>OUT NOW</b><span>AVAILABLE</span></div>';clearInterval(iv);return;}var d=Math.floor(n/864e5),h=Math.floor(n/36e5)%24,m=Math.floor(n/6e4)%60,s=Math.floor(n/1e3)%60;
-document.getElementById("d").textContent=d;document.getElementById("h").textContent=h;document.getElementById("m").textContent=m;document.getElementById("s").textContent=s;}
+set("d",d);set("h",h);set("m",m);set("s",s);}
+function set(id,v){var el=document.getElementById(id);if(el.textContent==v)return;el.textContent=v;el.classList.remove("tick");void el.offsetWidth;el.classList.add("tick")}
 var iv=setInterval(u,1000);u();
 var L=["Hey there, rookie. Name's Sonny. I'm your guide to GTA 6.","A flamingo giving you a tour of a crime simulator. Peak gaming, honestly.","Rule one: don't touch the wildlife. I'm the only bird you need.","Fun fact: I've watched every trailer 47 times. For research.","The World tab has more secrets than a Rockstar press release.","Did you know? Flamingos can sleep while standing on one leg. I can't. Too anxious about launch day.","Go forth and explore. Try not to crash the car on the first turn."],li=0;
-document.getElementById("sonnyBtn").onclick=function(){li=(li+1)%L.length;document.getElementById("sonnyLine").textContent=L[li];document.getElementById("sonnyImg").src=li%2?"sonny-excited.png":"sonny-neutral.png";};
+var reduce=matchMedia("(prefers-reduced-motion: reduce)").matches,typing;
+function say(txt){var el=document.getElementById("sonnyLine"),i=0;document.getElementById("sonnySr").textContent=txt;clearInterval(typing);
+if(reduce){el.textContent=txt;return}el.textContent="";typing=setInterval(function(){el.textContent=txt.slice(0,++i);if(i>=txt.length)clearInterval(typing)},22)}
+document.getElementById("sonnyBtn").onclick=function(){li=(li+1)%L.length;say(L[li]);document.getElementById("sonnyImg").src=li%2?"sonny-excited.png":"sonny-neutral.png";
+var b=this;b.classList.remove("hop");void b.offsetWidth;b.classList.add("hop")};
+if(!reduce){
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;e.target.classList.add("in");io.unobserve(e.target);if(e.target.classList.contains("sonny"))say(L[0])})},{rootMargin:"0px 0px -10% 0px"});
+document.querySelectorAll("h2,.sonny,.card,details,ul,.wrap>p,.foot-links,footer").forEach(function(el){el.classList.add("rv");el.style.setProperty("--d",Array.prototype.indexOf.call(el.parentNode.children,el)%4*90+"ms");io.observe(el)});
+var icon=document.querySelector(".icon"),grid=document.querySelector(".grid"),hg=document.querySelector(".hero-grid");
+function tiltIcon(x,y){icon.style.setProperty("--ry",Math.max(-14,Math.min(14,x))+"deg");icon.style.setProperty("--rx",Math.max(-14,Math.min(14,y))+"deg")}
+if(matchMedia("(pointer: fine)").matches){
+hg.addEventListener("pointermove",function(e){var r=icon.getBoundingClientRect();tiltIcon((e.clientX-r.left-r.width/2)/18,(r.top+r.height/2-e.clientY)/18)});
+hg.addEventListener("pointerleave",function(){tiltIcon(0,0)})}
+else addEventListener("deviceorientation",function(e){if(e.gamma!=null)tiltIcon(e.gamma/2,(45-e.beta)/3)});
+function spot(e){grid.querySelectorAll(".card").forEach(function(c){var r=c.getBoundingClientRect();c.style.setProperty("--x",e.clientX-r.left+"px");c.style.setProperty("--y",e.clientY-r.top+"px")})}
+function unspot(){grid.querySelectorAll(".card").forEach(function(c){c.style.removeProperty("--x");c.style.removeProperty("--y")})}
+grid.addEventListener("pointerdown",spot);grid.addEventListener("pointermove",spot);
+grid.addEventListener("pointerleave",unspot);grid.addEventListener("pointercancel",unspot);
+grid.addEventListener("pointerup",function(e){if(e.pointerType!=="mouse")setTimeout(unspot,600)})}
 </script>
+<script src="../ripple.js" data-colors="#F43F5E,#fb923c,#A855F7,#3B82F6"></script>
 </body>
 </html>

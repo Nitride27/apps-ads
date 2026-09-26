@@ -11,14 +11,15 @@
 <meta property="og:description" content="Android apps by Samridha Shrestha. Featuring StayT and GTA 6 Guide: Tips, Maps & VI.">
 <meta property="og:image" content="https://apps.samridhashrestha.com.np/stayt-icon.png">
 <meta name="twitter:card" content="summary">
-<link rel="icon" href="stayt-icon.png">
+<link rel="icon" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#09090D;--text:#FAFAFA;--sub:#A1A1AA;--muted:#71717A;--border:rgba(255,255,255,.08);--card:rgba(255,255,255,.03);--link:#E4E4E7;--grad:linear-gradient(90deg,#F43F5E,#A855F7 25%,#58CC02 50%,#A855F7 75%,#F43F5E)}
+:root{--bg:#0E0D0B;--text:#F3EEE6;--sub:#A8A29A;--muted:#78716C;--border:rgba(255,240,220,.08);--card:rgba(255,240,220,.03);--link:#E7E0D6;--grad:linear-gradient(90deg,#FFB224,#FF7A45 25%,#FFD9A0 50%,#FF7A45 75%,#FFB224)}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6;min-height:100vh;background-image:radial-gradient(60% 50% at 15% 0%,rgba(244,63,94,.10),transparent 70%),radial-gradient(60% 50% at 85% 0%,rgba(88,204,2,.09),transparent 70%)}
+body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6;min-height:100vh;background-image:radial-gradient(60% 50% at 15% 0%,rgba(255,178,36,.09),transparent 70%),radial-gradient(60% 50% at 85% 0%,rgba(255,122,69,.07),transparent 70%)}
 h1,h2,.brand,.btn{font-family:"Space Grotesk",Inter,system-ui,sans-serif}
 .wrap{max-width:960px;margin:0 auto;padding:0 16px}
 .top{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
@@ -34,14 +35,14 @@ h1,h2,.brand,.btn{font-family:"Space Grotesk",Inter,system-ui,sans-serif}
 .who b{display:block;font-size:16px}
 .eyebrow{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
 h1{font-size:52px;line-height:1.05;letter-spacing:-1.5px;max-width:14ch}
-h1 span{display:inline-block;padding:0 4px 6px 0;background:var(--grad);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;cursor:default}
-h1 span:hover{filter:url(#water);animation:flow 2.4s linear infinite}
+h1 .g{display:inline-block;padding:0 4px 6px 0;background:var(--grad);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;cursor:default}
+h1 .g:hover{filter:url(#water);animation:flow 2.4s linear infinite}
 @keyframes flow{to{background-position:200% center}}
 .lede{color:var(--sub);font-size:17px;margin-top:16px;max-width:48ch}
 .stack{position:relative;width:200px;height:170px;flex-shrink:0}
 .stack img{position:absolute;width:120px;height:120px;border-radius:28px;border:1px solid var(--border)}
-.stack img:first-child{left:0;top:30px;transform:rotate(-8deg);box-shadow:0 18px 50px rgba(244,63,94,.35)}
-.stack img:last-child{right:0;top:0;transform:rotate(6deg);box-shadow:0 18px 50px rgba(88,204,2,.3)}
+.stack img:first-child{left:0;top:30px;transform:rotate(-8deg);box-shadow:0 18px 50px rgba(255,178,36,.28)}
+.stack img:last-child{right:0;top:0;transform:rotate(6deg);box-shadow:0 18px 50px rgba(255,122,69,.28)}
 .section-title{display:flex;align-items:baseline;justify-content:space-between;margin:12px 0 16px;border-top:1px solid var(--border);padding-top:28px}
 .section-title h2{font-size:22px;letter-spacing:-.4px}
 .section-title span{color:var(--muted);font-size:14px}
@@ -62,15 +63,64 @@ h1 span:hover{filter:url(#water);animation:flow 2.4s linear infinite}
 .btn.ghost{background:rgba(255,255,255,.03);border:1px solid var(--border);color:var(--text);font-weight:600}
 .btn.ghost:hover{background:rgba(255,255,255,.08)}
 .about{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:8px}
-.about div{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:18px}
-.about b{display:block;font-size:15px;margin-bottom:4px}
+.about>div{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:18px}
+.about>div>b{display:block;font-size:15px;margin-bottom:4px}
 .about p{color:var(--sub);font-size:14px}
+/* "How these apps work" toys */
+.demo{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;width:100%;height:118px;margin-bottom:14px;border:1px dashed var(--border);border-radius:14px;background:rgba(255,240,220,.025);color:var(--text);font:inherit;cursor:pointer;overflow:hidden;transition:border-color .2s,background .2s}
+.demo:hover{border-color:rgba(255,178,36,.4);background:rgba(255,178,36,.04)}
+.demo:focus-visible{outline:2px solid #FFB224;outline-offset:2px}
+.hint{position:absolute;right:8px;bottom:6px;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);transition:opacity .3s}
+.demo.played .hint{opacity:0}
+.fld,.try{font-size:12px;border-radius:8px;transition:transform .7s cubic-bezier(.55,0,.8,.2) var(--d,0s),opacity .7s var(--d,0s)}
+.fld{width:150px;text-align:left;color:var(--muted);border:1px solid var(--border);padding:3px 9px}
+.try{background:#FFB224;color:#1A1204;font-weight:700;padding:3px 16px;border-radius:999px}
+.login.gone .fld,.login.gone .try{transform:translate(var(--x,0),120px) rotate(var(--r));opacity:0}
+.nope{position:absolute;inset:0;display:grid;place-items:center;font-weight:700;font-size:15px;color:#FFB224;opacity:0;scale:.5;transition:opacity .3s,scale .45s cubic-bezier(.34,1.56,.64,1)}
+.login.gone .nope{opacity:1;scale:1;transition-delay:.5s}
+.phone{position:absolute;left:calc(50% - 88px);top:30px;width:36px;height:58px;border:2px solid var(--text);border-radius:9px}
+.phone i{position:absolute;left:13px;width:6px;height:6px;border-radius:50%;background:#FFB224;box-shadow:0 0 8px #FFB224}
+.wall{position:absolute;left:50%;top:22px;bottom:22px;border-left:2px dashed var(--muted);transition:border-color .2s}
+.wall::after{content:"";position:absolute;left:-7px;top:50%;width:12px;height:12px;margin-top:-6px;border-radius:50%;background:var(--bg);border:2px solid var(--muted)}
+.cloud{position:absolute;left:calc(50% + 30px);top:38px;color:var(--muted);font-size:10px;text-align:center}
+.data.go i{animation:leak 1.3s cubic-bezier(.3,.7,.3,1) var(--d) both}
+.data.go .wall{animation:zap 1.3s var(--d0,0s)}
+@keyframes leak{40%{transform:translateX(66px)}52%{transform:translateX(56px) scale(1.4)}100%{transform:none}}
+@keyframes zap{35%,55%{border-color:#FF7A45;filter:drop-shadow(0 0 6px #FF7A45)}}
+.price{gap:2px}
+.price s{font-size:13px;color:var(--muted);opacity:0;transition:opacity .3s}
+.price b{font-family:"Space Grotesk",Inter,sans-serif;font-size:34px;font-variant-numeric:tabular-nums;letter-spacing:-1px}
+.price.done s{opacity:1}
+.price.done b{color:#FFB224}
+.adbar{position:absolute;left:10px;right:10px;bottom:8px;font-size:10px;color:var(--sub);background:rgba(255,240,220,.06);border:1px solid var(--border);border-radius:6px;padding:2px 6px;text-align:left;translate:0 40px;transition:translate .45s cubic-bezier(.34,1.56,.64,1)}
+.price.done .adbar{translate:none}
+@media(prefers-reduced-motion:reduce){.demo *{transition:none!important;animation:none!important}}
 .about a{color:var(--link)}
 footer{margin:56px 0 0;padding:22px 0 40px;border-top:1px solid var(--border);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
 footer a{color:var(--sub);text-decoration:none;margin-right:16px}
 footer a:hover{color:var(--text)}
-@media(prefers-reduced-motion:reduce){.pfp,h1 span:hover{animation:none}h1 span:hover{filter:none}}
-@media(max-width:600px){h1{font-size:38px}.hero{padding:28px 0 28px}.stack{display:none}.top nav a:first-child{display:none}}
+/* motion layer */
+.w{display:inline-block;animation:rise .9s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i,0)*80ms)}
+div.w,p.w{display:block}
+div.who.w{display:flex}
+@keyframes rise{from{opacity:0;transform:translateY(.6em);filter:blur(8px)}}
+.stack{translate:calc(var(--mx,0)*-16px) calc(var(--my,0)*-12px);transition:translate .4s ease-out}
+.stack img{animation:bob 6s ease-in-out infinite}
+.stack img:last-child{animation-delay:-3s}
+@keyframes bob{50%{translate:0 -10px}}
+@property --a{syntax:"<angle>";inherits:false;initial-value:0deg}
+.card{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg))}
+.card:hover{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(-3px)}
+.card::before{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1px;background:conic-gradient(from var(--a),transparent 0 55%,var(--accent) 75%,#FFB224 88%,transparent);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .3s;animation:spin 3.5s linear infinite;pointer-events:none}
+.card::after{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(420px circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.09),transparent 45%);opacity:0;transition:opacity .3s;pointer-events:none}
+.card:hover::before,.card:hover::after{opacity:1}
+@keyframes spin{to{--a:360deg}}
+.rv{opacity:0;translate:0 28px;transition:opacity .8s cubic-bezier(.2,.7,.2,1) var(--d,0s),translate .8s cubic-bezier(.2,.7,.2,1) var(--d,0s)}
+.card.rv{transition:opacity .8s cubic-bezier(.2,.7,.2,1) var(--d,0s),translate .8s cubic-bezier(.2,.7,.2,1) var(--d,0s),transform .2s,border-color .2s,box-shadow .2s}
+.rv.in{opacity:1;translate:none}
+.btn.play{transition:filter .15s,translate .25s cubic-bezier(.2,.7,.2,1)}
+@media(prefers-reduced-motion:reduce){.pfp,h1 .g:hover,.w,.stack img,.card::before{animation:none}h1 .g:hover{filter:none}.rv{opacity:1;translate:none}}
+@media(max-width:600px){h1{font-size:38px}.hero{padding:28px 0 28px}.stack{width:150px;height:124px;margin:0 auto}.stack img{width:88px;height:88px;border-radius:22px}.stack img:first-child{top:24px}.top nav a:first-child{display:none}}
 </style>
 </head>
 <body>
@@ -90,11 +140,11 @@ footer a:hover{color:var(--text)}
 
 <section class="hero">
 <div class="hero-text">
-<div class="who"><div class="pfp"><img src="https://samridhashrestha.com.np/images/Samridha.jpeg" alt="Samridha Shrestha"></div><div><b>Samridha Shrestha</b><div class="eyebrow">Independent Android developer · Nepal</div></div></div>
-<h1>Small apps that <span>do one thing well.</span></h1>
-<p class="lede">Focused, free Android apps. No accounts, no sign-up, and your data stays on your phone wherever it can.</p>
+<div class="who w" style="--i:0"><div class="pfp"><img src="https://samridhashrestha.com.np/images/Samridha.jpeg" alt="Samridha Shrestha"></div><div><b>Samridha Shrestha</b><div class="eyebrow">Independent Android developer · Nepal</div></div></div>
+<h1><span class="w" style="--i:1">Small</span> <span class="w" style="--i:2">apps</span> <span class="w" style="--i:3">that</span> <span class="w" style="--i:4"><span class="g">do one thing well.</span></span></h1>
+<p class="lede w" style="--i:6">Focused, free Android apps. No accounts, no sign-up, and your data stays on your phone wherever it can.</p>
 </div>
-<div class="stack" aria-hidden="true"><img src="gta6-icon.png" alt=""><img src="stayt-icon.png" alt=""></div>
+<div class="stack w" style="--i:5" aria-hidden="true"><img src="gta6-icon.png" alt=""><img src="stayt-icon.png" alt=""></div>
 </section>
 
 <div class="section-title" id="apps"><h2>Apps</h2><span id="count">2 on Google Play</span></div>
@@ -107,9 +157,9 @@ footer a:hover{color:var(--text)}
 
 <div class="section-title"><h2>How these apps work</h2></div>
 <div class="about">
-<div><b>No accounts</b><p>Open the app and use it. Nothing to sign up for, nothing to log in to.</p></div>
-<div><b>On-device first</b><p>Your tasks, bookmarks and history are stored on your phone, not on a server.</p></div>
-<div><b>Free, with ads</b><p>Apps are free and supported by Google AdMob ads. Each app's privacy policy spells out what that means.</p></div>
+<div><button type="button" class="demo login" aria-label="Try to sign up"><span class="fld" style="--r:-24deg;--x:-30px">you@email.com</span><span class="fld" style="--r:18deg;--x:25px;--d:.08s">••••••••</span><span class="try" style="--r:-40deg;--d:.16s">Sign up</span><span class="nope">Nothing to sign up for.</span><span class="hint">tap</span></button><b>No accounts</b><p>Open the app and use it. Nothing to sign up for, nothing to log in to.</p></div>
+<div><button type="button" class="demo data" aria-label="Try to upload your data"><span class="phone"><i style="top:12px;--d:0s"></i><i style="top:25px;--d:.12s"></i><i style="top:38px;--d:.24s"></i></span><span class="wall"></span><span class="cloud"><svg width="46" height="30" viewBox="0 0 46 30" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 27h24a8 8 0 0 0 1-16 11 11 0 0 0-21-2 9 9 0 0 0-4 18z"/></svg><br>server: empty</span><span class="hint">tap</span></button><b>On-device first</b><p>Your tasks, bookmarks and history are stored on your phone, not on a server.</p></div>
+<div><button type="button" class="demo price" aria-label="Check the price"><s>$4.99</s><b>$4.99</b><span class="adbar">Ad · this keeps it free</span><span class="hint">tap</span></button><b>Free, with ads</b><p>Apps are free and supported by Google AdMob ads. Each app's privacy policy spells out what that means.</p></div>
 </div>
 
 <footer>
@@ -135,5 +185,56 @@ return '<article class="card" style="--accent:'+a.accent+';--on-accent:'+a.onAcc
 +'<a class="btn ghost" href="'+a.learn+'">Details</a><a class="btn ghost" href="'+a.privacy+'">Privacy</a></div></article>'
 }).join("");
 </script>
+<script>
+// Motion layer (ripples live in ripple.js): card tilt + glare, parallax, magnetic buttons, scroll reveal.
+(function(){
+var root=document.documentElement;
+if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+var fine=matchMedia("(pointer: fine)").matches;
+
+// scroll reveal, staggered per parent
+var els=document.querySelectorAll(".section-title,.card,.about>div,footer");
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{rootMargin:"0px 0px -8% 0px"});
+els.forEach(function(el){el.classList.add("rv");el.style.setProperty("--d",Array.prototype.indexOf.call(el.parentNode.children,el)%4*90+"ms");io.observe(el)});
+
+// icon stack parallax: mouse on desktop, phone tilt on mobile
+function par(mx,my){root.style.setProperty("--mx",Math.max(-1,Math.min(1,mx)).toFixed(3));root.style.setProperty("--my",Math.max(-1,Math.min(1,my)).toFixed(3))}
+if(fine)addEventListener("pointermove",function(e){par(e.clientX/innerWidth*2-1,e.clientY/innerHeight*2-1)},{passive:true});
+else addEventListener("deviceorientation",function(e){if(e.gamma!=null)par(e.gamma/25,(e.beta-45)/25)});
+
+// card tilt + glare (follows the finger on touch too)
+document.querySelectorAll(".card").forEach(function(card){
+function tilt(e){var r=card.getBoundingClientRect(),px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;
+card.style.setProperty("--ry",((px-.5)*9).toFixed(2)+"deg");card.style.setProperty("--rx",((.5-py)*7).toFixed(2)+"deg");
+card.style.setProperty("--gx",px*100+"%");card.style.setProperty("--gy",py*100+"%")}
+function flat(){card.style.setProperty("--rx","0deg");card.style.setProperty("--ry","0deg")}
+card.addEventListener("pointerdown",tilt);card.addEventListener("pointermove",tilt);
+card.addEventListener("pointerleave",flat);card.addEventListener("pointercancel",flat);
+card.addEventListener("pointerup",function(e){if(e.pointerType!=="mouse")flat()})});
+
+// magnetic Play buttons (mouse only)
+if(fine)document.querySelectorAll(".btn.play").forEach(function(b){
+b.addEventListener("pointermove",function(e){var r=b.getBoundingClientRect();
+b.style.translate=((e.clientX-r.left-r.width/2)*.12).toFixed(1)+"px "+((e.clientY-r.top-r.height/2)*.3).toFixed(1)+"px"});
+b.addEventListener("pointerleave",function(){b.style.translate=""})});
+})();
+</script>
+<script>
+// "How these apps work" toys: play on tap, and once when scrolled into view
+(function(){
+var reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+function play(d){
+d.classList.add("played");
+if(d.classList.contains("login")){if(d.classList.contains("gone"))return;d.classList.add("gone");setTimeout(function(){d.classList.remove("gone")},2600)}
+else if(d.classList.contains("data")){d.classList.remove("go");void d.offsetWidth;d.classList.add("go")}
+else{var b=d.querySelector("b"),t0=performance.now();d.classList.remove("done");
+(function tick(now){var p=reduce?1:Math.min(1,(now-t0)/1100);b.textContent="$"+(4.99*Math.pow(1-p,3)).toFixed(2);if(p<1)requestAnimationFrame(tick);else d.classList.add("done")})(t0)}}
+document.querySelectorAll(".demo").forEach(function(d){d.addEventListener("click",function(){play(d)})});
+if(reduce)return;
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){io.unobserve(e.target);setTimeout(function(){play(e.target)},600)}})},{threshold:.7});
+document.querySelectorAll(".demo").forEach(function(d){io.observe(d)});
+})();
+</script>
+<script src="ripple.js" data-colors="#FFB224,#FF7A45,#FFD9A0"></script>
 </body>
 </html>
