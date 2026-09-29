@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Anime Studio: Living Anime Watch Faces for Wear OS</title>
+<meta name="description" content="Anime watch faces for Wear OS 6. The town follows the season and the hour, and your companion reacts to your day. Make a face yours on your phone; it's on your wrist in seconds.">
+<link rel="canonical" href="https://apps.samridhashrestha.com.np/animestudio/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Anime Studio: living anime watch faces">
+<meta property="og:description" content="A town that follows the season and a companion that reacts to your day, on your Wear OS watch.">
+<meta property="og:image" content="https://apps.samridhashrestha.com.np/animestudio-icon.png">
+<link rel="icon" href="../animestudio-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wdth,wght@87.5,400;87.5,500&family=Shippori+Mincho:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* the app's own tokens (ui/Te.kt): Mist by day, Carbon by night; 0 radius, hairlines, one orange action */
+:root{--canvas:#F6F8F7;--plate:#FFFFFF;--ink:#0B0B0D;--on-ink:#F6F8F7;--muted:#6B6B6B;--rule:#E5E5E5;--band:#0F0E12;--on-band:#F6F8F7;--band-muted:#B2B2B2;--band-rule:#2E2D33;--stage:#E6E9E8;--accent:#FF4F00;--sakura:#E0334A;--link:#0B0B0D}
+@media (prefers-color-scheme:dark){:root{--canvas:#0F0E12;--plate:#17161B;--ink:#F6F8F7;--on-ink:#0F0E12;--muted:#9A9A9A;--rule:#2A2930;--band:#060608;--band-rule:#26252B;--band-muted:#8C8C8C;--stage:#1D1C22;--link:#F6F8F7}}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--canvas);color:var(--ink);font:400 15px/1.55 "Zen Kaku Gothic New",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.mono{font-family:"Martian Mono",ui-monospace,monospace;font-stretch:87.5%;font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+h1,h2,h3,.mincho{font-family:"Shippori Mincho",serif;font-weight:600;letter-spacing:-.01em}
+a{color:var(--link)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+.rule{border-top:1px solid var(--rule)}
+/* bar */
+.bar{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none}
+.brand img{width:30px;height:30px}
+.brand b{font:600 19px "Shippori Mincho",serif;letter-spacing:-.01em}
+.bar nav{display:flex;gap:20px}
+.bar nav a{color:var(--muted);text-decoration:none}
+.bar nav a:hover{color:var(--ink)}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:end;padding:56px 0 40px}
+.hero .mono{color:var(--muted)}
+h1{font-size:64px;line-height:1.02;margin:14px 0 18px}
+h1 i{font-style:normal;color:var(--sakura)}
+.lede{font-size:17px;color:var(--muted);max-width:46ch}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 20px;border:1px solid var(--ink);color:var(--ink);text-decoration:none;font:500 15px "Zen Kaku Gothic New",sans-serif;transition:transform .12s,background .15s,color .15s}
+.btn:active{transform:scale(.97)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.primary[aria-disabled=true]{cursor:default}
+.btn:not(.primary):hover{background:var(--ink);color:var(--on-ink)}
+.specs{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--rule)}
+.specs div{padding:14px 16px;border-right:1px solid var(--rule)}
+.specs div:last-child{border-right:0}
+.specs b{display:block;font:600 22px "Shippori Mincho",serif;margin-top:6px}
+.specs .mono{color:var(--muted)}
+/* vitrine: the dark band the product sits in */
+.vitrine{position:relative;background:var(--band);color:var(--on-band);overflow:hidden}
+.vitrine .wrap{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center;padding-top:28px;padding-bottom:28px}
+#petals{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.stagebox{position:relative;display:flex;justify-content:center}
+#watch{width:min(420px,100%);height:auto;aspect-ratio:420/520;touch-action:manipulation;cursor:pointer}
+.callouts{list-style:none;display:grid;gap:14px}
+.callouts li{display:grid;grid-template-columns:28px 1fr;align-items:baseline;opacity:0;transform:translateY(8px);transition:opacity .6s,transform .6s}
+.callouts.in li{opacity:1;transform:none}
+.callouts li:nth-child(2){transition-delay:.08s}.callouts li:nth-child(3){transition-delay:.16s}.callouts li:nth-child(4){transition-delay:.24s}.callouts li:nth-child(5){transition-delay:.32s}
+.callouts .mono{color:var(--on-band)}
+.callouts span{color:var(--band-muted)}
+.callouts em{font-style:normal;color:var(--on-band)}
+.vitrine .wrap.labelwrap{display:block;padding-top:0}
+.label{display:flex;justify-content:space-between;align-items:flex-end;padding:0 0 22px}
+.label h2{font-size:26px}
+.label .mono{color:var(--band-muted)}
+.live{display:inline-flex;align-items:center;gap:8px}
+.live i{width:8px;height:8px;background:var(--on-band);animation:breathe 1.4s ease-in-out infinite alternate}
+@keyframes breathe{to{opacity:.25}}
+/* control panel under the band */
+.panel{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--rule)}
+.group{padding:18px 16px;border-right:1px solid var(--rule)}
+.group:last-child{border-right:0}
+.group>.mono{color:var(--muted);display:flex;justify-content:space-between;margin-bottom:10px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{appearance:none;background:transparent;color:var(--ink);border:1px solid var(--rule);height:36px;padding:0 12px;font:400 14px "Zen Kaku Gothic New",sans-serif;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:background .15s,color .15s,border-color .15s,transform .12s}
+.chip:active{transform:scale(.96)}
+.chip:hover{border-color:var(--ink)}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--on-ink);border-color:var(--ink)}
+.chip .dot{width:10px;height:10px}
+.chip .k{font-family:"Shippori Mincho",serif}
+.grid4{display:grid;grid-template-columns:24px repeat(4,1fr);gap:4px;align-items:center}
+.grid4 .mono{color:var(--muted);font-size:9px;text-align:center}
+.tile{appearance:none;border:1px solid var(--rule);background:var(--stage) center/cover no-repeat;aspect-ratio:1;cursor:pointer;padding:0;transition:transform .12s,outline-color .15s;outline:2px solid transparent;outline-offset:-2px}
+.tile:hover{transform:scale(1.04)}
+.tile[aria-pressed=true]{outline-color:var(--ink)}
+.fests{display:grid;grid-template-columns:repeat(6,1fr);gap:4px;margin-top:4px}
+/* sections */
+section{padding:64px 0}
+.eyebrow{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:26px}
+.eyebrow h2{font-size:34px}
+.eyebrow .mono{color:var(--muted)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--rule);border-left:1px solid var(--rule)}
+.step{padding:22px 18px 26px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.step .mono{color:var(--muted)}
+.step h3{font-size:21px;margin:10px 0 6px}
+.step p{color:var(--muted)}
+table.sheet{width:100%;border-collapse:collapse}
+.sheet td{padding:14px 0;border-top:1px solid var(--rule);vertical-align:top}
+.sheet td:first-child{width:180px;color:var(--muted)}
+.sheet td b{font:600 17px "Shippori Mincho",serif}
+.sheet td p{color:var(--muted);font-size:14px}
+.price{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;border:1px solid var(--ink);padding:28px}
+.price .big{font:600 64px/1 "Shippori Mincho",serif;letter-spacing:-.02em}
+.price .big small{font-size:18px;color:var(--muted);margin-left:6px}
+.price p{color:var(--muted);max-width:52ch}
+.price ul{list-style:none;display:flex;gap:18px;flex-wrap:wrap;margin-top:12px}
+.price li::before{content:"";display:inline-block;width:8px;height:8px;background:var(--ink);margin-right:8px}
+details{border-top:1px solid var(--rule)}
+details:last-of-type{border-bottom:1px solid var(--rule)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:18px 0;font:600 17px "Shippori Mincho",serif}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font:400 20px "Martian Mono",monospace;color:var(--muted);transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--muted);padding:0 0 18px;max-width:70ch}
+.support{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.contact{border:1px solid var(--rule);padding:22px;align-self:start}
+.contact h3{font-size:21px;margin-bottom:6px}
+.contact p{color:var(--muted);margin-bottom:16px}
+footer{border-top:1px solid var(--rule);padding:22px 0 40px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:var(--muted);font-size:13px}
+footer a{color:var(--muted);text-decoration:none;margin-right:18px}
+footer a:hover{color:var(--ink)}
+/* entrances, like the app's rise() */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1) var(--d,0s),transform .7s cubic-bezier(.2,.7,.2,1) var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.rv{opacity:1;transform:none}.callouts li{opacity:1;transform:none}}
+@media (max-width:860px){
+ .hero{grid-template-columns:1fr;gap:28px;padding:36px 0 28px}
+ h1{font-size:44px}
+ .vitrine .wrap{grid-template-columns:1fr}
+ .callouts{grid-template-columns:1fr 1fr;gap:10px 16px}
+ .panel{grid-template-columns:1fr}
+ .group{border-right:0;border-bottom:1px solid var(--rule)}
+ .steps{grid-template-columns:1fr}
+ .price{grid-template-columns:1fr}
+ .support{grid-template-columns:1fr}
+ .bar nav a:not(.keep){display:none}
+ .sheet td:first-child{width:120px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="bar">
+<a class="brand" href="./"><img src="../animestudio-icon.png" alt=""><b>anime studio</b></a>
+<nav><a href="#try">try it</a><a href="#how">how it works</a><a href="#support">support</a><a class="keep" href="../privacypolicy_animestudio/">privacy</a></nav>
+</header>
+</div>
+<div class="rule"></div>
+
+<div class="wrap">
+<div class="hero">
+<div>
+<div class="mono">Wear OS 6 · 6 faces · 1 app · ∞ scenes</div>
+<h1>Living anime faces<i>.</i></h1>
+<p class="lede">The town on your watch follows the season and the hour, and your companion reacts to your day: asleep at night, flagging on low battery, running when you work out. Make a face yours on your phone; it's on your wrist in seconds.</p>
+<div class="actions">
+<a class="btn primary" id="play" href="#support" aria-disabled="true">Coming soon to Google Play</a>
+<a class="btn" href="#try">Try a face</a>
+</div>
+</div>
+<div class="specs">
+<div><span class="mono">Scenes</span><b>22</b></div>
+<div><span class="mono">Moods</span><b>6</b></div>
+<div><span class="mono">Layouts</span><b>8</b></div>
+</div>
+</div>
+</div>
+
+<!-- the product in its band: a live face on a rendered watch -->
+<div class="vitrine" id="try">
+<canvas id="petals" aria-hidden="true"></canvas>
+<div class="wrap">
+<div class="stagebox"><canvas id="watch" width="420" height="520" role="img" aria-label="A live Anime Studio watch face"></canvas></div>
+<div>
+<ol class="callouts" id="callouts">
+<li><span class="mono">01</span><div><em>Time</em><br><span>Big mincho numerals over a soft scrim.</span></div></li>
+<li><span class="mono">02</span><div><em>Date and mood seal</em><br><span>A kanji seal says what your companion is up to.</span></div></li>
+<li><span class="mono">03</span><div><em>Readouts</em><br><span>Heart rate and steps, straight from the watch.</span></div></li>
+<li><span class="mono">04</span><div><em>Scene</em><br><span id="sceneNote">The town at this hour, this season.</span></div></li>
+<li><span class="mono">05</span><div><em>Companion</em><br><span id="moodNote">Reacts to your day.</span></div></li>
+</ol>
+</div>
+</div>
+<div class="wrap labelwrap">
+<div class="label"><h2 id="faceName">hayate 疾風</h2><span class="mono live" id="liveLabel"><i></i>Live · tap the watch for always-on</span></div>
+</div>
+</div>
+
+<div class="wrap">
+<div class="panel">
+<div class="group">
+<div class="mono"><span>Companion</span><span>AS-01…05</span></div>
+<div class="chips" id="pals"></div>
+<div class="mono" style="margin:18px 0 10px"><span>Mood</span><span>First match wins</span></div>
+<div class="chips" id="moods"></div>
+</div>
+<div class="group">
+<div class="mono"><span>Scene</span><button class="chip" id="now" aria-pressed="true" style="height:24px;font-size:11px">now</button></div>
+<div class="grid4" id="scenes"></div>
+<div class="fests" id="fests"></div>
+</div>
+<div class="group">
+<div class="mono"><span>Hemisphere</span><span>Seasons flip</span></div>
+<div class="chips" id="hemi"></div>
+<div class="mono" style="margin:18px 0 10px"><span>Screen</span><span>Dim mode</span></div>
+<div class="chips" id="screen"></div>
+<p style="color:var(--muted);font-size:13px;margin-top:16px">Everything here is the real art from the app. On the watch it all runs by itself, from the clock, the calendar, the battery, your heart rate and your steps.</p>
+</div>
+</div>
+</div>
+
+<div class="wrap">
+<section id="how">
+<div class="eyebrow rv"><h2>How it works</h2><span class="mono">Three steps</span></div>
+<div class="steps">
+<div class="step rv"><span class="mono">01 · Pick</span><h3>Choose a face</h3><p>Five companions, each with their own clock, plus one that starts from your own photo. The first face is free to try on your wrist.</p></div>
+<div class="step rv" style="--d:.08s"><span class="mono">02 · Make it yours</span><h3>Edit on your phone</h3><p>Scene, companion, layout, colors, fonts and the always-on screen. Preview any season, hour or mood before you send it.</p></div>
+<div class="step rv" style="--d:.16s"><span class="mono">03 · Apply</span><h3>On your wrist</h3><p>Your phone builds the face and sends it to the watch over Bluetooth. The watch keeps your last five, a swipe away in its tile.</p></div>
+</div>
+</section>
+
+<section class="rule" style="border-top:0;padding-top:0">
+<div class="eyebrow rv"><h2>What's inside</h2><span class="mono">Spec sheet</span></div>
+<table class="sheet rv">
+<tr><td class="mono">Scenes</td><td><b>A town through the year</b><p>Four seasons at dawn, day, dusk and night, and festival days (new year, hinamatsuri, tanabata, obon, halloween, christmas). Add your own dates with your own pictures.</p></td></tr>
+<tr><td class="mono">Companions</td><td><b>Six moods</b><p>Idle, asleep at bedtime, tired on low battery, running during a workout, cheering at your step goal, restless when you haven't moved. You set every threshold.</p></td></tr>
+<tr><td class="mono">Your photo</td><td><b>Be the companion</b><p>Pick a photo and the app cuts the subject out on your phone, then stands them in the scene. Or use any photo as the backdrop.</p></td></tr>
+<tr><td class="mono">Layouts</td><td><b>Eight clocks</b><p>Classic, vertical, bold, minimal, analog, hybrid, side and pill, with themes and fonts to match. Round and square watches.</p></td></tr>
+<tr><td class="mono">Always-on</td><td><b>Easy on the battery</b><p>The dim screen is the time on black, no art.</p></td></tr>
+<tr><td class="mono">Recent faces</td><td><b>Switch on the watch</b><p>A tile keeps your last five faces as thumbnails. Tap one and it's on, no phone needed.</p></td></tr>
+</table>
+</section>
+
+<section style="padding-top:0">
+<div class="price rv">
+<div class="big">$4.99<small>once</small></div>
+<div><p>AS-01 is free, on your wrist, for good. One payment unlocks every face, editing and photo companions, across your devices on the same Google account.</p>
+<ul class="mono"><li>No ads</li><li>No subscription</li><li>No account</li></ul></div>
+</div>
+</section>
+
+<section id="support" class="rule">
+<div class="eyebrow rv"><h2>Support</h2><span class="mono">Questions</span></div>
+<div class="support">
+<div class="rv">
+<details><summary>What do I need?</summary><p>A watch on Wear OS 6 or newer (Anime Studio uses Watch Face Push, which arrived in Wear OS 6), paired with an Android phone running Android 9 or newer. Install Anime Studio on both: the phone app edits faces, the watch app installs them.</p></details>
+<details><summary>My face isn't on the watch</summary><p>Open Anime Studio on the watch once and tap allow, so it can switch to your face (Wear OS lets an app ask this only once). If you picked another face since, long-press your watch face and choose Anime Studio. Still stuck? Tap refresh on the phone app's watch page.</p></details>
+<details><summary>Why does a new face replace the last one?</summary><p>Wear OS gives each app one watch face slot. Every apply fills it; the watch keeps your last five so you can switch back from the Anime Studio tile.</p></details>
+<details><summary>I bought the unlock on another phone</summary><p>Sign in to Google Play with the same account and open the app; the unlock comes back by itself. It also works offline once it's been confirmed.</p></details>
+<details><summary>Where do my photos go?</summary><p>Only to your phone and your watch. There is no Anime Studio server. The <a href="../privacypolicy_animestudio/">privacy policy</a> has the details.</p></details>
+</div>
+<div class="contact rv" style="--d:.1s">
+<h3>Write to us</h3>
+<p>Questions, ideas, a face that won't apply, or a data request. Tell us your watch and phone model and we'll take it from there.</p>
+<a class="btn" href="mailto:samridhashrestha10@gmail.com?subject=Anime%20Studio">samridhashrestha10@gmail.com</a>
+</div>
+</div>
+</section>
+
+<footer>
+<div><a href="../privacypolicy_animestudio/">Privacy policy</a><a href="../">More apps</a><a href="mailto:samridhashrestha10@gmail.com">Contact</a></div>
+<div>© 2026 Samridha Shrestha · package dev.animewatch.studio</div>
+</footer>
+</div>
+
+<script>
+(function(){
+"use strict";
+var reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+var ART="art/";
+// the app's roster and moods (face/FaceSpec.kt): palette = accent, text, scrim
+var PALS=[
+ {id:"hayate",label:"hayate 疾風",code:"AS-01",accent:"#4A9FE0",text:"#F4EFE6",scrim:"#1A1D24"},
+ {id:"kaito",label:"kaito 海斗",code:"AS-02",accent:"#E8574A",text:"#1B2440",scrim:"#FFF4EC"},
+ {id:"tora",label:"tora 虎",code:"AS-03",accent:"#A3243A",text:"#F5EFE6",scrim:"#1A1416"},
+ {id:"shiro",label:"shiro 白",code:"AS-04",accent:"#5B6BBF",text:"#1C2040",scrim:"#F2F3FA"},
+ {id:"kishi",label:"kishi 騎士",code:"AS-05",accent:"#1F9E9A",text:"#F7F3E8",scrim:"#0F1E24"}];
+var MOODS=[
+ {id:"idle",label:"idle",mark:"",note:"Nothing to react to: they idle."},
+ {id:"sleep",label:"sleep",mark:"眠",note:"Bedtime (23:00 to 07:00): asleep."},
+ {id:"tired",label:"low battery",mark:"疲",note:"Battery at 15% or less: running on empty."},
+ {id:"workout",label:"workout",mark:"走",note:"Heart rate 110 bpm or more: working out with you."},
+ {id:"cheer",label:"step goal",mark:"祝",note:"Step goal reached: celebrating."},
+ {id:"restless",label:"restless",mark:"動",note:"Afternoon and few steps: asking for a walk."}];
+var SEASONS=["spring","summer","autumn","winter"], TIMES=["dawn","day","dusk","night"];
+var NORTH={spring:[3,4,5],summer:[6,7,8],autumn:[9,10,11],winter:[12,1,2]};
+var SKY={dawn:5,day:7,dusk:17,night:19};
+var FESTS=[
+ {id:"newyear",label:"new year",m:1,from:1,to:3},{id:"hina",label:"hinamatsuri",m:3,from:3,to:3},
+ {id:"tanabata",label:"tanabata",m:7,from:7,to:7},{id:"obon",label:"obon",m:8,from:13,to:16},
+ {id:"halloween",label:"halloween",m:10,from:31,to:31},{id:"christmas",label:"christmas",m:12,from:24,to:25}];
+var WEEK="日月火水木金土";
+
+var st={pal:0,mood:null,scene:null,south:/^en-(AU|NZ)|^es-(AR|CL|UY)|^pt-BR|^en-ZA/.test(navigator.language),ambient:false};
+
+// ---------- images, loaded on demand ----------
+var cache={};
+function img(src){var i=cache[src];if(!i){i=cache[src]=new Image();i.decoding="async";i.onload=draw;i.src=src}return i}
+function ready(i){return i&&i.complete&&i.naturalWidth>0}
+
+// ---------- what the face shows right now ----------
+function season(month){for(var s in NORTH){var ms=st.south?NORTH[s].map(function(x){return(x+5)%12+1}):NORTH[s];if(ms.indexOf(month)>=0)return s}}
+function daytime(h){if(h>=SKY.dawn&&h<SKY.day)return"dawn";if(h>=SKY.day&&h<SKY.dusk)return"day";if(h>=SKY.dusk&&h<SKY.night)return"dusk";return"night"}
+function festival(d){var m=d.getMonth()+1,day=d.getDate();for(var i=0;i<FESTS.length;i++){var f=FESTS[i];if(f.m===m&&day>=f.from&&day<=f.to)return f}return null}
+function sceneNow(d){var f=festival(d);return f?"fest_"+f.id:"scene_"+season(d.getMonth()+1)+"_"+daytime(d.getHours())}
+function moodNow(d){var h=d.getHours();return(h>=23||h<7)?"sleep":"idle"}
+function sceneLabel(s){if(s.indexOf("fest_")===0){var id=s.slice(5);return FESTS.filter(function(f){return f.id===id})[0].label}var p=s.split("_");return p[1]+" "+p[2]}
+
+// ---------- the watch, drawn like ui/Watch.kt ----------
+var cv=document.getElementById("watch"),ctx=cv.getContext("2d");
+var steel=["#8E9197","#E9EBEE","#74777D","#CDD0D4","#83868C","#F1F2F4","#8E9197"];
+var darkSteel=["#2A2B2F","#5B5E64","#1E1F22","#4A4C51","#26272A","#60636A","#2A2B2F"];
+function conic(g,cx,cy,stops){var c;if(g.createConicGradient){c=g.createConicGradient(-Math.PI/2,cx,cy);stops.forEach(function(s,i){c.addColorStop(i/(stops.length-1),s)})}else{c=g.createRadialGradient(cx,cy,0,cx,cy,200);c.addColorStop(0,stops[1]);c.addColorStop(1,stops[0])}return c}
+var bodyCache=null,bodyKey="";
+function body(W,H,face){ // the case never changes: drawn once, then blitted
+ var key=W+"x"+H;if(bodyCache&&bodyKey===key)return bodyCache;
+ var b=document.createElement("canvas");b.width=W;b.height=H;var g=b.getContext("2d");
+ var cx=W/2,cy=H/2,r=face*1.24/2;
+ var sh=g.createRadialGradient(cx,cy+r*.12,0,cx,cy+r*.12,r*1.4);sh.addColorStop(0,"rgba(0,0,0,.75)");sh.addColorStop(1,"rgba(0,0,0,0)");
+ g.fillStyle=sh;g.beginPath();g.arc(cx,cy+r*.12,r*1.4,0,7);g.fill();
+ var sw=r*.86,sl=r*2*.2+r*.4;
+ [-1,1].forEach(function(dir){var top=dir<0?cy-r*.7-sl:cy+r*.7;var gr=g.createLinearGradient(0,top,0,top+sl);var fade=["#3C3C43","#2C2C32","rgba(44,44,50,0)"];if(dir<0)fade.reverse();fade.forEach(function(c,i){gr.addColorStop(i/2,c)});g.fillStyle=gr;g.fillRect(cx-sw/2,top,sw,sl);
+  var edge=g.createLinearGradient(cx-sw/2,0,cx+sw/2,0);edge.addColorStop(0,"rgba(0,0,0,.6)");edge.addColorStop(.33,"rgba(255,255,255,.06)");edge.addColorStop(.66,"rgba(0,0,0,0)");edge.addColorStop(1,"rgba(0,0,0,.6)");g.fillStyle=edge;g.fillRect(cx-sw/2,top,sw,sl);
+  for(var k=0;k<4;k++){var y=cy+dir*(r*1.12+k*r*.1);g.strokeStyle="rgba(0,0,0,"+(.35*(1-k/4))+")";g.lineWidth=r*.02;g.beginPath();g.moveTo(cx-sw*.42,y);g.lineTo(cx+sw*.42,y);g.stroke()}
+  [-1,1].forEach(function(side){var x=cx+side*(sw/2+r*.06);var lg=g.createLinearGradient(x-r*.08,0,x+r*.08,0);steel.slice(0,4).forEach(function(c,i){lg.addColorStop(i/3,c)});g.fillStyle=lg;g.fillRect(x-r*.08,dir<0?cy-r*1.07:cy+r*.75,r*.16,r*.32)})});
+ [-30,30].forEach(function(deg){g.save();g.translate(cx,cy);g.rotate(deg*Math.PI/180);var pg=g.createLinearGradient(0,-r*.09,0,r*.09);steel.slice(0,3).forEach(function(c,i){pg.addColorStop(i/2,c)});g.fillStyle=pg;g.fillRect(r*.93,-r*.09,r*.14,r*.18);g.restore()});
+ g.fillStyle=conic(g,cx,cy,steel);g.beginPath();g.arc(cx,cy,r,0,7);g.fill();
+ g.strokeStyle="rgba(0,0,0,.35)";g.lineWidth=r*.015;g.stroke();
+ var bo=r*.95;g.fillStyle=conic(g,cx,cy,darkSteel);g.beginPath();g.arc(cx,cy,bo,0,7);g.fill();
+ for(var k=0;k<60;k++){var major=k%5===0;g.save();g.translate(cx,cy);g.rotate(k*6*Math.PI/180);g.strokeStyle=major?"#D8DADD":"#8A8D92";g.lineWidth=r*(major?.018:.01);g.beginPath();g.moveTo(0,-bo+r*.02);g.lineTo(0,-bo+r*(major?.09:.05));g.stroke();g.restore()}
+ g.fillStyle="#050506";g.beginPath();g.arc(cx,cy,face/2*1.1,0,7);g.fill();
+ bodyCache=b;bodyKey=key;return b;
+}
+
+// ---------- the face, on the 450-unit WFF canvas ----------
+function hex(c,a){var n=parseInt(c.slice(1),16);return"rgba("+(n>>16)+","+(n>>8&255)+","+(n&255)+","+a+")"}
+function drawFace(g,d,pal,sceneId,moodId){
+ g.save();g.beginPath();g.arc(225,225,225,0,7);g.clip();
+ g.fillStyle="#000";g.fillRect(0,0,450,450);
+ var hh=String(d.getHours()).padStart(2,"0"),mm=String(d.getMinutes()).padStart(2,"0");
+ if(st.ambient){ // the dim screen: time on black, no art
+  g.fillStyle="#EDEDED";g.font='500 104px "Shippori Mincho",serif';g.textAlign="center";g.textBaseline="middle";g.fillText(hh+":"+mm,225,225);
+  g.restore();return}
+ var sc=img(ART+sceneId+".webp");if(ready(sc))g.drawImage(sc,0,0,450,450);
+ // scrim band behind the clock
+ g.fillStyle=hex(pal.scrim,.55);g.fillRect(90,78,270,126);
+ g.textAlign="center";g.textBaseline="middle";
+ g.font='600 96px "Shippori Mincho",serif';g.fillStyle=pal.text;
+ var w=g.measureText(hh).width,cw=g.measureText(":").width;
+ g.textAlign="right";g.fillText(hh,225-cw/2,140);g.textAlign="left";g.fillText(mm,225+cw/2,140);
+ g.textAlign="center";g.fillStyle=(d.getSeconds()%2)?pal.accent:hex(pal.accent,.35);g.fillText(":",225,136);
+ // date row and the mood seal
+ var date=(d.getMonth()+1)+"月"+d.getDate()+"日 "+WEEK[d.getDay()];
+ g.font='500 20px "Zen Kaku Gothic New",sans-serif';g.fillStyle=pal.text;
+ var mood=MOODS.filter(function(m){return m.id===moodId})[0];
+ var dw=g.measureText(date).width,sealW=mood.mark?34:0,gap=mood.mark?10:0,x0=225-(dw+gap+sealW)/2;
+ g.textAlign="left";g.fillText(date,x0,186);
+ if(mood.mark){g.fillStyle=pal.accent;g.fillRect(x0+dw+gap,169,34,34);g.fillStyle="#fff";g.font='600 22px "Shippori Mincho",serif';g.textAlign="center";g.fillText(mood.mark,x0+dw+gap+17,187)}
+ // readouts
+ var hr=moodId==="workout"?134:72,steps=moodId==="cheer"?8250:moodId==="restless"?1240:4512;
+ g.font='400 15px "Martian Mono",monospace';g.textAlign="center";g.fillStyle=hex(pal.text,.9);
+ g.fillText("♥ "+hr+"   ⬚ "+steps+(moodId==="tired"?"   ▯ 12%":""),225,226);
+ // companion, standing bottom-center
+ var p=img(ART+"pals/"+pal.id+"/"+moodId+".webp");if(ready(p))g.drawImage(p,70,150,310,310);
+ g.restore();
+}
+
+var faceBuf=document.createElement("canvas"),fg=faceBuf.getContext("2d");
+function draw(){
+ var dpr=Math.min(2,window.devicePixelRatio||1),W=Math.round(420*dpr),H=Math.round(520*dpr);
+ if(cv.width!==W){cv.width=W;cv.height=H}
+ var face=W*.6,cx=W/2,cy=H/2,d=new Date();
+ var pal=PALS[st.pal],sceneId=st.scene||sceneNow(d),moodId=st.mood||moodNow(d);
+ ctx.clearRect(0,0,W,H);ctx.drawImage(body(W,H,face),0,0);
+ var fs=Math.round(face);if(faceBuf.width!==fs){faceBuf.width=faceBuf.height=fs}
+ fg.setTransform(fs/450,0,0,fs/450,0,0);fg.clearRect(0,0,450,450);drawFace(fg,d,pal,sceneId,moodId);
+ ctx.drawImage(faceBuf,cx-face/2,cy-face/2);
+ // sapphire glass: a soft sheen and a thin highlight, top left
+ var r=face/2,sh=ctx.createLinearGradient(cx-r,cy-r,cx+r,cy+r);sh.addColorStop(0,"rgba(255,255,255,.16)");sh.addColorStop(.35,"rgba(255,255,255,0)");sh.addColorStop(.7,"rgba(255,255,255,0)");sh.addColorStop(1,"rgba(255,255,255,.05)");
+ ctx.fillStyle=sh;ctx.beginPath();ctx.arc(cx,cy,r,0,7);ctx.fill();
+ ctx.strokeStyle="rgba(255,255,255,.35)";ctx.lineWidth=r*.02;ctx.lineCap="round";ctx.beginPath();ctx.arc(cx,cy,r*.9,200*Math.PI/180,260*Math.PI/180);ctx.stroke();
+ // labels
+ document.getElementById("faceName").textContent=pal.label;
+ document.getElementById("sceneNote").textContent=(st.scene?"Previewing ":"Right now: ")+sceneLabel(sceneId)+(st.south?", southern sky.":".");
+ document.getElementById("moodNote").textContent=MOODS.filter(function(m){return m.id===moodId})[0].note;
+ document.getElementById("liveLabel").lastChild.textContent=st.ambient?"Always-on · tap the watch to wake it":(st.scene||st.mood?"Preview · ":"Live · ")+pal.code;
+}
+
+// ---------- controls ----------
+function chip(parent,label,pressed,onClick,extra){var b=document.createElement("button");b.className="chip";b.type="button";b.innerHTML=extra||"";b.appendChild(document.createTextNode(label));b.setAttribute("aria-pressed",pressed);b.onclick=function(){onClick();sync();draw()};parent.appendChild(b);return b}
+var palsEl=document.getElementById("pals"),moodsEl=document.getElementById("moods"),scenesEl=document.getElementById("scenes"),festsEl=document.getElementById("fests"),hemiEl=document.getElementById("hemi"),screenEl=document.getElementById("screen"),nowEl=document.getElementById("now");
+PALS.forEach(function(p,i){chip(palsEl,p.label,i===st.pal,function(){st.pal=i;PALS.forEach(function(q){["idle","sleep","tired","workout","cheer","restless"].forEach(function(m){if(q===p)img(ART+"pals/"+q.id+"/"+m+".webp")})})},'<span class="dot" style="background:'+p.accent+'"></span>')});
+MOODS.forEach(function(m){chip(moodsEl,m.label,false,function(){st.mood=st.mood===m.id?null:m.id},m.mark?'<span class="k">'+m.mark+'</span>':"")});
+scenesEl.appendChild(document.createElement("span"));
+TIMES.forEach(function(t){var s=document.createElement("span");s.className="mono";s.textContent=t;scenesEl.appendChild(s)});
+SEASONS.forEach(function(se){var l=document.createElement("span");l.className="mono";l.textContent=se.slice(0,3);scenesEl.appendChild(l);
+ TIMES.forEach(function(t){var b=document.createElement("button");b.className="tile";b.type="button";b.title=se+" "+t;b.dataset.scene="scene_"+se+"_"+t;b.style.backgroundImage="url("+ART+b.dataset.scene+".webp)";b.onclick=function(){st.scene=st.scene===b.dataset.scene?null:b.dataset.scene;sync();draw()};scenesEl.appendChild(b)})});
+FESTS.forEach(function(f){var b=document.createElement("button");b.className="tile";b.type="button";b.title=f.label;b.dataset.scene="fest_"+f.id;b.style.backgroundImage="url("+ART+"fest_"+f.id+".webp)";b.onclick=function(){st.scene=st.scene===b.dataset.scene?null:b.dataset.scene;sync();draw()};festsEl.appendChild(b)});
+nowEl.onclick=function(){st.scene=null;st.mood=null;sync();draw()};
+chip(hemiEl,"northern",!st.south,function(){st.south=false});chip(hemiEl,"southern",st.south,function(){st.south=true});
+chip(screenEl,"active",true,function(){st.ambient=false});chip(screenEl,"always-on",false,function(){st.ambient=true});
+cv.onclick=function(){st.ambient=!st.ambient;sync();draw()};
+function sync(){
+ [].forEach.call(palsEl.children,function(b,i){b.setAttribute("aria-pressed",i===st.pal)});
+ [].forEach.call(moodsEl.children,function(b,i){b.setAttribute("aria-pressed",MOODS[i].id===st.mood)});
+ [].forEach.call(document.querySelectorAll(".tile"),function(b){b.setAttribute("aria-pressed",b.dataset.scene===st.scene)});
+ nowEl.setAttribute("aria-pressed",!st.scene&&!st.mood);
+ hemiEl.children[0].setAttribute("aria-pressed",!st.south);hemiEl.children[1].setAttribute("aria-pressed",st.south);
+ screenEl.children[0].setAttribute("aria-pressed",!st.ambient);screenEl.children[1].setAttribute("aria-pressed",st.ambient);
+}
+sync();
+
+// fonts land after first paint: redraw once they're in
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(draw);
+draw();
+(function tick(){draw();setTimeout(tick,1000-Date.now()%1000)})();
+
+// callouts reveal like the app's manual view
+var co=document.getElementById("callouts");
+new IntersectionObserver(function(es,o){es.forEach(function(e){if(e.isIntersecting){co.classList.add("in");o.disconnect()}})},{threshold:.3}).observe(co);
+// section entrances
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{rootMargin:"0px 0px -8% 0px"});
+document.querySelectorAll(".rv").forEach(function(el){io.observe(el)});
+
+// boxy sakura petals drifting across the band (Te.kt Petals)
+var pc=document.getElementById("petals"),pg=pc.getContext("2d"),band=document.querySelector(".vitrine"),t0=performance.now(),visible=true;
+new IntersectionObserver(function(es){visible=es[0].isIntersecting}).observe(band);
+function petals(now){
+ var dpr=Math.min(2,window.devicePixelRatio||1),w=band.clientWidth,h=band.clientHeight;
+ if(pc.width!==Math.round(w*dpr)||pc.height!==Math.round(h*dpr)){pc.width=Math.round(w*dpr);pc.height=Math.round(h*dpr)}
+ pg.setTransform(dpr,0,0,dpr,0,0);pg.clearRect(0,0,w,h);
+ var t=((now-t0)/18000)%1;
+ for(var i=0;i<18;i++){var seed=(i*.618034)%1,ph=(t*(.8+seed*.5)+seed)%1,x=w*((seed*1.3+ph*.4)%1)+Math.sin(ph*12.566+i)*14,y=-12+(h+24)*ph,s=3.5+(i%3)*1.5;
+  pg.save();pg.translate(x,y);pg.rotate(ph*540*(i%2?-1:1)*Math.PI/180);pg.fillStyle="rgba(244,166,184,"+(.35+.35*((i%3)/2))+")";pg.fillRect(-s/2,-s*.3,s,s*.6);pg.restore()}
+ if(!reduce)requestAnimationFrame(function(n){if(visible)petals(n);else requestAnimationFrame(function r(n2){visible?petals(n2):requestAnimationFrame(r)})});
+}
+requestAnimationFrame(petals);
+})();
+</script>
+</body>
+</html>

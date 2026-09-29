@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Anime Studio Privacy Policy</title>
+<meta name="description" content="Privacy policy for Anime Studio, the anime watch face app for Android and Wear OS.">
+<link rel="canonical" href="https://apps.samridhashrestha.com.np/privacypolicy_animestudio/">
+<link rel="icon" href="../animestudio-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wdth,wght@87.5,400;87.5,500&family=Shippori+Mincho:wght@600&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--canvas:#F6F8F7;--plate:#FFFFFF;--ink:#0B0B0D;--on-ink:#F6F8F7;--muted:#6B6B6B;--rule:#E5E5E5;--band:#0F0E12;--on-band:#F6F8F7;--band-muted:#B2B2B2;--band-rule:#2E2D33;--sakura:#E0334A}
+@media (prefers-color-scheme:dark){:root{--canvas:#0F0E12;--plate:#17161B;--ink:#F6F8F7;--on-ink:#0F0E12;--muted:#9A9A9A;--rule:#2A2930;--band:#060608;--band-rule:#26252B;--band-muted:#8C8C8C}}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--canvas);color:var(--ink);font:400 15px/1.6 "Zen Kaku Gothic New",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.mono{font-family:"Martian Mono",ui-monospace,monospace;font-stretch:87.5%;font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+h1,h2,h3{font-family:"Shippori Mincho",serif;font-weight:600;letter-spacing:-.01em}
+a{color:var(--ink)}
+.wrap{max-width:820px;margin:0 auto;padding:0 16px}
+.bar{display:flex;align-items:center;justify-content:space-between;height:64px;border-bottom:1px solid var(--rule)}
+.brand{display:flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none;font:600 19px "Shippori Mincho",serif}
+.brand img{width:30px;height:30px}
+.bar a.back{color:var(--muted);text-decoration:none}
+header.top{padding:48px 0 26px}
+header.top .mono{color:var(--muted)}
+h1{font-size:48px;line-height:1.05;margin:12px 0 14px}
+.intro{color:var(--muted);font-size:17px;max-width:60ch}
+/* the short version, as a panel of plain facts */
+.facts{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--rule);margin:28px 0 8px}
+.facts div{padding:14px;border-right:1px solid var(--rule)}
+.facts div:last-child{border-right:0}
+.facts b{display:block;font:600 19px "Shippori Mincho",serif;margin-top:4px}
+.facts .mono{color:var(--muted)}
+/* data map */
+.map{background:var(--band);color:var(--on-band);margin:36px 0;padding:22px}
+.map .mono{color:var(--band-muted)}
+.map h2{font-size:24px;margin:6px 0 4px}
+.map p.hint{color:var(--band-muted);font-size:14px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:16px 0 18px}
+.chip{appearance:none;background:transparent;color:var(--on-band);border:1px solid var(--band-rule);height:36px;padding:0 12px;font:400 14px "Zen Kaku Gothic New",sans-serif;cursor:pointer;transition:background .15s,color .15s,border-color .15s,transform .12s}
+.chip:hover{border-color:var(--on-band)}
+.chip:active{transform:scale(.96)}
+.chip[aria-pressed=true]{background:var(--on-band);color:var(--band);border-color:var(--on-band)}
+.nodes{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--band-rule)}
+.node{padding:14px;border-right:1px solid var(--band-rule);min-height:120px;transition:background .25s,opacity .25s;opacity:.35}
+.node:last-child{border-right:0}
+.node.on{opacity:1;background:rgba(255,255,255,.05)}
+.node.on .mono{color:var(--on-band)}
+.node b{display:block;font:600 17px "Shippori Mincho",serif;margin:6px 0 4px}
+.node span{color:var(--band-muted);font-size:13px}
+.node.never{opacity:1}
+.node.never b{text-decoration:line-through;text-decoration-color:var(--sakura);text-decoration-thickness:2px}
+.why{margin-top:14px;min-height:3.2em;color:var(--on-band)}
+/* policy */
+.toc{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 20px}
+.toc a{font:400 11px "Martian Mono",monospace;font-stretch:87.5%;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-decoration:none;border:1px solid var(--rule);padding:6px 10px}
+.toc a:hover{color:var(--ink);border-color:var(--ink)}
+section{border-top:1px solid var(--rule);padding:22px 0;scroll-margin-top:12px;display:grid;grid-template-columns:44px 1fr;gap:0 12px}
+section>.mono{color:var(--muted);padding-top:5px}
+section h2{font-size:21px;margin-bottom:6px}
+section p,section li{color:var(--muted)}
+section p+p{margin-top:8px}
+section ul{padding-left:18px;margin-top:6px}
+section li{margin:4px 0}
+section strong{color:var(--ink);font-weight:500}
+footer{border-top:1px solid var(--rule);margin-top:10px;padding:22px 0 44px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+footer a{color:var(--muted);text-decoration:none;margin-right:16px}
+@media (max-width:640px){h1{font-size:36px}.facts,.nodes{grid-template-columns:1fr 1fr}.facts div:nth-child(2),.node:nth-child(2){border-right:0}.facts div:nth-child(-n+2),.node:nth-child(-n+2){border-bottom:1px solid var(--rule)}.node:nth-child(-n+2){border-bottom-color:var(--band-rule)}section{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="bar"><a class="brand" href="../animestudio/"><img src="../animestudio-icon.png" alt="">anime studio</a><a class="back" href="../animestudio/">About the app</a></div>
+
+<header class="top">
+<div class="mono">Privacy policy · Last updated 30 September 2026 · Package dev.animewatch.studio</div>
+<h1>Your faces stay yours.</h1>
+<p class="intro">Anime Studio is a watch face app for Android phones and Wear OS watches, made by Samridha Shrestha. It has no accounts, no ads and no server of its own. This page explains what the app handles, where it goes, and how to reach us.</p>
+<div class="facts">
+<div><span class="mono">Account</span><b>None</b></div>
+<div><span class="mono">Ads</span><b>None</b></div>
+<div><span class="mono">Our servers</span><b>None</b></div>
+<div><span class="mono">Data sold</span><b>Never</b></div>
+</div>
+</header>
+
+<div class="map" id="map">
+<span class="mono">Where your data goes</span>
+<h2>Pick something the app touches</h2>
+<p class="hint">The map lights up every place it can be. Anything not lit never gets there.</p>
+<div class="chips" id="kinds"></div>
+<div class="nodes">
+<div class="node" data-n="phone"><span class="mono">01</span><b>Your phone</b><span>The app's private storage</span></div>
+<div class="node" data-n="watch"><span class="mono">02</span><b>Your watch</b><span>Paired over Bluetooth or Wi-Fi</span></div>
+<div class="node" data-n="google"><span class="mono">03</span><b>Google</b><span>Play Billing and Play services</span></div>
+<div class="node never" data-n="us"><span class="mono">04</span><b>Us</b><span>We receive none of it</span></div>
+</div>
+<p class="why" id="why"></p>
+</div>
+
+<nav class="toc" aria-label="Sections">
+<a href="#s1">What the app handles</a><a href="#s2">Photos</a><a href="#s3">Watch readings</a><a href="#s4">Phone to watch</a><a href="#s5">Purchases</a><a href="#s6">Google services</a><a href="#s7">Permissions</a><a href="#s8">Keeping and deleting</a><a href="#s9">Children</a><a href="#s10">Security</a><a href="#s11">Changes</a><a href="#s12">Contact</a>
+</nav>
+
+<section id="s1"><span class="mono">01</span><div><h2>What the app handles</h2>
+<p>The faces you make (their scene, companion, layout, colors, fonts and settings), your sky settings (hemisphere, day and night hours and your own festival dates), which face is on your watch, whether you've unlocked the app, and any pictures you add. All of it lives in the app's private storage on your phone, and the faces you apply are also kept on your watch.</p>
+<p>Anime Studio has no sign-up, no analytics or crash-reporting SDK of our own, and no advertising. We don't collect your name, email, contacts, location or anything that identifies you.</p></div></section>
+
+<section id="s2"><span class="mono">02</span><div><h2>Photos</h2>
+<p>You can use your own pictures as a backdrop, a scene, a festival picture or a companion. You pick them with Android's photo picker, so the app only ever sees the photos you choose, and never your whole library. A copy is saved in the app's private storage.</p>
+<p>To make a <strong>photo companion</strong>, the app cuts the subject out of your picture with Google's ML Kit subject segmentation. This runs <strong>on your phone</strong>: the photo isn't uploaded. Google Play services downloads the cut-out model to your phone the first time it's needed.</p></div></section>
+
+<section id="s3"><span class="mono">03</span><div><h2>Watch readings</h2>
+<p>Faces show the time, date, battery, heart rate and steps, and the companion reacts to them. These values are read and drawn by your watch's own watch face system, on the watch. Anime Studio's apps don't read, store or send them anywhere.</p></div></section>
+
+<section id="s4"><span class="mono">04</span><div><h2>From phone to watch</h2>
+<p>When you tap apply, your phone builds the face (including any pictures it uses) and sends it to your paired watch with the Wear OS Data Layer, part of Google Play services, over the Bluetooth or Wi-Fi link between your own devices. The watch app installs it with Wear OS's Watch Face Push and keeps your five most recent faces so you can switch between them. The phone and watch also tell each other which face is on your wrist.</p></div></section>
+
+<section id="s5"><span class="mono">05</span><div><h2>Purchases</h2>
+<p>The one-time unlock is sold through Google Play. Google handles the payment and your payment details under the <a href="https://payments.google.com/legaldocument?family=0.privacynotice">Google Payments privacy notice</a>; we never see them. The app only asks Google Play whether you own the unlock and remembers the answer on your phone so it works offline.</p></div></section>
+
+<section id="s6"><span class="mono">06</span><div><h2>Google services</h2>
+<p>The app relies on Google Play services (the Data Layer between phone and watch, and ML Kit's model delivery) and Google Play Billing. As part of running these, Google may process technical data such as device and app identifiers and diagnostics, under the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>. ML Kit may also send Google anonymous metrics about how its on-device features perform. We don't receive this data.</p></div></section>
+
+<section id="s7"><span class="mono">07</span><div><h2>Permissions</h2>
+<ul>
+<li><strong>Internet and network state</strong> (phone): for Google Play Billing and Play services.</li>
+<li><strong>Billing</strong> (phone): to sell and check the one-time unlock.</li>
+<li><strong>Push watch faces</strong> and <strong>set the active watch face</strong> (watch): to install your faces and switch to them. The second one is asked for once, on the watch.</li>
+</ul>
+<p>There are no permissions for your location, contacts, camera, microphone or files.</p></div></section>
+
+<section id="s8"><span class="mono">08</span><div><h2>Keeping and deleting</h2>
+<p>Everything stays on your devices until you remove it. Deleting a face removes it and the pictures only it used. Clearing the app's storage or uninstalling it removes everything from your phone; uninstalling the watch app removes the faces kept on your watch. Since we hold no copy, there's nothing on our side to delete, but you're welcome to write to us with any data request.</p></div></section>
+
+<section id="s9"><span class="mono">09</span><div><h2>Children</h2>
+<p>Anime Studio isn't directed at children under 13 and we don't knowingly collect personal information from anyone, children included.</p></div></section>
+
+<section id="s10"><span class="mono">10</span><div><h2>Security</h2>
+<p>Your data sits in app-private storage that other apps can't read. Faces travel between your phone and watch only over their paired connection, and each face is signed before it's installed.</p></div></section>
+
+<section id="s11"><span class="mono">11</span><div><h2>Changes</h2>
+<p>If the app's data handling changes, this page changes with it and the date at the top moves.</p></div></section>
+
+<section id="s12"><span class="mono">12</span><div><h2>Contact</h2>
+<p>Questions or requests: <a href="mailto:samridhashrestha10@gmail.com?subject=Anime%20Studio%20privacy">samridhashrestha10@gmail.com</a></p></div></section>
+
+<footer><div><a href="../animestudio/">About Anime Studio</a><a href="../animestudio/#support">Support</a><a href="../">More apps</a></div><div>© 2026 Samridha Shrestha</div></footer>
+</div>
+<script>
+(function(){
+// each kind of data, and where it can be: phone, watch, google (never "us")
+var KINDS=[
+ {label:"your faces",at:["phone","watch"],why:"Saved on your phone. The ones you apply are sent to your watch, which keeps the last five."},
+ {label:"your photos",at:["phone","watch"],why:"Copied into the app's storage on your phone; inside a face you apply, they travel to your watch."},
+ {label:"photo companion cut-out",at:["phone","watch"],why:"Cut out on your phone by ML Kit. The photo isn't uploaded; Google only delivers the model."},
+ {label:"heart rate and steps",at:["watch"],why:"Read and drawn by your watch's own watch face system. The apps never touch them."},
+ {label:"the unlock",at:["phone","google"],why:"Google Play sells it and knows you own it; your phone remembers the answer. We never see your payment."},
+ {label:"diagnostics",at:["google"],why:"Google Play services and ML Kit may send Google technical diagnostics under Google's privacy policy. We don't collect any."}];
+var kinds=document.getElementById("kinds"),why=document.getElementById("why"),nodes=document.querySelectorAll(".node[data-n]");
+function show(i){
+ [].forEach.call(kinds.children,function(b,j){b.setAttribute("aria-pressed",i===j)});
+ nodes.forEach(function(n){n.classList.toggle("on",KINDS[i].at.indexOf(n.dataset.n)>=0)});
+ why.textContent=KINDS[i].why;
+}
+KINDS.forEach(function(k,i){var b=document.createElement("button");b.type="button";b.className="chip";b.textContent=k.label;b.onclick=function(){show(i)};kinds.appendChild(b)});
+show(0);
+})();
+</script>
+</body>
+</html>
