@@ -155,9 +155,9 @@ footer a:hover{color:var(--ink)}
 <div class="wrap">
 <div class="hero">
 <div>
-<div class="mono">Wear OS 6 · 11 faces · your photos · ∞ scenes</div>
+<div class="mono">Wear OS 6 · 11 faces · your photos · live weather</div>
 <h1>Living anime faces<i>.</i></h1>
-<p class="lede">The town on your watch follows the season and the hour, and your companion reacts to your day: asleep at night, flagging on low battery, running when you work out. Make a face yours on your phone; it's on your wrist in seconds.</p>
+<p class="lede">The town on your watch follows the season and the hour, and your companion reacts to your day: asleep at night, flagging on low battery, running when you work out, out with an umbrella when it rains. Make a face yours on your phone; it's on your wrist in seconds.</p>
 <div class="actions">
 <a class="btn primary" id="play" href="#support" aria-disabled="true">Coming soon to Google Play</a>
 <a class="btn" href="#try">Try a face</a>
@@ -198,6 +198,8 @@ footer a:hover{color:var(--ink)}
 <div class="chips" id="pals"></div>
 <div class="mono" style="margin:18px 0 10px"><span>Mood</span><span>First match wins</span></div>
 <div class="chips" id="moods"></div>
+<div class="mono" style="margin:18px 0 10px"><span>Weather</span><span>From the watch</span></div>
+<div class="chips" id="wx"></div>
 </div>
 <div class="group">
 <div class="mono"><span>Scene</span><button class="chip" id="now" aria-pressed="true" style="height:24px;font-size:11px">now</button></div>
@@ -209,7 +211,7 @@ footer a:hover{color:var(--ink)}
 <div class="chips" id="hemi"></div>
 <div class="mono" style="margin:18px 0 10px"><span>Screen</span><span>Dim mode</span></div>
 <div class="chips" id="screen"></div>
-<p style="color:var(--muted);font-size:13px;margin-top:16px">Everything here is the real art from the app. On the watch it all runs by itself, from the clock, the calendar, the battery, your heart rate and your steps.</p>
+<p style="color:var(--muted);font-size:13px;margin-top:16px">Everything here is the real art from the app. On the watch it all runs by itself, from the clock, the calendar, the battery, your heart rate, your steps and the weather.</p>
 </div>
 </div>
 </div>
@@ -228,8 +230,9 @@ footer a:hover{color:var(--ink)}
 <div class="eyebrow rv"><h2>What's inside</h2><span class="mono">Spec sheet</span></div>
 <table class="sheet rv">
 <tr><td class="mono">Scenes</td><td><b>A town through the year</b><p>Four seasons at dawn, day, dusk and night, and festival days (new year, hinamatsuri, tanabata, obon, halloween, christmas). Add your own dates with your own pictures.</p></td></tr>
-<tr><td class="mono">Companions</td><td><b>Six moods</b><p>Idle, asleep at bedtime, tired on low battery, running during a workout, cheering at your step goal, restless when you haven't moved. You set every threshold.</p></td></tr>
-<tr><td class="mono">Your photo</td><td><b>Be the companion</b><p>Pick a photo and the app cuts the subject out on your phone, then stands them in the scene. Or use any photo as the backdrop.</p></td></tr>
+<tr><td class="mono">Companions</td><td><b>Eight moods</b><p>Idle, asleep at bedtime, tired on low battery, running during a workout, under an umbrella in the rain, bundled up in the snow, cheering at your step goal, restless when you haven't moved. The first that matches wins, in that order. You set every threshold.</p></td></tr>
+<tr><td class="mono">Weather</td><td><b>Rain on the town</b><p>Rain, snow, storms and fog from your watch's forecast fall over any scene, your own photos too. Turn it off per face.</p></td></tr>
+<tr><td class="mono">Your photo</td><td><b>Be the companion</b><p>Pick a photo and the app cuts the subject out on your phone, then stands them in the scene. They get every mood too, without moving an inch: a nightcap at bedtime, an umbrella in the rain, confetti at your step goal. Or use any photo as the backdrop.</p></td></tr>
 <tr><td class="mono">Layouts</td><td><b>Eight clocks</b><p>Classic, vertical, bold, minimal, analog, hybrid, side and pill, with themes and fonts to match. Round and square watches.</p></td></tr>
 <tr><td class="mono">Always-on</td><td><b>Easy on the battery</b><p>The dim screen is the time on black, no art.</p></td></tr>
 <tr><td class="mono">Recent faces</td><td><b>Switch on the watch</b><p>A tile keeps your last five faces as thumbnails. Tap one and it's on, no phone needed.</p></td></tr>
@@ -252,6 +255,8 @@ footer a:hover{color:var(--ink)}
 <details><summary>My face isn't on the watch</summary><p>Open Anime Studio on the watch once and tap allow, so it can switch to your face (Wear OS lets an app ask this only once). If you picked another face since, long-press your watch face and choose Anime Studio. Still stuck? Tap refresh on the phone app's watch page.</p></details>
 <details><summary>Why does a new face replace the last one?</summary><p>Wear OS gives each app one watch face slot. Every apply fills it; the watch keeps your last five so you can switch back from the Anime Studio tile.</p></details>
 <details><summary>I bought the unlock on another phone</summary><p>Sign in to Google Play with the same account and open the app; the unlock comes back by itself. It also works offline once it's been confirmed.</p></details>
+<details><summary>Does it need my phone nearby?</summary><p>No. Faces run on the watch by themselves: the clock, the town, festivals and the companion, and the tile switches between your last five without the phone. You need the phone only to edit and send a face. The weather comes from your watch's own weather, which your phone keeps up to date, so away from it the forecast updates only when the watch can fetch one.</p></details>
+<details><summary>It's raining but my face isn't</summary><p>The face shows the watch's latest forecast, and Samsung phones refresh it every few hours by default. In the Weather app on your phone, set auto refresh to every hour. Asleep, low battery and workout also come before rain, though the rain still falls on the town.</p></details>
 <details><summary>Where do my photos go?</summary><p>Only to your phone and your watch. There is no Anime Studio server. The <a href="../privacypolicy_animestudio/">privacy policy</a> has the details.</p></details>
 </div>
 <div class="contact rv" style="--d:.1s">
@@ -290,6 +295,8 @@ var MOODS=[
  {id:"sleep",label:"sleep",mark:"眠",note:"Bedtime (23:00 to 07:00): asleep."},
  {id:"tired",label:"low battery",mark:"疲",note:"Battery at 15% or less: running on empty."},
  {id:"workout",label:"workout",mark:"走",note:"Heart rate 110 bpm or more: working out with you."},
+ {id:"rain",label:"rain",mark:"雨",note:"Rain or a storm on the watch's forecast: out with an umbrella."},
+ {id:"snow",label:"snow",mark:"雪",note:"Snow on the watch's forecast: bundled up."},
  {id:"cheer",label:"step goal",mark:"祝",note:"Step goal reached: celebrating."},
  {id:"restless",label:"restless",mark:"動",note:"Afternoon and few steps: asking for a walk."}];
 var SEASONS=["spring","summer","autumn","winter"], TIMES=["dawn","day","dusk","night"];
@@ -300,8 +307,10 @@ var FESTS=[
  {id:"tanabata",label:"tanabata",m:7,from:7,to:7},{id:"obon",label:"obon",m:8,from:13,to:16},
  {id:"halloween",label:"halloween",m:10,from:31,to:31},{id:"christmas",label:"christmas",m:12,from:24,to:25}];
 var WEEK="日月火水木金土";
+// the watch's weather (face/FaceSpec.kt Weather): each lays its overlay over the scene
+var WX=[{id:"rain",label:"rain",mood:"rain"},{id:"storm",label:"storm",mood:"rain"},{id:"snow",label:"snow",mood:"snow"},{id:"cloudy",label:"fog",mood:null}];
 
-var st={pal:0,mood:null,scene:null,south:/^en-(AU|NZ)|^es-(AR|CL|UY)|^pt-BR|^en-ZA/.test(navigator.language),ambient:false};
+var st={pal:0,mood:null,scene:null,wx:null,south:/^en-(AU|NZ)|^es-(AR|CL|UY)|^pt-BR|^en-ZA/.test(navigator.language),ambient:false};
 
 // ---------- images, loaded on demand ----------
 var cache={};
@@ -313,7 +322,7 @@ function season(month){for(var s in NORTH){var ms=st.south?NORTH[s].map(function
 function daytime(h){if(h>=SKY.dawn&&h<SKY.day)return"dawn";if(h>=SKY.day&&h<SKY.dusk)return"day";if(h>=SKY.dusk&&h<SKY.night)return"dusk";return"night"}
 function festival(d){var m=d.getMonth()+1,day=d.getDate();for(var i=0;i<FESTS.length;i++){var f=FESTS[i];if(f.m===m&&day>=f.from&&day<=f.to)return f}return null}
 function sceneNow(d){var f=festival(d);return f?"fest_"+f.id:"scene_"+season(d.getMonth()+1)+"_"+daytime(d.getHours())}
-function moodNow(d){var h=d.getHours();return(h>=23||h<7)?"sleep":"idle"}
+function moodNow(d){var h=d.getHours();if(h>=23||h<7)return"sleep";var w=WX.filter(function(x){return x.id===st.wx})[0];return w&&w.mood||"idle"}
 function sceneLabel(s){if(s.indexOf("fest_")===0){var id=s.slice(5);return FESTS.filter(function(f){return f.id===id})[0].label}var p=s.split("_");return p[1]+" "+p[2]}
 
 // ---------- the watch, drawn like ui/Watch.kt ----------
@@ -352,6 +361,7 @@ function drawFace(g,d,pal,sceneId,moodId){
   g.fillStyle="#EDEDED";g.font='500 104px "Shippori Mincho",serif';g.textAlign="center";g.textBaseline="middle";g.fillText(hh+":"+mm,225,225);
   g.restore();return}
  var sc=img(ART+sceneId+".webp");if(ready(sc))g.drawImage(sc,0,0,450,450);
+ if(st.wx){var wx=img(ART+"wx_"+st.wx+".webp");if(ready(wx))g.drawImage(wx,0,0,450,450)}
  // scrim band behind the clock
  g.fillStyle=hex(pal.scrim,.55);g.fillRect(90,78,270,126);
  g.textAlign="center";g.textBaseline="middle";
@@ -393,20 +403,23 @@ function draw(){
  document.getElementById("faceName").textContent=pal.label;
  document.getElementById("sceneNote").textContent=(st.scene?"Previewing ":"Right now: ")+sceneLabel(sceneId)+(st.south?", southern sky.":".");
  document.getElementById("moodNote").textContent=MOODS.filter(function(m){return m.id===moodId})[0].note;
- document.getElementById("liveLabel").lastChild.textContent=st.ambient?"Always-on · tap the watch to wake it":(st.scene||st.mood?"Preview · ":"Live · ")+pal.code;
+ document.getElementById("liveLabel").lastChild.textContent=st.ambient?"Always-on · tap the watch to wake it":(st.scene||st.mood||st.wx?"Preview · ":"Live · ")+pal.code;
 }
 
 // ---------- controls ----------
 function chip(parent,label,pressed,onClick,extra){var b=document.createElement("button");b.className="chip";b.type="button";b.innerHTML=extra||"";b.appendChild(document.createTextNode(label));b.setAttribute("aria-pressed",pressed);b.onclick=function(){onClick();sync();draw()};parent.appendChild(b);return b}
 var palsEl=document.getElementById("pals"),moodsEl=document.getElementById("moods"),scenesEl=document.getElementById("scenes"),festsEl=document.getElementById("fests"),hemiEl=document.getElementById("hemi"),screenEl=document.getElementById("screen"),nowEl=document.getElementById("now");
-PALS.forEach(function(p,i){chip(palsEl,p.label,i===st.pal,function(){st.pal=i;PALS.forEach(function(q){["idle","sleep","tired","workout","cheer","restless"].forEach(function(m){if(q===p)img(ART+"pals/"+q.id+"/"+m+".webp")})})},'<span class="dot" style="background:'+p.accent+'"></span>')});
+PALS.forEach(function(p,i){chip(palsEl,p.label,i===st.pal,function(){st.pal=i;PALS.forEach(function(q){MOODS.map(function(m){return m.id}).forEach(function(m){if(q===p)img(ART+"pals/"+q.id+"/"+m+".webp")})})},'<span class="dot" style="background:'+p.accent+'"></span>')});
 MOODS.forEach(function(m){chip(moodsEl,m.label,false,function(){st.mood=st.mood===m.id?null:m.id},m.mark?'<span class="k">'+m.mark+'</span>':"")});
+var wxEl=document.getElementById("wx");
+chip(wxEl,"clear",true,function(){st.wx=null});
+WX.forEach(function(w){chip(wxEl,w.label,false,function(){st.wx=st.wx===w.id?null:w.id})});
 scenesEl.appendChild(document.createElement("span"));
 TIMES.forEach(function(t){var s=document.createElement("span");s.className="mono";s.textContent=t;scenesEl.appendChild(s)});
 SEASONS.forEach(function(se){var l=document.createElement("span");l.className="mono";l.textContent=se.slice(0,3);scenesEl.appendChild(l);
  TIMES.forEach(function(t){var b=document.createElement("button");b.className="tile";b.type="button";b.title=se+" "+t;b.dataset.scene="scene_"+se+"_"+t;b.style.backgroundImage="url("+ART+b.dataset.scene+".webp)";b.onclick=function(){st.scene=st.scene===b.dataset.scene?null:b.dataset.scene;sync();draw()};scenesEl.appendChild(b)})});
 FESTS.forEach(function(f){var b=document.createElement("button");b.className="tile";b.type="button";b.title=f.label;b.dataset.scene="fest_"+f.id;b.style.backgroundImage="url("+ART+"fest_"+f.id+".webp)";b.onclick=function(){st.scene=st.scene===b.dataset.scene?null:b.dataset.scene;sync();draw()};festsEl.appendChild(b)});
-nowEl.onclick=function(){st.scene=null;st.mood=null;sync();draw()};
+nowEl.onclick=function(){st.scene=null;st.mood=null;st.wx=null;sync();draw()};
 chip(hemiEl,"northern",!st.south,function(){st.south=false});chip(hemiEl,"southern",st.south,function(){st.south=true});
 chip(screenEl,"active",true,function(){st.ambient=false});chip(screenEl,"always-on",false,function(){st.ambient=true});
 cv.onclick=function(){st.ambient=!st.ambient;sync();draw()};
@@ -414,7 +427,8 @@ function sync(){
  [].forEach.call(palsEl.children,function(b,i){b.setAttribute("aria-pressed",i===st.pal)});
  [].forEach.call(moodsEl.children,function(b,i){b.setAttribute("aria-pressed",MOODS[i].id===st.mood)});
  [].forEach.call(document.querySelectorAll(".tile"),function(b){b.setAttribute("aria-pressed",b.dataset.scene===st.scene)});
- nowEl.setAttribute("aria-pressed",!st.scene&&!st.mood);
+ [].forEach.call(wxEl.children,function(b,i){b.setAttribute("aria-pressed",i?WX[i-1].id===st.wx:!st.wx)});
+ nowEl.setAttribute("aria-pressed",!st.scene&&!st.mood&&!st.wx);
  hemiEl.children[0].setAttribute("aria-pressed",!st.south);hemiEl.children[1].setAttribute("aria-pressed",st.south);
  screenEl.children[0].setAttribute("aria-pressed",!st.ambient);screenEl.children[1].setAttribute("aria-pressed",st.ambient);
 }

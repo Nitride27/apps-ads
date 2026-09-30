@@ -115,7 +115,7 @@ footer a{color:var(--muted);text-decoration:none;margin-right:16px}
 <p>To make a <strong>photo companion</strong>, the app cuts the subject out of your picture with Google's ML Kit subject segmentation. This runs <strong>on your phone</strong>: the photo isn't uploaded. Google Play services downloads the cut-out model to your phone the first time it's needed.</p></div></section>
 
 <section id="s3"><span class="mono">03</span><div><h2>Watch readings</h2>
-<p>Faces show the time, date, battery, heart rate and steps, and the companion reacts to them. These values are read and drawn by your watch's own watch face system, on the watch. Anime Studio's apps don't read, store or send them anywhere.</p></div></section>
+<p>Faces show the time, date, battery, heart rate, steps and weather, and the companion reacts to them. These values are read and drawn by your watch's own watch face system, on the watch; the weather is the forecast your watch already has. Anime Studio's apps don't read, store or send them anywhere, and never ask for your location.</p></div></section>
 
 <section id="s4"><span class="mono">04</span><div><h2>From phone to watch</h2>
 <p>When you tap apply, your phone builds the face (including any pictures it uses) and sends it to your paired watch with the Wear OS Data Layer, part of Google Play services, over the Bluetooth or Wi-Fi link between your own devices. The watch app installs it with Wear OS's Watch Face Push and keeps your five most recent faces so you can switch between them. The phone and watch also tell each other which face is on your wrist.</p></div></section>
@@ -159,6 +159,7 @@ var KINDS=[
  {label:"your photos",at:["phone","watch"],why:"Copied into the app's storage on your phone; inside a face you apply, they travel to your watch."},
  {label:"photo companion cut-out",at:["phone","watch"],why:"Cut out on your phone by ML Kit. The photo isn't uploaded; Google only delivers the model."},
  {label:"heart rate and steps",at:["watch"],why:"Read and drawn by your watch's own watch face system. The apps never touch them."},
+ {label:"weather",at:["watch"],why:"The forecast your watch already has, read by its watch face system. The apps never see it or your location."},
  {label:"the unlock",at:["phone","google"],why:"Google Play sells it and knows you own it; your phone remembers the answer. We never see your payment."},
  {label:"diagnostics",at:["google"],why:"Google Play services and ML Kit may send Google technical diagnostics under Google's privacy policy. We don't collect any."}];
 var kinds=document.getElementById("kinds"),why=document.getElementById("why"),nodes=document.querySelectorAll(".node[data-n]");
