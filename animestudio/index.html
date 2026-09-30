@@ -155,7 +155,7 @@ footer a:hover{color:var(--ink)}
 <div class="wrap">
 <div class="hero">
 <div>
-<div class="mono">Wear OS 6 · 6 faces · 1 app · ∞ scenes</div>
+<div class="mono">Wear OS 6 · 11 faces · your photos · ∞ scenes</div>
 <h1>Living anime faces<i>.</i></h1>
 <p class="lede">The town on your watch follows the season and the hour, and your companion reacts to your day: asleep at night, flagging on low battery, running when you work out. Make a face yours on your phone; it's on your wrist in seconds.</p>
 <div class="actions">
@@ -187,14 +187,14 @@ footer a:hover{color:var(--ink)}
 </div>
 </div>
 <div class="wrap labelwrap">
-<div class="label"><h2 id="faceName">hayate 疾風</h2><span class="mono live" id="liveLabel"><i></i>Live · tap the watch for always-on</span></div>
+<div class="label"><h2 id="faceName">suzu 鈴</h2><span class="mono live" id="liveLabel"><i></i>Live · tap the watch for always-on</span></div>
 </div>
 </div>
 
 <div class="wrap">
 <div class="panel">
 <div class="group">
-<div class="mono"><span>Companion</span><span>AS-01…05</span></div>
+<div class="mono"><span>Companion</span><span>AS-01…10</span></div>
 <div class="chips" id="pals"></div>
 <div class="mono" style="margin:18px 0 10px"><span>Mood</span><span>First match wins</span></div>
 <div class="chips" id="moods"></div>
@@ -218,7 +218,7 @@ footer a:hover{color:var(--ink)}
 <section id="how">
 <div class="eyebrow rv"><h2>How it works</h2><span class="mono">Three steps</span></div>
 <div class="steps">
-<div class="step rv"><span class="mono">01 · Pick</span><h3>Choose a face</h3><p>Five companions, each with their own clock, plus one that starts from your own photo. The first face is free to try on your wrist.</p></div>
+<div class="step rv"><span class="mono">01 · Pick</span><h3>Choose a face</h3><p>Ten companions, each with their own personality and clock, plus one that starts from your own photo. The first face is free to try on your wrist.</p></div>
 <div class="step rv" style="--d:.08s"><span class="mono">02 · Make it yours</span><h3>Edit on your phone</h3><p>Scene, companion, layout, colors, fonts and the always-on screen. Preview any season, hour or mood before you send it.</p></div>
 <div class="step rv" style="--d:.16s"><span class="mono">03 · Apply</span><h3>On your wrist</h3><p>Your phone builds the face and sends it to the watch over Bluetooth. The watch keeps your last five, a swipe away in its tile.</p></div>
 </div>
@@ -239,7 +239,7 @@ footer a:hover{color:var(--ink)}
 <section style="padding-top:0">
 <div class="price rv">
 <div class="big">$4.99<small>once</small></div>
-<div><p>AS-01 is free, on your wrist, for good. One payment unlocks every face, editing and photo companions, across your devices on the same Google account.</p>
+<div><p>AS-01 is free, on your wrist, for good. One payment brings your own companions to life, plus every face and full editing, across your devices on the same Google account.</p>
 <ul class="mono"><li>No ads</li><li>No subscription</li><li>No account</li></ul></div>
 </div>
 </section>
@@ -275,11 +275,16 @@ var reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
 var ART="art/";
 // the app's roster and moods (face/FaceSpec.kt): palette = accent, text, scrim
 var PALS=[
- {id:"hayate",label:"hayate 疾風",code:"AS-01",accent:"#4A9FE0",text:"#F4EFE6",scrim:"#1A1D24"},
+ {id:"suzu",label:"suzu 鈴",code:"AS-01",accent:"#E0457B",text:"#2A1A20",scrim:"#FFF3F5"},
  {id:"kaito",label:"kaito 海斗",code:"AS-02",accent:"#E8574A",text:"#1B2440",scrim:"#FFF4EC"},
- {id:"tora",label:"tora 虎",code:"AS-03",accent:"#A3243A",text:"#F5EFE6",scrim:"#1A1416"},
+ {id:"hotaru",label:"hotaru 蛍",code:"AS-03",accent:"#F2C94C",text:"#F5F0DC",scrim:"#0E1426"},
  {id:"shiro",label:"shiro 白",code:"AS-04",accent:"#5B6BBF",text:"#1C2040",scrim:"#F2F3FA"},
- {id:"kishi",label:"kishi 騎士",code:"AS-05",accent:"#1F9E9A",text:"#F7F3E8",scrim:"#0F1E24"}];
+ {id:"hibana",label:"hibana 火花",code:"AS-05",accent:"#FF6B1A",text:"#F7F1E8",scrim:"#1A1210"},
+ {id:"hayate",label:"hayate 疾風",code:"AS-06",accent:"#4A9FE0",text:"#F4EFE6",scrim:"#1A1D24"},
+ {id:"nagi",label:"nagi 凪",code:"AS-07",accent:"#F2B705",text:"#F2F0E6",scrim:"#141B2E"},
+ {id:"kishi",label:"kishi 騎士",code:"AS-08",accent:"#1F9E9A",text:"#F7F3E8",scrim:"#0F1E24"},
+ {id:"ran",label:"ran 嵐",code:"AS-09",accent:"#8B5CF6",text:"#F3EEFF",scrim:"#1A1030"},
+ {id:"tora",label:"tora 虎",code:"AS-10",accent:"#A3243A",text:"#F5EFE6",scrim:"#1A1416"}];
 var MOODS=[
  {id:"idle",label:"idle",mark:"",note:"Nothing to react to: they idle."},
  {id:"sleep",label:"sleep",mark:"眠",note:"Bedtime (23:00 to 07:00): asleep."},
