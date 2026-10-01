@@ -352,6 +352,7 @@ function body(W,H,face){ // the case never changes: drawn once, then blitted
 }
 
 // ---------- the face, on the 450-unit WFF canvas ----------
+function rr(g,x,y,w,h,r){g.beginPath();g.roundRect?g.roundRect(x,y,w,h,r):g.rect(x,y,w,h);g.fill()}
 function hex(c,a){var n=parseInt(c.slice(1),16);return"rgba("+(n>>16)+","+(n>>8&255)+","+(n&255)+","+a+")"}
 function drawFace(g,d,pal,sceneId,moodId){
  g.save();g.beginPath();g.arc(225,225,225,0,7);g.clip();
@@ -362,26 +363,28 @@ function drawFace(g,d,pal,sceneId,moodId){
   g.restore();return}
  var sc=img(ART+sceneId+".webp");if(ready(sc))g.drawImage(sc,0,0,450,450);
  if(st.wx){var wx=img(ART+"wx_"+st.wx+".webp");if(ready(wx))g.drawImage(wx,0,0,450,450)}
- // scrim band behind the clock
- g.fillStyle=hex(pal.scrim,.55);g.fillRect(90,78,270,126);
- g.textAlign="center";g.textBaseline="middle";
- g.font='600 96px "Shippori Mincho",serif';g.fillStyle=pal.text;
- var w=g.measureText(hh).width,cw=g.measureText(":").width;
- g.textAlign="right";g.fillText(hh,225-cw/2,140);g.textAlign="left";g.fillText(mm,225+cw/2,140);
- g.textAlign="center";g.fillStyle=(d.getSeconds()%2)?pal.accent:hex(pal.accent,.35);g.fillText(":",225,136);
- // date row and the mood seal
- var date=(d.getMonth()+1)+"月"+d.getDate()+"日 "+WEEK[d.getDay()];
- g.font='500 20px "Zen Kaku Gothic New",sans-serif';g.fillStyle=pal.text;
+ // the app's classic layout (Layouts.kt classic()): boxes in the 450 canvas, text centered in its box
+ var gr=g.createLinearGradient(0,0,0,260);gr.addColorStop(0,hex(pal.scrim,.95));gr.addColorStop(.6,hex(pal.scrim,.85));gr.addColorStop(1,hex(pal.scrim,0));
+ g.fillStyle=gr;g.fillRect(0,0,450,260);
  var mood=MOODS.filter(function(m){return m.id===moodId})[0];
- var dw=g.measureText(date).width,sealW=mood.mark?34:0,gap=mood.mark?10:0,x0=225-(dw+gap+sealW)/2;
- g.textAlign="left";g.fillText(date,x0,186);
- if(mood.mark){g.fillStyle=pal.accent;g.fillRect(x0+dw+gap,169,34,34);g.fillStyle="#fff";g.font='600 22px "Shippori Mincho",serif';g.textAlign="center";g.fillText(mood.mark,x0+dw+gap+17,187)}
- // readouts
+ var pp=img(ART+"pals/"+pal.id+"/"+moodId+".webp");if(ready(pp))g.drawImage(pp,0,0,450,450);
+ if(mood.mark){g.fillStyle=pal.accent;rr(g,272,212,26,26,4);g.fillStyle=pal.scrim;g.font='600 17px "Shippori Mincho",serif';g.textAlign="center";g.textBaseline="middle";g.fillText(mood.mark,285,226)}
+ g.textBaseline="middle";
+ // health row: 脈 heart rate, 歩 steps (box y 38, h 28)
  var hr=moodId==="workout"?134:72,steps=moodId==="cheer"?8250:moodId==="restless"?1240:4512;
- g.font='400 15px "Martian Mono",monospace';g.textAlign="center";g.fillStyle=hex(pal.text,.9);
- g.fillText("♥ "+hr+"   ⬚ "+steps+(moodId==="tired"?"   ▯ 12%":""),225,226);
- // companion, standing bottom-center
- var p=img(ART+"pals/"+pal.id+"/"+moodId+".webp");if(ready(p))g.drawImage(p,70,150,310,310);
+ g.font='500 18px "Shippori Mincho",serif';g.fillStyle=pal.accent;g.textAlign="right";g.fillText("脈",158,52);g.fillText("歩",266,52);
+ g.font='600 20px "Shippori Mincho",serif';g.fillStyle=pal.text;g.textAlign="left";g.fillText(hr,162,52);g.fillText(steps,270,52);
+ // hh : mm (box y 54, h 120), colon 12px higher
+ g.font='600 100px "Shippori Mincho",serif';g.fillStyle=pal.text;
+ g.textAlign="right";g.fillText(hh,211,114);g.textAlign="left";g.fillText(mm,239,114);
+ g.textAlign="center";g.fillStyle=(d.getSeconds()%2)?pal.accent:hex(pal.accent,.35);g.fillText(":",225,102);
+ // kanji date ending at 246, weekday seal at 254 (box y 172, h 36)
+ g.font='500 22px "Shippori Mincho",serif';g.fillStyle=pal.text;g.textAlign="right";g.fillText((d.getMonth()+1)+"月"+d.getDate()+"日",246,190);
+ g.fillStyle=pal.accent;rr(g,254,177,26,26,4);g.fillStyle=pal.scrim;g.font='600 17px "Shippori Mincho",serif';g.textAlign="center";g.fillText(WEEK[d.getDay()],267,190);
+ // battery arc along the bottom, 150..210 deg
+ var bat=moodId==="tired"?.12:.8,a0=(150-90)*Math.PI/180;
+ g.lineWidth=4;g.strokeStyle=hex(pal.text,.3);g.beginPath();g.arc(225,225,213,a0,a0+Math.PI/3);g.stroke();
+ g.strokeStyle=pal.accent;g.beginPath();g.arc(225,225,213,a0,a0+Math.PI/3*bat);g.stroke();
  g.restore();
 }
 
