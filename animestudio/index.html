@@ -9,7 +9,6 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Anime Studio: living anime watch faces">
 <meta property="og:description" content="A town that follows the season and a companion that reacts to your day, on your Wear OS watch.">
-<meta property="og:image" content="https://apps.samridhashrestha.com.np/animestudio-icon.png">
 <link rel="icon" href="../animestudio-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -117,10 +116,11 @@ summary::-webkit-details-marker{display:none}
 summary::after{content:"+";font:400 20px "Martian Mono",monospace;color:var(--muted);transition:transform .2s}
 details[open] summary::after{transform:rotate(45deg)}
 details p{color:var(--muted);padding:0 0 18px;max-width:70ch}
-.support{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.support{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px}
 .contact{border:1px solid var(--rule);padding:22px;align-self:start}
 .contact h3{font-size:21px;margin-bottom:6px}
 .contact p{color:var(--muted);margin-bottom:16px}
+.contact .btn{max-width:100%;overflow-wrap:anywhere}
 footer{border-top:1px solid var(--rule);padding:22px 0 40px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:var(--muted);font-size:13px}
 footer a{color:var(--muted);text-decoration:none;margin-right:18px}
 footer a:hover{color:var(--ink)}
@@ -137,11 +137,21 @@ footer a:hover{color:var(--ink)}
  .group{border-right:0;border-bottom:1px solid var(--rule)}
  .steps{grid-template-columns:1fr}
  .price{grid-template-columns:1fr}
- .support{grid-template-columns:1fr}
+ .support{grid-template-columns:minmax(0,1fr)}
  .bar nav a:not(.keep){display:none}
  .sheet td:first-child{width:120px}
 }
 </style>
+<!-- share -->
+<meta property="og:site_name" content="Samridha Shrestha Apps">
+<meta property="og:url" content="https://apps.samridhashrestha.com.np/animestudio/">
+<meta property="og:image" content="https://apps.samridhashrestha.com.np/animestudio/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Anime Studio: Living Anime Watch Faces for Wear OS">
+<meta name="twitter:description" content="Anime watch faces for Wear OS 6. The town follows the season and the hour, and your companion reacts to your day. Make a face yours on your phone; it&#x27;s on your wrist in seconds.">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "MobileApplication", "inLanguage": "en", "author": {"@type": "Person", "name": "Samridha Shrestha", "url": "https://apps.samridhashrestha.com.np/"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "name": "Anime Studio", "operatingSystem": "Android, Wear OS", "applicationCategory": "LifestyleApplication", "description": "Living anime watch faces for Wear OS 6: the town follows the season and the hour, and your companion reacts to your day.", "url": "https://apps.samridhashrestha.com.np/animestudio/", "downloadUrl": "https://play.google.com/store/apps/details?id=dev.animewatch.studio", "image": "https://apps.samridhashrestha.com.np/animestudio-icon.png"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What do I need?", "acceptedAnswer": {"@type": "Answer", "text": "A watch on Wear OS 6 or newer (Anime Studio uses Watch Face Push, which arrived in Wear OS 6), paired with an Android phone running Android 9 or newer. Install Anime Studio on both: the phone app edits faces, the watch app installs them."}}, {"@type": "Question", "name": "My face isn't on the watch", "acceptedAnswer": {"@type": "Answer", "text": "Open Anime Studio on the watch once and tap allow, so it can switch to your face (Wear OS lets an app ask this only once). If you picked another face since, long-press your watch face and choose Anime Studio. Still stuck? Tap refresh on the phone app's watch page."}}, {"@type": "Question", "name": "Why does a new face replace the last one?", "acceptedAnswer": {"@type": "Answer", "text": "Wear OS gives each app one watch face slot. Every apply fills it; the watch keeps your last five so you can switch back from the Anime Studio tile."}}, {"@type": "Question", "name": "I bought the unlock on another phone", "acceptedAnswer": {"@type": "Answer", "text": "Sign in to Google Play with the same account and open the app; the unlock comes back by itself. It also works offline once it's been confirmed."}}, {"@type": "Question", "name": "Does it need my phone nearby?", "acceptedAnswer": {"@type": "Answer", "text": "No. Faces run on the watch by themselves: the clock, the town, festivals and the companion, and the tile switches between your last five without the phone. You need the phone only to edit and send a face. The weather comes from your watch's own weather, which your phone keeps up to date, so away from it the forecast updates only when the watch can fetch one."}}, {"@type": "Question", "name": "It's raining but my face isn't", "acceptedAnswer": {"@type": "Answer", "text": "The face shows the watch's latest forecast, and Samsung phones refresh it every few hours by default. In the Weather app on your phone, set auto refresh to every hour. Asleep, low battery and workout also come before rain, though the rain still falls on the town."}}, {"@type": "Question", "name": "Where do my photos go?", "acceptedAnswer": {"@type": "Answer", "text": "Only to your phone and your watch. There is no Anime Studio server. The privacy policy has the details."}}]}]}</script>
 </head>
 <body>
 <div class="wrap">
@@ -446,7 +456,7 @@ draw();
 var co=document.getElementById("callouts");
 new IntersectionObserver(function(es,o){es.forEach(function(e){if(e.isIntersecting){co.classList.add("in");o.disconnect()}})},{threshold:.3}).observe(co);
 // section entrances
-var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{rootMargin:"0px 0px -8% 0px"});
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{rootMargin:"0px"});
 document.querySelectorAll(".rv").forEach(function(el){io.observe(el)});
 
 // boxy sakura petals drifting across the band (Te.kt Petals)

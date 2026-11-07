@@ -8,8 +8,7 @@
 <link rel="canonical" href="https://apps.samridhashrestha.com.np/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Samridha Shrestha Apps">
-<meta property="og:description" content="Android apps by Samridha Shrestha. Featuring StayT, GTA 6 Guide and Anime Studio.">
-<meta property="og:image" content="https://apps.samridhashrestha.com.np/stayt-icon.png">
+<meta property="og:description" content="Android apps by Samridha Shrestha. Featuring StayT, GTA 6 Guide, Anime Studio and Secret Santa.">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="favicon.png">
 <link rel="apple-touch-icon" href="favicon.png">
@@ -28,7 +27,7 @@ h1,h2,.brand,.btn{font-family:"Space Grotesk",Inter,system-ui,sans-serif}
 .top nav a{color:var(--sub);text-decoration:none;font-size:14px;margin-left:18px}
 .top nav a:hover{color:var(--text)}
 .hero{padding:48px 0 40px;display:flex;gap:32px;align-items:center;justify-content:space-between;flex-wrap:wrap}
-.hero-text{flex:1;min-width:280px}
+.hero-text{flex:1;min-width:min(280px,100%)}
 .who{display:flex;align-items:center;gap:14px;margin-bottom:18px}
 .pfp{width:64px;height:64px;border-radius:50%;padding:3px;background:var(--grad);background-size:200% auto;animation:flow 8s linear infinite}
 .pfp img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;border:3px solid var(--bg)}
@@ -48,7 +47,7 @@ h1 .g:hover{filter:url(#water);animation:flow 2.4s linear infinite}
 .section-title{display:flex;align-items:baseline;justify-content:space-between;margin:12px 0 16px;border-top:1px solid var(--border);padding-top:28px}
 .section-title h2{font-size:22px;letter-spacing:-.4px}
 .section-title span{color:var(--muted);font-size:14px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:16px}
 .card{position:relative;background:radial-gradient(130% 90% at 0% 0%,var(--t1) 0%,var(--t2) 40%,rgba(255,255,255,.02) 100%);border:1px solid var(--border);border-radius:22px;padding:22px;display:flex;flex-direction:column;gap:14px;transition:transform .2s,border-color .2s,box-shadow .2s}
 .card:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--accent) 45%,transparent);box-shadow:0 20px 50px color-mix(in srgb,var(--accent) 16%,transparent)}
 .head{display:flex;gap:16px;align-items:center}
@@ -64,7 +63,7 @@ h1 .g:hover{filter:url(#water);animation:flow 2.4s linear infinite}
 .btn.play:hover{filter:brightness(1.08)}
 .btn.ghost{background:rgba(255,255,255,.03);border:1px solid var(--border);color:var(--text);font-weight:600}
 .btn.ghost:hover{background:rgba(255,255,255,.08)}
-.about{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:8px}
+.about{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:16px;margin-top:8px}
 .about>div{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:18px}
 .about>div>b{display:block;font-size:15px;margin-bottom:4px}
 .about p{color:var(--sub);font-size:14px}
@@ -99,7 +98,8 @@ h1 .g:hover{filter:url(#water);animation:flow 2.4s linear infinite}
 @media(prefers-reduced-motion:reduce){.demo *{transition:none!important;animation:none!important}}
 .about a{color:var(--link)}
 footer{margin:56px 0 0;padding:22px 0 40px;border-top:1px solid var(--border);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
-footer a{color:var(--sub);text-decoration:none;margin-right:16px}
+footer div{display:flex;flex-wrap:wrap;gap:6px 16px;min-width:0}
+footer a{color:var(--sub);text-decoration:none;overflow-wrap:anywhere}
 footer a:hover{color:var(--text)}
 /* motion layer */
 .w{display:inline-block;animation:rise .9s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i,0)*80ms)}
@@ -124,6 +124,16 @@ div.who.w{display:flex}
 @media(prefers-reduced-motion:reduce){.pfp,h1 .g:hover,.w,.stack img,.card::before{animation:none}h1 .g:hover{filter:none}.rv{opacity:1;translate:none}}
 @media(max-width:600px){h1{font-size:38px}.hero{padding:28px 0 28px}.stack{width:150px;height:124px;margin:0 auto}.stack img{width:88px;height:88px;border-radius:22px}.stack img:first-child{top:24px}.top nav a:first-child{display:none}}
 </style>
+<!-- share -->
+<meta property="og:site_name" content="Samridha Shrestha Apps">
+<meta property="og:url" content="https://apps.samridhashrestha.com.np/">
+<meta property="og:image" content="https://apps.samridhashrestha.com.np/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Samridha Shrestha Apps">
+<meta name="twitter:description" content="Small Android apps that do one thing well: StayT, GTA 6 Guide, Anime Studio and Secret Santa.">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Samridha Shrestha", "url": "https://apps.samridhashrestha.com.np/", "sameAs": ["https://samridhashrestha.com.np/"], "jobTitle": "Independent Android developer"}</script>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -136,13 +146,13 @@ div.who.w{display:flex}
 </svg>
 <div class="wrap">
 <header class="top">
-<a class="brand" href="./"><img src="https://samridhashrestha.com.np/images/Samridha.jpeg" alt="">Samridha Shrestha</a>
+<a class="brand" href="./"><img src="avatar.webp" alt="">Samridha Shrestha</a>
 <nav><a href="#apps">Apps</a><a href="mailto:samridhashrestha10@gmail.com">Contact</a></nav>
 </header>
 
 <section class="hero">
 <div class="hero-text">
-<div class="who w" style="--i:0"><div class="pfp"><img src="https://samridhashrestha.com.np/images/Samridha.jpeg" alt="Samridha Shrestha"></div><div><b>Samridha Shrestha</b><div class="eyebrow">Independent Android developer · Nepal</div></div></div>
+<div class="who w" style="--i:0"><div class="pfp"><img src="avatar.webp" alt="Samridha Shrestha"></div><div><b>Samridha Shrestha</b><div class="eyebrow">Independent Android developer · Nepal</div></div></div>
 <h1><span class="w" style="--i:1">Small</span> <span class="w" style="--i:2">apps</span> <span class="w" style="--i:3">that</span> <span class="w" style="--i:4"><span class="g">do one thing well.</span></span></h1>
 <p class="lede w" style="--i:6">Focused, free Android apps. No accounts, no sign-up, and your data stays on your phone wherever it can.</p>
 </div>
@@ -200,7 +210,7 @@ var fine=matchMedia("(pointer: fine)").matches;
 
 // scroll reveal, staggered per parent
 var els=document.querySelectorAll(".section-title,.card,.about>div,footer");
-var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{rootMargin:"0px 0px -8% 0px"});
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{rootMargin:"0px"});
 els.forEach(function(el){el.classList.add("rv");el.style.setProperty("--d",Array.prototype.indexOf.call(el.parentNode.children,el)%4*90+"ms");io.observe(el)});
 
 // icon stack parallax: mouse on desktop, phone tilt on mobile

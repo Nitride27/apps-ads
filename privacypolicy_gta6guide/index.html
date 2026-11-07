@@ -36,13 +36,51 @@ section p+p{margin-top:8px}
 a{color:var(--link)}
 footer{margin-top:32px;padding-top:16px;border-top:1px solid var(--border);font-size:13px;color:var(--muted)}
 @media(max-width:560px){h1{font-size:28px}header img{width:68px;height:68px}}
+:root{--pk-a:#F43F5E;--pk-on:#ffffff}
+
+.pk-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:18px 0 22px}
+.pk-facts div{border:1px solid var(--border);background:var(--card);padding:12px 14px;border-radius:var(--pk-r,14px)}
+.pk-facts small{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.pk-facts b{font-size:19px;color:var(--pk-a)}
+.pk-map{border:1px solid var(--border);background:var(--card);padding:18px;border-radius:var(--pk-r,16px);margin-bottom:22px}
+.pk-map h2{margin:0 0 4px}
+.pk-map>p{color:var(--sub);font-size:14px}
+.pk-pick{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 14px}
+.pk-pick button{font:inherit;font-size:14px;padding:6px 12px;border-radius:999px;border:1px solid var(--border);background:none;color:inherit;cursor:pointer;transition:background .25s,color .25s,border-color .25s}
+.pk-pick button[aria-pressed=true]{background:var(--pk-a);border-color:var(--pk-a);color:var(--pk-on)}
+.pk-dest{display:grid;grid-template-columns:repeat(var(--pk-n),1fr);gap:8px;list-style:none;padding:0;margin:0}
+.pk-dest li{border:1px solid var(--border);padding:12px;border-radius:var(--pk-r,12px);opacity:.4;transition:opacity .35s,transform .35s cubic-bezier(.2,.7,.2,1),border-color .35s,box-shadow .35s}
+.pk-dest li b{display:block}
+.pk-dest li span{font-size:13px;color:var(--sub)}
+.pk-dest li.on{opacity:1;border-color:var(--pk-a);transform:translateY(-3px);box-shadow:0 6px 20px -8px var(--pk-a)}
+.pk-dest li.never b{text-decoration:line-through;text-decoration-color:var(--pk-a)}
+.pk-say{margin-top:12px;min-height:3em;color:var(--sub);font-size:14.5px}
+.pk-rv{opacity:0;translate:0 22px;transition:opacity .7s cubic-bezier(.2,.7,.2,1) var(--d,0s),translate .7s cubic-bezier(.2,.7,.2,1) var(--d,0s)}
+.pk-rv.in{opacity:1;translate:none}
+@media(max-width:620px){.pk-facts{grid-template-columns:repeat(2,1fr)}.pk-dest{grid-template-columns:repeat(2,1fr)}}
+@media(prefers-reduced-motion:reduce){.pk-rv{opacity:1;translate:none;transition:none}.pk-dest li,.pk-pick button{transition:none}}
 </style>
+<!-- share -->
+<meta property="og:site_name" content="Samridha Shrestha Apps">
+<meta property="og:url" content="https://apps.samridhashrestha.com.np/privacypolicy_gta6guide/">
+<meta property="og:image" content="https://apps.samridhashrestha.com.np/gta6guide/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GTA 6 Guide Privacy Policy">
+<meta name="twitter:description" content="How GTA 6 Guide handles information, including Google AdMob advertising. No account required.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="GTA 6 Guide Privacy Policy">
+<meta property="og:description" content="How GTA 6 Guide handles information, including Google AdMob advertising. No account required.">
 </head>
 <body>
 <div class="hero"><div class="wrap">
 <header><img src="../gta6-icon.png" alt="GTA 6 Guide icon"><div><div class="kicker">GTA 6 Guide · Tips, Maps &amp; VI</div><h1>Privacy Policy</h1></div></header>
 <p class="meta">Last updated: 8 September 2026 · App package: com.samridha.gta6</p>
 <p class="intro">This Privacy Policy explains how GTA VI Guide handles information when you use the app, including information processed by third-party services such as Google AdMob for advertising.</p>
+<div class="pk-facts"><div><small>Accounts</small><b>None</b></div><div><small>Account database</small><b>None</b></div><div><small>Ads</small><b>Google AdMob</b></div><div><small>Data sold</small><b>Never</b></div></div>
+<div class="pk-map" style="--pk-n:3"><h2>Where your data goes</h2><p>Pick something the app touches. Everything here comes from the policy below.</p><div class="pk-pick"><button type="button" aria-pressed="false">Settings &amp; bookmarks</button><button type="button" aria-pressed="false">Ad data</button><button type="button" aria-pressed="false">Diagnostics</button><button type="button" aria-pressed="false">Your name or email</button></div><ol class="pk-dest"><li data-d="phone"><b>Your phone</b><span>Preferences and settings</span></li><li data-d="ads"><b>Google AdMob</b><span>Ads, measurement, fraud prevention</span></li><li data-d="us" class=never><b>Us</b><span>No account database</span></li></ol><p class="pk-say" aria-live="polite"></p><script type="application/json">[["Settings & bookmarks", ["phone"], "Preferences and settings are stored locally on your device to remember your choices. They are not used to identify you."], ["Ad data", ["ads"], "Google's Mobile Ads SDK may process your IP address (for general location), advertising and device identifiers, and app and ad interactions. Encrypted in transit, according to Google."], ["Diagnostics", ["ads"], "The ads SDK may process diagnostic and performance information such as launch time, hang rate and energy usage."], ["Your name or email", [], "Not collected. The app needs no account and does not intentionally collect your name, address, phone number or passwords."]]</script></div>
+
 <div class="sunset"></div>
 <nav class="toc" aria-label="Sections"><a href="#s1">1. About GTA VI Guide</a><a href="#s2">2. Information We Collect</a><a href="#s3">3. Advertising</a><a href="#s4">4. Third-Party Services</a><a href="#s5">5. Data Sharing</a><a href="#s6">6. International Processing</a><a href="#s7">7. EEA, UK, and Switzerland</a><a href="#s8">8. United States Privacy Choices</a><a href="#s9">9. Children's Privacy</a><a href="#s10">10. Data Retention and Deletion</a><a href="#s11">11. Security</a><a href="#s12">12. Your Choices</a><a href="#s13">13. Changes</a><a href="#s14">14. Contact</a><a href="#s15">15. Third-Party Information</a></nav>
 </div></div>
@@ -112,5 +150,15 @@ footer{margin-top:32px;padding-top:16px;border-top:1px solid var(--border);font-
 
 <footer><a href="../gta6guide/">About GTA 6 Guide</a> · <a href="../">More apps by Samridha Shrestha</a></footer>
 </main>
+<script>
+(function(){
+document.querySelectorAll(".pk-map").forEach(function(m){var F=JSON.parse(m.querySelector("script").textContent),bs=m.querySelectorAll(".pk-pick button");
+function show(i){bs.forEach(function(b,j){b.setAttribute("aria-pressed",i===j)});m.querySelectorAll(".pk-dest li").forEach(function(li){li.classList.toggle("on",F[i][1].indexOf(li.dataset.d)>=0)});m.querySelector(".pk-say").textContent=F[i][2]}
+bs.forEach(function(b,i){b.onclick=function(){show(i)}});show(0)});
+if(matchMedia("(prefers-reduced-motion: reduce)").matches||!("IntersectionObserver" in window))return;
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{rootMargin:"0px"});
+document.querySelectorAll("main section,.pk-facts,.pk-map,footer").forEach(function(el){el.classList.add("pk-rv");el.style.setProperty("--d",Array.prototype.indexOf.call(el.parentNode.children,el)%3*90+"ms");io.observe(el)});
+})();
+</script>
 </body>
 </html>

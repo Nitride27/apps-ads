@@ -91,6 +91,19 @@ h1{background-image:linear-gradient(90deg,#fff,var(--accent) 30%,var(--purple) 5
 @media(max-width:560px){.bubble:before{display:none}.grid{grid-template-columns:1fr}}
 @media(max-width:560px){h1{font-size:32px}.icon{width:120px;height:120px}.hero::before{opacity:.3;top:170px}.count{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}.unit{min-width:0;padding:8px 4px}.unit b,.unit:first-child b{font-size:22px}}
 </style>
+<!-- share -->
+<meta property="og:site_name" content="Samridha Shrestha Apps">
+<meta property="og:url" content="https://apps.samridhashrestha.com.np/gta6guide/">
+<meta property="og:image" content="https://apps.samridhashrestha.com.np/gta6guide/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GTA 6 Guide: Tips, Maps &amp; VI — Android App">
+<meta name="twitter:description" content="Complete GTA VI reference — release date, story, Leonida map, gameplay, characters &amp; more. Offline-first Android companion app.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="GTA 6 Guide: Tips, Maps &amp; VI — Android App">
+<meta property="og:description" content="Complete GTA VI reference — release date, story, Leonida map, gameplay, characters &amp; more. Offline-first Android companion app.">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "MobileApplication", "inLanguage": "en", "author": {"@type": "Person", "name": "Samridha Shrestha", "url": "https://apps.samridhashrestha.com.np/"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "name": "GTA 6 Guide: Tips, Maps & VI", "operatingSystem": "Android", "applicationCategory": "ReferenceApplication", "description": "Unofficial, offline-first fan guide to GTA VI: countdown, story, Leonida map and gameplay.", "url": "https://apps.samridhashrestha.com.np/gta6guide/", "downloadUrl": "https://play.google.com/store/apps/details?id=com.samridha.gta6", "image": "https://apps.samridhashrestha.com.np/gta6-icon.png"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is this an official Rockstar app?", "acceptedAnswer": {"@type": "Answer", "text": "No. GTA 6 Guide is an unofficial fan guide, not affiliated with Rockstar Games or Take-Two Interactive. Information is sourced from official Rockstar communications."}}, {"@type": "Question", "name": "Does it work offline?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Content is bundled with the app, so the guide works without a connection."}}, {"@type": "Question", "name": "Do I need an account?", "acceptedAnswer": {"@type": "Answer", "text": "No. There is no sign-up. Bookmarks and favorites are saved on your device."}}, {"@type": "Question", "name": "Is it free? What about ads and privacy?", "acceptedAnswer": {"@type": "Answer", "text": "It is free and shows ads from Google AdMob, which may collect device identifiers for personalized or non-personalized ads. The full details are in the privacy policy."}}]}]}</script>
 </head>
 <body>
 <div class="progress" aria-hidden="true"></div>
@@ -160,7 +173,7 @@ if(reduce){el.textContent=txt;return}el.textContent="";typing=setInterval(functi
 document.getElementById("sonnyBtn").onclick=function(){li=(li+1)%L.length;say(L[li]);document.getElementById("sonnyImg").src=li%2?"sonny-excited.png":"sonny-neutral.png";
 var b=this;b.classList.remove("hop");void b.offsetWidth;b.classList.add("hop")};
 if(!reduce){
-var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;e.target.classList.add("in");io.unobserve(e.target);if(e.target.classList.contains("sonny"))say(L[0])})},{rootMargin:"0px 0px -10% 0px"});
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;e.target.classList.add("in");io.unobserve(e.target);if(e.target.classList.contains("sonny"))say(L[0])})},{rootMargin:"0px"});
 document.querySelectorAll("h2,.sonny,.card,details,ul,.wrap>p,.foot-links,footer").forEach(function(el){el.classList.add("rv");el.style.setProperty("--d",Array.prototype.indexOf.call(el.parentNode.children,el)%4*90+"ms");io.observe(el)});
 var icon=document.querySelector(".icon"),grid=document.querySelector(".grid"),hg=document.querySelector(".hero-grid");
 function tiltIcon(x,y){icon.style.setProperty("--ry",Math.max(-14,Math.min(14,x))+"deg");icon.style.setProperty("--rx",Math.max(-14,Math.min(14,y))+"deg")}

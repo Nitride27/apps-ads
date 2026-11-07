@@ -23,13 +23,51 @@ h2{font-size:17px;margin-bottom:6px}
 section p{color:var(--sub);font-size:15px}
 a{color:var(--link)}
 footer{margin-top:28px;font-size:13px;color:var(--muted)}
+:root{--pk-a:#58CC02;--pk-on:#000437}
+
+.pk-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:18px 0 22px}
+.pk-facts div{border:1px solid var(--border);background:var(--card);padding:12px 14px;border-radius:var(--pk-r,14px)}
+.pk-facts small{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.pk-facts b{font-size:19px;color:var(--pk-a)}
+.pk-map{border:1px solid var(--border);background:var(--card);padding:18px;border-radius:var(--pk-r,16px);margin-bottom:22px}
+.pk-map h2{margin:0 0 4px}
+.pk-map>p{color:var(--sub);font-size:14px}
+.pk-pick{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 14px}
+.pk-pick button{font:inherit;font-size:14px;padding:6px 12px;border-radius:999px;border:1px solid var(--border);background:none;color:inherit;cursor:pointer;transition:background .25s,color .25s,border-color .25s}
+.pk-pick button[aria-pressed=true]{background:var(--pk-a);border-color:var(--pk-a);color:var(--pk-on)}
+.pk-dest{display:grid;grid-template-columns:repeat(var(--pk-n),1fr);gap:8px;list-style:none;padding:0;margin:0}
+.pk-dest li{border:1px solid var(--border);padding:12px;border-radius:var(--pk-r,12px);opacity:.4;transition:opacity .35s,transform .35s cubic-bezier(.2,.7,.2,1),border-color .35s,box-shadow .35s}
+.pk-dest li b{display:block}
+.pk-dest li span{font-size:13px;color:var(--sub)}
+.pk-dest li.on{opacity:1;border-color:var(--pk-a);transform:translateY(-3px);box-shadow:0 6px 20px -8px var(--pk-a)}
+.pk-dest li.never b{text-decoration:line-through;text-decoration-color:var(--pk-a)}
+.pk-say{margin-top:12px;min-height:3em;color:var(--sub);font-size:14.5px}
+.pk-rv{opacity:0;translate:0 22px;transition:opacity .7s cubic-bezier(.2,.7,.2,1) var(--d,0s),translate .7s cubic-bezier(.2,.7,.2,1) var(--d,0s)}
+.pk-rv.in{opacity:1;translate:none}
+@media(max-width:620px){.pk-facts{grid-template-columns:repeat(2,1fr)}.pk-dest{grid-template-columns:repeat(2,1fr)}}
+@media(prefers-reduced-motion:reduce){.pk-rv{opacity:1;translate:none;transition:none}.pk-dest li,.pk-pick button{transition:none}}
 </style>
+<!-- share -->
+<meta property="og:site_name" content="Samridha Shrestha Apps">
+<meta property="og:url" content="https://apps.samridhashrestha.com.np/privacypolicy_stayt/">
+<meta property="og:image" content="https://apps.samridhashrestha.com.np/stayt/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="StayT Privacy Policy">
+<meta name="twitter:description" content="What StayT handles, where it goes, and how to reach us. Everything stays on your phone; ads come from Google AdMob.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="StayT Privacy Policy">
+<meta property="og:description" content="What StayT handles, where it goes, and how to reach us. Everything stays on your phone; ads come from Google AdMob.">
 </head>
 <body>
 <main class="wrap">
 <header><img src="../stayt-icon.png" alt="StayT icon"><h1>StayT Privacy Policy</h1></header>
 <p class="meta">Last updated: 26 September 2026 · App package: com.nitridee.staytapp</p>
 <p class="intro">StayT is a task-based app blocker for Android, made by Samridha Shrestha. This policy explains what the app handles, where it goes, and how to reach us.</p>
+<div class="pk-facts"><div><small>Accounts</small><b>None</b></div><div><small>Sent by StayT</small><b>Nothing</b></div><div><small>Ads</small><b>Google AdMob</b></div><div><small>Data sold</small><b>Never</b></div></div>
+<div class="pk-map" style="--pk-n:3"><h2>Where your data goes</h2><p>Pick something the app touches. Everything here comes from the policy below.</p><div class="pk-pick"><button type="button" aria-pressed="false">Tasks &amp; history</button><button type="button" aria-pressed="false">What&#x27;s on screen</button><button type="button" aria-pressed="false">Reminders</button><button type="button" aria-pressed="false">Pro features</button><button type="button" aria-pressed="false">Ad data</button></div><ol class="pk-dest"><li data-d="phone"><b>Your phone</b><span>On-device storage</span></li><li data-d="ads"><b>Google AdMob</b><span>To serve, measure and limit ads</span></li><li data-d="us" class=never><b>Us</b><span>We hold no copy</span></li></ol><p class="pk-say" aria-live="polite"></p><script type="application/json">[["Tasks & history", ["phone"], "Tasks, sessions, blocked attempts, budgets, schedules and preferences stay in on-device storage. They never leave your phone."], ["What's on screen", ["phone"], "The app in front, the browser's address and Feed Shield's on-screen labels are checked on your device the moment they appear, then discarded. Never stored or sent. No keystrokes, passwords or messages."], ["Reminders", ["phone"], "Scheduled locally on your device. No notification content is sent to any server."], ["Pro features", ["phone"], "Turning one on plays a short rewarded ad. Nothing about which features you use leaves your device."], ["Ad data", ["ads"], "Google AdMob may collect your advertising ID, IP address and basic device and interaction data. In the EEA, UK and Switzerland you are asked for consent first."]]</script></div>
+
 
 <section><h2>On-device data</h2><p>Your tasks, sessions, blocked attempts, budgets, schedules and preferences stay in on-device storage. They never leave your phone.</p></section>
 
@@ -53,5 +91,15 @@ footer{margin-top:28px;font-size:13px;color:var(--muted)}
 
 <footer><a href="../stayt/">About StayT</a> · <a href="../">More apps by Samridha Shrestha</a></footer>
 </main>
+<script>
+(function(){
+document.querySelectorAll(".pk-map").forEach(function(m){var F=JSON.parse(m.querySelector("script").textContent),bs=m.querySelectorAll(".pk-pick button");
+function show(i){bs.forEach(function(b,j){b.setAttribute("aria-pressed",i===j)});m.querySelectorAll(".pk-dest li").forEach(function(li){li.classList.toggle("on",F[i][1].indexOf(li.dataset.d)>=0)});m.querySelector(".pk-say").textContent=F[i][2]}
+bs.forEach(function(b,i){b.onclick=function(){show(i)}});show(0)});
+if(matchMedia("(prefers-reduced-motion: reduce)").matches||!("IntersectionObserver" in window))return;
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{rootMargin:"0px"});
+document.querySelectorAll("main section,.pk-facts,.pk-map,footer").forEach(function(el){el.classList.add("pk-rv");el.style.setProperty("--d",Array.prototype.indexOf.call(el.parentNode.children,el)%3*90+"ms");io.observe(el)});
+})();
+</script>
 </body>
 </html>

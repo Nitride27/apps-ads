@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#58CC02">
 <title>StayT: Task-Based App Blocker for Android</title>
 <meta name="description" content="StayT blocks the apps and sites that pull you away while you work on a task. Streaks, schedules, Feed Shield and focus stats. Everything stays on your phone.">
 <link rel="canonical" href="https://apps.samridhashrestha.com.np/stayt/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="StayT: Task-Based App Blocker">
 <meta property="og:description" content="Pick a task, block what pulls you away, build a focus streak.">
-<meta property="og:image" content="https://apps.samridhashrestha.com.np/stayt-icon.png">
 <link rel="icon" href="../stayt-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -84,7 +84,39 @@ h1 em::after{content:"";position:absolute;left:0;right:0;bottom:-8px;height:10px
 @keyframes cf{45%{transform:translate(var(--dx),var(--dy)) rotate(calc(var(--r)*.5))}100%{transform:translate(calc(var(--dx)*1.3),calc(var(--dy) + 160px)) rotate(var(--r));opacity:0}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}h1 em::after{clip-path:none}.progress{display:none}}
 @media(max-width:560px){h1{font-size:34px}.icon{width:108px;height:108px;border-radius:26px}}
+
+.try{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:center}
+.phone{position:relative;background:var(--card);border:2px solid var(--border);border-radius:30px;padding:18px 16px 22px;min-height:300px;overflow:hidden;box-shadow:0 6px 0 var(--border)}
+.task{font-size:13px;color:var(--sub);margin-bottom:14px}
+.apps{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.apps button{display:flex;flex-direction:column;align-items:center;gap:6px;background:none;border:0;color:var(--ink);font:600 13px Inter,system-ui,sans-serif;cursor:pointer;padding:8px;border-radius:16px;transition:transform .2s cubic-bezier(.34,1.56,.64,1)}
+.apps button:hover{transform:translateY(-3px)}
+.apps i{width:58px;height:58px;border-radius:16px;box-shadow:0 4px 0 rgba(0,0,0,.18)}
+.apps button.ok i{outline:3px solid var(--green);outline-offset:2px}
+.cover{position:absolute;inset:0;background:var(--green-soft);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-align:center;padding:16px;animation:cover .45s cubic-bezier(.34,1.56,.64,1)}
+.cover[hidden]{display:none}
+.cover img{width:110px;height:110px;object-fit:contain;animation:nope 1.2s ease-in-out}
+.cover span{font-size:13px;color:var(--sub)}
+.cover button{margin-top:10px;background:var(--green);color:#000437;border:0;border-radius:14px;padding:9px 16px;font:700 14px "Space Grotesk",sans-serif;box-shadow:0 4px 0 var(--green-dark);cursor:pointer}
+@keyframes cover{from{transform:translateY(100%)}}
+details.card summary{cursor:pointer;font:600 16px "Space Grotesk",Inter,sans-serif;list-style:none;display:flex;justify-content:space-between;gap:12px}
+details.card summary::-webkit-details-marker{display:none}
+details.card summary::after{content:"+";color:var(--green);font-size:20px;line-height:1;transition:rotate .25s}
+details.card[open] summary::after{rotate:45deg}
+details.card p{margin-top:8px}
+.faq{display:grid;gap:10px}
+@media(max-width:620px){.try{grid-template-columns:1fr}.phone{max-width:300px}}
 </style>
+<!-- share -->
+<meta property="og:site_name" content="Samridha Shrestha Apps">
+<meta property="og:url" content="https://apps.samridhashrestha.com.np/stayt/">
+<meta property="og:image" content="https://apps.samridhashrestha.com.np/stayt/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="StayT: Task-Based App Blocker for Android">
+<meta name="twitter:description" content="StayT blocks the apps and sites that pull you away while you work on a task. Streaks, schedules, Feed Shield and focus stats. Everything stays on your phone.">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "MobileApplication", "inLanguage": "en", "author": {"@type": "Person", "name": "Samridha Shrestha", "url": "https://apps.samridhashrestha.com.np/"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "name": "StayT", "operatingSystem": "Android", "applicationCategory": "ProductivityApplication", "description": "StayT blocks the apps and sites that pull you away while you work, then turns the focus time you keep into a streak.", "url": "https://apps.samridhashrestha.com.np/stayt/", "downloadUrl": "https://play.google.com/store/apps/details?id=com.nitridee.staytapp", "image": "https://apps.samridhashrestha.com.np/stayt-icon.png"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do I need an account?", "acceptedAnswer": {"@type": "Answer", "text": "No. There is no account and no sign-up. Your tasks and history stay on your phone."}}, {"@type": "Question", "name": "Why does StayT need the Accessibility Service?", "acceptedAnswer": {"@type": "Answer", "text": "To see which app or site is in front so it can block it. That is checked on your phone the moment it appears and then discarded. StayT never stores or sends it, and does not collect keystrokes, passwords or messages. You can turn the service off any time in Android Settings > Accessibility."}}, {"@type": "Question", "name": "Can it block websites too?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. StayT blocks websites in your browser, as well as apps, split-screen and pop-up windows."}}, {"@type": "Question", "name": "Can I keep an app but hide Reels?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Feed Shield keeps the app usable but hides its Reels, Explore and other endless feeds."}}, {"@type": "Question", "name": "Is StayT free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. There are no purchases. Every Pro feature is included, and turning one on plays a short rewarded ad first. Ads come from Google AdMob."}}, {"@type": "Question", "name": "Where is my data stored?", "acceptedAnswer": {"@type": "Answer", "text": "Only on your phone. Clearing history in Settings removes sessions and attempts, and uninstalling StayT wipes everything."}}]}]}</script>
 </head>
 <body>
 <div class="progress" aria-hidden="true"></div>
@@ -129,6 +161,25 @@ h1 em::after{content:"";position:absolute;left:0;right:0;bottom:-8px;height:10px
 <p><b style="color:var(--ink)">Privacy.</b> Your tasks, sessions and history never leave your phone. StayT uses Android's Accessibility Service only to see which app or site is in front so it can block it, and never stores or sends that. Ads come from Google AdMob. Details in the <a href="../privacypolicy_stayt/">privacy policy</a>.</p>
 </div>
 
+
+<h2>Try it</h2>
+<div class="try">
+<div class="phone" id="tryPhone">
+<p class="task">Task: <b>Study</b> · <span id="tryCount">0</span> resisted</p>
+<div class="apps">
+<button type="button" data-b="1"><i style="background:#FF4B4B"></i>Videos</button>
+<button type="button" data-b="1"><i style="background:#CE82FF"></i>Feed</button>
+<button type="button" data-b="1"><i style="background:#1CB0F6"></i>Games</button>
+<button type="button" data-b="0"><i style="background:#58CC02"></i>Notes</button>
+</div>
+<div class="cover" id="tryCover" hidden><img src="blocked.png" alt=""><b id="tryWhat">Videos is blocked</b><span>Back to your task. You've got this.</span><button type="button" id="tryBack">Back to Study</button></div>
+</div>
+<p class="sub" style="max-width:none">You're studying, and Videos, Feed and Games are on the block list. Tap one to see what StayT does, then tap Notes, which is allowed. This is a demo; the real blocking happens on your phone.</p>
+</div>
+
+<h2>FAQ</h2>
+<div class="faq"><details class="card"><summary>Do I need an account?</summary><p>No. There is no account and no sign-up. Your tasks and history stay on your phone.</p></details><details class="card"><summary>Why does StayT need the Accessibility Service?</summary><p>To see which app or site is in front so it can block it. That is checked on your phone the moment it appears and then discarded. StayT never stores or sends it, and does not collect keystrokes, passwords or messages. You can turn the service off any time in Android Settings &gt; Accessibility.</p></details><details class="card"><summary>Can it block websites too?</summary><p>Yes. StayT blocks websites in your browser, as well as apps, split-screen and pop-up windows.</p></details><details class="card"><summary>Can I keep an app but hide Reels?</summary><p>Yes. Feed Shield keeps the app usable but hides its Reels, Explore and other endless feeds.</p></details><details class="card"><summary>Is StayT free?</summary><p>Yes. There are no purchases. Every Pro feature is included, and turning one on plays a short rewarded ad first. Ads come from Google AdMob.</p></details><details class="card"><summary>Where is my data stored?</summary><p>Only on your phone. Clearing history in Settings removes sessions and attempts, and uninstalling StayT wipes everything.</p></details></div>
+
 <h2>Support</h2>
 <p style="color:var(--sub)">Questions, feedback, or data requests: <a href="mailto:samridhashrestha@gmail.com">samridhashrestha@gmail.com</a></p>
 
@@ -145,10 +196,18 @@ s.onanimationend=function(){this.remove()};document.body.appendChild(s)}}
 owl.addEventListener("click",burst);
 document.querySelectorAll(".card svg *").forEach(function(e){e.setAttribute("pathLength",1)});
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;e.target.classList.add("in");io.unobserve(e.target);
-if(e.target.contains(owl))setTimeout(burst,500)})},{rootMargin:"0px 0px -10% 0px"});
-document.querySelectorAll("h2,.step,.card,.note,ul,footer,.wrap>p").forEach(function(el){el.classList.add("rv");
+if(e.target.contains(owl))setTimeout(burst,500)})},{rootMargin:"0px"});
+document.querySelectorAll("h2,.step,.card,.note,ul,footer,.wrap>p,.try").forEach(function(el){el.classList.add("rv");
 el.style.setProperty("--d",Array.prototype.indexOf.call(el.parentNode.children,el)%3*110+"ms");io.observe(el)});
 })();
+</script>
+<script>
+(function(){var c=0,cov=document.getElementById("tryCover");if(!cov)return;
+document.querySelectorAll("#tryPhone .apps button").forEach(function(b){b.onclick=function(){
+if(b.dataset.b==="1"){document.getElementById("tryWhat").textContent=b.textContent.trim()+" is blocked";cov.hidden=false;
+document.getElementById("tryCount").textContent=++c;document.getElementById("tryBack").focus()}
+else{b.classList.add("ok");document.querySelector("#tryPhone .task").innerHTML="Task: <b>Study</b> · Notes is allowed · <span id=tryCount>"+c+"</span> resisted"}}});
+document.getElementById("tryBack").onclick=function(){cov.hidden=true}})();
 </script>
 <script src="../ripple.js" data-colors="#58CC02,#1CB0F6,#FF9600"></script>
 </body>
