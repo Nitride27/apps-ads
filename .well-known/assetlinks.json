@@ -7,7 +7,8 @@
       "namespace": "android_app",
       "package_name": "com.samridha.secretsanta",
       "sha256_cert_fingerprints": [
-        "DB:A3:03:82:32:EA:8E:F7:12:00:DA:6E:E9:BC:5E:ED:F1:9C:2F:BA:73:69:26:F8:26:1A:3D:FD:E7:C2:AF:22"
+        "DB:A3:03:82:32:EA:8E:F7:12:00:DA:6E:E9:BC:5E:ED:F1:9C:2F:BA:73:69:26:F8:26:1A:3D:FD:E7:C2:AF:22",
+        "6B:A2:81:01:C3:F3:D2:D0:28:1F:E8:10:61:5A:2B:48:F4:56:4E:0B:40:9A:80:87:EF:EB:5A:1D:5E:9C:65:7F"
       ]
     }
   },
@@ -19,7 +20,8 @@
       "namespace": "android_app",
       "package_name": "com.samridha.potluck",
       "sha256_cert_fingerprints": [
-        "DB:A3:03:82:32:EA:8E:F7:12:00:DA:6E:E9:BC:5E:ED:F1:9C:2F:BA:73:69:26:F8:26:1A:3D:FD:E7:C2:AF:22"
+        "DB:A3:03:82:32:EA:8E:F7:12:00:DA:6E:E9:BC:5E:ED:F1:9C:2F:BA:73:69:26:F8:26:1A:3D:FD:E7:C2:AF:22",
+        "79:87:E2:B0:26:00:93:07:1D:32:E8:3E:49:94:18:76:53:2F:2B:29:8C:59:F8:32:F8:CF:AF:80:A6:9C:EB:F2"
       ]
     }
   }
