@@ -34,3 +34,9 @@
 - [Allergy-friendly potluck](https://apps.samridhashrestha.com.np/potluck/allergy-friendly-potluck/): How to run an allergy-friendly potluck: dietary tags on every dish, labels, separate spoons, and a list showing what's vegan, gluten-free or nut-free.
 - [Potluck sign-up apps compared](https://apps.samridhashrestha.com.np/potluck/compare/): Potluck Planner vs SignUpGenius, Perfect Potluck, Grasshopper, Whocan and Google Sheets: accounts, ads, where your data lives and what each does.
 <!-- <<< potluck -->
+
+<!-- >>> resolutions -->
+## Habit Tracker: Resolution 2027
+- [Habit Tracker: Resolution 2027](https://apps.samridhashrestha.com.np/resolutions/): Android habit tracker with one-tap check-ins, streaks, on-time reminders, a home-screen widget, yearly stats and challenges shared with friends; no account, habits stay on the phone; free with ads.
+- [Privacy policy](https://apps.samridhashrestha.com.np/resolutions/privacy.html)
+<!-- <<< resolutions -->
