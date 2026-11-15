@@ -1,0 +1,36 @@
+# Samridha Shrestha Apps
+
+> Small Android apps. Each app's page explains what it does and links its privacy policy.
+
+<!-- >>> secretsanta -->
+## Secret Santa
+- [Secret Santa app and generator](https://apps.samridhashrestha.com.np/secretsanta/): draw names with no email or sign-up; each person gets a private link that opens on any phone; the organizer can play without seeing matches.
+- [Privacy policy](https://apps.samridhashrestha.com.np/secretsanta/privacy.html)
+- [Secret Santa on WhatsApp](https://apps.samridhashrestha.com.np/secretsanta/whatsapp/): Draw names, then send each person a private WhatsApp message with a link to their match. Works on iPhone and Android, no accounts or emails.
+- [Secret Santa with exclusions](https://apps.samridhashrestha.com.np/secretsanta/exclusions/): Stop couples, households or last year's pairs from drawing each other. Free exclusions, households in one tap, and kids draw kids. No account.
+- [Secret Santa where even the organizer can't peek](https://apps.samridhashrestha.com.np/secretsanta/anonymous/): Run a Secret Santa where even the organizer can't see who drew who, so they can take part too. No accounts. Links open on any phone.
+- [How Secret Santa works](https://apps.samridhashrestha.com.np/secretsanta/rules/): The simple rules of Secret Santa: everyone draws one name and buys one gift. Odd numbers are fine. With 3 people, everyone can work out their Santa.
+- [White Elephant rules](https://apps.samridhashrestha.com.np/secretsanta/white-elephant-rules/): White Elephant rules: draw numbers, open or steal on your turn, a gift is frozen after 3 steals, and number one gets a final swap. Free app to run it.
+- [Kris Kringle by any name](https://apps.samridhashrestha.com.np/secretsanta/kris-kringle/): Kris Kringle, Kris Kindle, Monito Monita, Chris Mom Chris Child, Wichteln, amigo secreto: one name draw. Free, no sign-up, links open on any phone.
+- [Office Secret Santa](https://apps.samridhashrestha.com.np/secretsanta/office/): Run an office Secret Santa without collecting emails or making anyone sign up. Private links by Slack, Teams, WhatsApp or email, or printed slips.
+- [Printable Secret Santa slips](https://apps.samridhashrestha.com.np/secretsanta/printable-slips/): Print fold-over Secret Santa reveal slips, six to a page, each with one person's match hidden inside. Free with the app. See a sample PDF.
+- [Secret Santa gift ideas by budget](https://apps.samridhashrestha.com.np/secretsanta/gift-ideas/): Secret Santa gift ideas sorted by budget, from under $10 to splurges, and by interest: coffee, books, games, cozy, tech, pets and more.
+- [Secret Santa apps compared](https://apps.samridhashrestha.com.np/secretsanta/compare/): Secret Santa apps compared: accounts, who sees the matches, iPhone support, wishlists, exclusions and price. Checked November 2026.
+<!-- <<< secretsanta -->
+
+<!-- >>> potluck -->
+## Potluck Planner
+- [Potluck Planner app and sign-up sheet maker](https://apps.samridhashrestha.com.np/potluck/): potluck sign-up sheets with no accounts; guests pick a dish from a link on any phone; the list stays on the host's phone.
+- [Privacy policy](https://apps.samridhashrestha.com.np/potluck/privacy.html)
+- [Friendsgiving potluck list](https://apps.samridhashrestha.com.np/potluck/friendsgiving-potluck-list/): A complete Friendsgiving potluck list: mains, sides, pies, drinks and supplies, with how many of each, plus a free sign-up sheet guests fill in by link.
+- [Thanksgiving potluck sign-up sheet](https://apps.samridhashrestha.com.np/potluck/thanksgiving-potluck-sign-up-sheet/): Make a free Thanksgiving potluck sign-up sheet in a minute. Guests pick dishes from a link on any phone, with no account, and you see what's still missing.
+- [What to bring to a potluck](https://apps.samridhashrestha.com.np/potluck/what-to-bring-to-a-potluck/): What to bring to a potluck: easy mains, sides, desserts and drinks that travel well and feed a crowd, plus what to ask the host first.
+- [How much food for a potluck](https://apps.samridhashrestha.com.np/potluck/how-much-food-for-a-potluck/): Free potluck food calculator: how big a turkey, how many pies, drinks, ice and plates for your guest count, in pounds or kilos.
+- [Office potluck ideas](https://apps.samridhashrestha.com.np/potluck/office-potluck-ideas/): Office potluck ideas that work at a desk: easy dishes, themes, allergy labels and a free sign-up sheet colleagues fill in by link, no accounts.
+- [Potluck etiquette](https://apps.samridhashrestha.com.np/potluck/potluck-etiquette/): Potluck etiquette for guests and hosts: what to bring, when to sign up, labelling allergens, serving spoons and taking leftovers home.
+- [Printable potluck sign-up sheet](https://apps.samridhashrestha.com.np/potluck/printable-potluck-sign-up-sheet/): A printable potluck sign-up sheet: items, names and dietary columns on A4 or Letter, with a QR code so people can also sign up on their phone.
+- [Potluck themes](https://apps.samridhashrestha.com.np/potluck/potluck-themes/): Potluck themes that make planning easy: Friendsgiving, taco bar, around the world, brunch, soup night, holiday and cultural celebrations.
+- [Christmas potluck ideas](https://apps.samridhashrestha.com.np/potluck/christmas-potluck-ideas/): Christmas potluck ideas: what to assign, festive dishes that travel, cookie swaps, and a free sign-up sheet guests fill in from a link.
+- [Allergy-friendly potluck](https://apps.samridhashrestha.com.np/potluck/allergy-friendly-potluck/): How to run an allergy-friendly potluck: dietary tags on every dish, labels, separate spoons, and a list showing what's vegan, gluten-free or nut-free.
+- [Potluck sign-up apps compared](https://apps.samridhashrestha.com.np/potluck/compare/): Potluck Planner vs SignUpGenius, Perfect Potluck, Grasshopper, Whocan and Google Sheets: accounts, ads, where your data lives and what each does.
+<!-- <<< potluck -->

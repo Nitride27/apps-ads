@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Your Secret Santa wishlist</title>
+<meta name="description" content="Fill in your Secret Santa wishlist.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<link rel="canonical" href="https://apps.samridhashrestha.com.np/secretsanta/w/">
+<link rel="icon" type="image/png" href="../icon.png">
+<link rel="apple-touch-icon" href="../icon.png">
+<meta name="theme-color" content="#a8141c">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Samridha Shrestha Apps">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Your Secret Santa wishlist">
+<meta property="og:description" content="Fill in your Secret Santa wishlist.">
+<meta property="og:url" content="https://apps.samridhashrestha.com.np/secretsanta/w/">
+<meta property="og:image" content="https://apps.samridhashrestha.com.np/secretsanta/feature.jpg">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="500">
+<meta property="og:image:alt" content="Secret Santa app: draw names with no email or sign-up">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="../fonts/display.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../site.css">
+<script>document.documentElement.className="js"</script>
+<script type="application/json" id="cfg">{"store": "https://play.google.com/store/apps/details?id=com.samridha.secretsanta", "app": "Secret Santa", "reveal": "https://apps.samridhashrestha.com.np/secretsanta/r/#", "wish": "https://apps.samridhashrestha.com.np/secretsanta/w/#"}</script>
+</head>
+<body>
+<div class="paper" aria-hidden="true"></div>
+<canvas id="snow" aria-hidden="true"></canvas>
+<div class="lights" aria-hidden="true"><i style="left:30px;--c:#ff4b4b;--i:0"></i><i style="left:90px;--c:#ffc94a;--i:1"></i><i style="left:150px;--c:#3fd17f;--i:2"></i><i style="left:210px;--c:#5aa2ff;--i:3"></i><i style="left:270px;--c:#fff3d6;--i:4"></i><i style="left:330px;--c:#ff4b4b;--i:5"></i><i style="left:390px;--c:#ffc94a;--i:6"></i><i style="left:450px;--c:#3fd17f;--i:7"></i><i style="left:510px;--c:#5aa2ff;--i:8"></i><i style="left:570px;--c:#fff3d6;--i:9"></i><i style="left:630px;--c:#ff4b4b;--i:10"></i><i style="left:690px;--c:#ffc94a;--i:11"></i><i style="left:750px;--c:#3fd17f;--i:12"></i><i style="left:810px;--c:#5aa2ff;--i:13"></i><i style="left:870px;--c:#fff3d6;--i:14"></i><i style="left:930px;--c:#ff4b4b;--i:15"></i><i style="left:990px;--c:#ffc94a;--i:16"></i><i style="left:1050px;--c:#3fd17f;--i:17"></i><i style="left:1110px;--c:#5aa2ff;--i:18"></i><i style="left:1170px;--c:#fff3d6;--i:19"></i><i style="left:1230px;--c:#ff4b4b;--i:20"></i><i style="left:1290px;--c:#ffc94a;--i:21"></i><i style="left:1350px;--c:#3fd17f;--i:22"></i><i style="left:1410px;--c:#5aa2ff;--i:23"></i><i style="left:1470px;--c:#fff3d6;--i:24"></i><i style="left:1530px;--c:#ff4b4b;--i:25"></i><i style="left:1590px;--c:#ffc94a;--i:26"></i><i style="left:1650px;--c:#3fd17f;--i:27"></i><i style="left:1710px;--c:#5aa2ff;--i:28"></i><i style="left:1770px;--c:#fff3d6;--i:29"></i><i style="left:1830px;--c:#ff4b4b;--i:30"></i><i style="left:1890px;--c:#ffc94a;--i:31"></i><i style="left:1950px;--c:#3fd17f;--i:32"></i><i style="left:2010px;--c:#5aa2ff;--i:33"></i><i style="left:2070px;--c:#fff3d6;--i:34"></i><i style="left:2130px;--c:#ff4b4b;--i:35"></i><i style="left:2190px;--c:#ffc94a;--i:36"></i><i style="left:2250px;--c:#3fd17f;--i:37"></i><i style="left:2310px;--c:#5aa2ff;--i:38"></i><i style="left:2370px;--c:#fff3d6;--i:39"></i><i style="left:2430px;--c:#ff4b4b;--i:40"></i><i style="left:2490px;--c:#ffc94a;--i:41"></i><i style="left:2550px;--c:#3fd17f;--i:42"></i><i style="left:2610px;--c:#5aa2ff;--i:43"></i></div>
+<div class="wrap">
+<header class="top"><a class="brand" href="../"><img src="../icon.png" width="36" height="36" alt="">Secret <b>Santa</b></a>
+<nav class="links" aria-label="Page"></nav></header>
+<main class="solo">
+<div id="bad" hidden>
+<h1>This link isn't complete</h1>
+<p class="tip">Open the wishlist link straight from the organizer's message, or ask them to send it again.</p>
+</div>
+<form class="wf" id="form" hidden novalidate>
+<h1>Your <b>wishlist</b></h1>
+<p class="tip">For <b id="event"></b>. <span id="budget"></span> Only the organizer gets this, and it goes to whoever draws you.</p>
+<label for="name">Your name</label><input id="name" maxlength="40" autocomplete="given-name" required>
+<label for="wishes">What would you love?</label>
+<div class="ideas"><button type="button" data-idea="Coffee">+ Coffee</button><button type="button" data-idea="Books">+ Books</button><button type="button" data-idea="Cozy socks">+ Cozy socks</button><button type="button" data-idea="Board games">+ Board games</button><button type="button" data-idea="Plants">+ Plants</button><button type="button" data-idea="Snacks">+ Snacks</button><button type="button" data-idea="Candles">+ Candles</button><button type="button" data-idea="Gadgets">+ Gadgets</button></div>
+<textarea id="wishes" rows="4" maxlength="300" placeholder="Ideas, colours, product links"></textarea>
+<label for="sizes">Sizes</label><input id="sizes" maxlength="100" placeholder="M top, 38 shoes">
+<label for="dislikes">Please no</label><input id="dislikes" maxlength="150" placeholder="Nuts, scented candles">
+<button class="get" style="margin-top:1rem">Make my reply</button><p class="err" id="err" role="alert"></p>
+</form>
+<div id="done" hidden>
+<h1>Now send it <b>back</b></h1>
+<p class="tip">Send this message to the organizer only.</p>
+<div class="cta" style="justify-content:center"><button type="button" class="get" id="share" hidden>Share</button><a class="get" id="wa">WhatsApp</a><a class="ghost" id="sms">Text</a><button type="button" class="ghost" id="copy">Copy</button></div>
+<label for="out" class="tip">Your reply</label><textarea id="out" class="ask" rows="5" readonly style="width:100%;border-radius:10px;padding:.6rem"></textarea>
+<p class="tip" id="copied" role="status"></p>
+</div>
+<p class="tip" style="margin-top:2rem">Organizing your own exchange? <a id="store" href="#">Get the app</a>.</p>
+</main>
+<footer>
+<span>© 2026 Samridha Shrestha</span>
+<nav aria-label="More"><a href="../">About the app</a><a href="../compare/">Compare apps</a><a href="../privacy.html">Privacy</a><a href="../../">More apps</a><a href="mailto:samridhashrestha10@gmail.com">Contact</a></nav>
+</footer>
+</div>
+<script src="../codec.js" defer></script>
+<script src="../wish.js" defer></script>
+<script src="../site.js" defer></script>
+</body>
+</html>

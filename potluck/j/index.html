@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Potluck sign-up</title>
+<meta name="description" content="Pick what you&#x27;ll bring to the potluck.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<link rel="canonical" href="https://apps.samridhashrestha.com.np/potluck/j/">
+<link rel="icon" type="image/png" href="../icon.png">
+<link rel="apple-touch-icon" href="../icon.png">
+<meta name="theme-color" content="#F5E9D0">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Samridha Shrestha Apps">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Potluck sign-up">
+<meta property="og:description" content="Pick what you&#x27;ll bring to the potluck.">
+<meta property="og:url" content="https://apps.samridhashrestha.com.np/potluck/j/">
+<meta property="og:image" content="https://apps.samridhashrestha.com.np/potluck/feature.jpg">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="500">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../site.css">
+<script>document.documentElement.className="js"</script>
+<script type="application/json" id="cfg">{"store": "https://play.google.com/store/apps/details?id=com.samridha.potluck", "site": "https://apps.samridhashrestha.com.np/potluck/", "cats": ["Mains", "Sides", "Appetizers", "Desserts", "Drinks", "Supplies", "Help", "Other"], "tags": ["Vegetarian", "Vegan", "Gluten-free", "Dairy-free", "Nut-free", "Halal", "Kosher", "Contains alcohol"], "short": {"Vegetarian": "V", "Vegan": "VG", "Gluten-free": "GF", "Dairy-free": "DF", "Nut-free": "NF", "Halal": "H", "Kosher": "K", "Contains alcohol": "ALC"}}</script>
+</head>
+<body>
+<div class="cloth" aria-hidden="true"></div>
+<canvas id="drift" aria-hidden="true"></canvas>
+<div class="garland" aria-hidden="true"></div>
+<div class="wrap">
+<header class="top"><a class="brand" href="../"><img src="../icon.png" width="36" height="36" alt="">Potluck <b>Planner</b></a>
+<nav class="links" aria-label="Page"></nav></header>
+<main class="solo">
+<div id="ask" hidden>
+<h1>Open the <b>sign-up sheet</b></h1>
+<p>This link isn't complete. Paste the whole message the host sent.</p>
+<form class="f box" id="paste"><label for="pasted">The host's message</label><textarea id="pasted" rows="4"></textarea>
+<button class="get go">Show the sheet</button><p class="err" id="perr" role="alert"></p></form>
+</div>
+<form class="f" id="form" hidden novalidate>
+<h1 id="title"></h1>
+<p id="meta"></p>
+<p id="note" hidden></p>
+<div class="box">
+<label for="name">Your name</label><input id="name" maxlength="40" autocomplete="given-name" required>
+<fieldset class="rsvp" style="border:0;padding:0;margin:.6rem 0 0"><legend>Are you coming?</legend>
+<label><input type="radio" name="rsvp" value="yes" checked>Going</label><label><input type="radio" name="rsvp" value="maybe">Maybe</label><label><input type="radio" name="rsvp" value="no">Can't come</label></fieldset>
+<label for="party">People in your party</label><input id="party" type="number" min="1" max="20" value="1" inputmode="numeric">
+</div>
+<div id="bring">
+<h2>Pick what you'll bring</h2>
+<p class="warn">This list is from when the invite was sent. If a dish was taken since, the host will tell you.</p>
+<div id="slots"></div>
+<div class="box"><h2>Something else</h2><ul id="extras"></ul><button type="button" class="x" id="more">+ Add a dish</button></div>
+</div>
+<div class="box"><label for="gnote">Note to the host</label><input id="gnote" maxlength="150" placeholder="Running late, allergic to nuts…"></div>
+<button class="get go">Make my reply</button><p class="err" id="err" role="alert"></p>
+</form>
+<div id="done" hidden tabindex="-1">
+<h1>Now send it <b>back</b></h1>
+<p>Send this to the host only. Tapping it adds you to their sheet.</p>
+<div class="cta"><button type="button" class="get" id="share" hidden>Share</button><a class="get" id="wa">WhatsApp</a><a class="ghost" id="sms">Text</a><button type="button" class="ghost" id="copy">Copy</button></div>
+<label for="out">Your reply</label><textarea id="out" rows="6" readonly></textarea>
+<p id="copied" role="status"></p>
+<div class="cta"><a class="ghost" id="cal" hidden>Add to calendar</a><button type="button" class="ghost" id="edit">Change my answer</button></div>
+</div>
+<p class="note" style="margin-top:2rem">Hosting your own? <a id="store" href="#">Get Potluck Planner</a>, free.</p>
+<noscript><p>Turn on JavaScript to see the sheet. It never leaves this page.</p></noscript>
+</main>
+<footer>
+<span>© 2026 Samridha Shrestha</span>
+<nav aria-label="More"><a href="../">About the app</a><a href="../compare/">Compare apps</a><a href="../privacy.html">Privacy</a><a href="../../">More apps</a><a href="mailto:samridhashrestha10@gmail.com">Contact</a></nav>
+</footer>
+</div>
+<script src="../codec.js" defer></script>
+<script src="../join.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.samridha.secretsanta",
+      "sha256_cert_fingerprints": [
+        "DB:A3:03:82:32:EA:8E:F7:12:00:DA:6E:E9:BC:5E:ED:F1:9C:2F:BA:73:69:26:F8:26:1A:3D:FD:E7:C2:AF:22"
+      ]
+    }
+  },
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.samridha.potluck",
+      "sha256_cert_fingerprints": [
+        "DB:A3:03:82:32:EA:8E:F7:12:00:DA:6E:E9:BC:5E:ED:F1:9C:2F:BA:73:69:26:F8:26:1A:3D:FD:E7:C2:AF:22"
+      ]
+    }
+  }
+]

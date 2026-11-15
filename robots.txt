@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# >>> secretsanta
+Disallow: /secretsanta/r/
+Disallow: /secretsanta/w/
+# <<< secretsanta
+
+# >>> potluck
+Disallow: /potluck/j/
+Disallow: /potluck/a/
+Disallow: /potluck/h/
+# <<< potluck
+
+Sitemap: https://apps.samridhashrestha.com.np/sitemap.xml
