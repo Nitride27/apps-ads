@@ -40,3 +40,7 @@
 - [Habit Tracker: Resolution 2027](https://apps.samridhashrestha.com.np/resolutions/): Android habit tracker with one-tap check-ins, streaks, on-time reminders, a home-screen widget, yearly stats and challenges shared with friends; no account, habits stay on the phone; free with ads.
 - [Privacy policy](https://apps.samridhashrestha.com.np/resolutions/privacy.html)
 <!-- <<< resolutions -->
+<!-- >>> tides -->
+- [Tide Chart & Fishing Times](https://apps.samridhashrestha.com.np/tides/): Android tide app with high and low tide times, tide charts and solunar fishing times for 3,200 NOAA stations, calculated offline on the phone; tide alerts, live NOAA water levels and a home-screen widget; free with ads.
+- [Privacy policy](https://apps.samridhashrestha.com.np/tides/privacy.html)
+<!-- <<< tides -->
