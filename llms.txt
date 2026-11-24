@@ -44,3 +44,7 @@
 - [Tide Chart & Fishing Times](https://apps.samridhashrestha.com.np/tides/): Android tide app with high and low tide times, tide charts and solunar fishing times for 3,200 NOAA stations, calculated offline on the phone; tide alerts, live NOAA water levels and a home-screen widget; free with ads.
 - [Privacy policy](https://apps.samridhashrestha.com.np/tides/privacy.html)
 <!-- <<< tides -->
+<!-- >>> wordsearch -->
+- [Big Letter Word Search](https://apps.samridhashrestha.com.np/wordsearch/): Android large print word search with big, clear letters: a daily puzzle, a Sunday criss-cross, a night edition, make-your-own puzzles and 500 themed puzzles; works offline; free with ads.
+- [Privacy policy](https://apps.samridhashrestha.com.np/wordsearch/privacy.html)
+<!-- <<< wordsearch -->
