@@ -1,27 +1,78 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="icon.png"><link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;700&family=Playfair+Display:ital,wght@0,900;1,700&display=swap" rel="stylesheet"><title>Large Print Word Search: Easy | Big Letter Word Search</title>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Large Print Word Search: Easy | Big Letter Word Search</title>
 <meta name="description" content="A large print word search for Android with big, clear letters: a daily puzzle, a Sunday criss-cross, a night edition and make-your-own puzzles. Free, works offline.">
-<style>:root{--paper:#FBF9F4;--ink:#121212;--rule:#D6D1C7;--red:#B3261E;--grey:#454545}@media (prefers-color-scheme:dark){:root{--paper:#151413;--ink:#EDE8DF;--rule:#3A3733;--red:#EF7A6F;--grey:#B9B3A8}}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:19px/1.6 "Libre Franklin",system-ui,sans-serif}main{max-width:720px;margin:0 auto;padding:40px 16px 80px}h1,h2{font-family:"Playfair Display",Georgia,serif;font-weight:900;line-height:1.08;margin:.3em 0}h1{font-size:clamp(40px,9vw,68px)}h2{font-size:30px;margin-top:1.6em}.rules{border-top:6px solid var(--ink);padding-top:4px}.rules:after{content:"";display:block;border-top:2px solid var(--ink)}.k{font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-size:14px;color:var(--red);margin-top:18px}.deck{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-size:24px;color:var(--grey)}a{color:var(--ink)}.cta{display:inline-block;background:var(--red);color:#fff;padding:14px 24px;border-radius:4px;text-decoration:none;font-weight:700;margin:20px 0}ul{padding-left:20px}footer{border-top:1px solid var(--rule);margin-top:48px;padding-top:16px;color:var(--grey);font-size:15px}img.icon{width:88px;height:88px;border-radius:20px;border:1px solid var(--rule)}</style>
+<link rel="canonical" href="https://apps.samridhashrestha.com.np/wordsearch/">
+<link rel="icon" href="icon.png">
+<meta name="theme-color" content="#FBF9F4">
+<meta property="og:title" content="Big Letter Word Search">
+<meta property="og:description" content="Big letters, calm puzzles. A daily large print word search, a Sunday criss-cross and a night edition. Free, offline.">
+<meta property="og:url" content="https://apps.samridhashrestha.com.np/wordsearch/">
+<meta property="og:image" content="https://apps.samridhashrestha.com.np/wordsearch/feature.png">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<script>document.documentElement.className="js"</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"MobileApplication","name":"Big Letter Word Search","alternateName":"Large Print Word Search: Easy","operatingSystem":"Android","applicationCategory":"GameApplication","url":"https://play.google.com/store/apps/details?id=com.bigletterwords.app","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
-</head><body><main>
-<div class="rules"></div>
-<p class="k">Large print word search</p>
-<img class="icon" src="icon.png" alt="Big Letter Word Search icon">
+</head>
+<body>
+<div class="wrap">
+<header class="mast">
+<div class="dateline"><span id="date">Daily edition</span><span class="mid">Large print word search</span><span>Free · Android</span></div>
+<p class="title"><img src="icon.png" width="44" height="44" alt="">Big Letter Word Search</p>
+</header>
+<main>
+<section class="lead">
 <h1>Big letters. Calm puzzles.</h1>
-<p class="deck">A fresh word search every morning, set in big, clear newspaper type.</p>
+<p class="deck">A fresh word search every morning, set in big, clear newspaper type. No timer, no tiny buttons, nothing to rush you.</p>
 <a class="cta" href="https://play.google.com/store/apps/details?id=com.bigletterwords.app">Get it on Google Play</a>
-<h2>Made for tired eyes</h2>
-<ul>
-<li>Huge (7×7), large (9×9) or standard (11×11) grids</li>
-<li>High-contrast type, no timer, no tiny buttons</li>
-<li>A night edition with dark pages for evening play</li>
-<li>Easy mode keeps every word reading forwards</li>
-</ul>
-<h2>Something new every day</h2>
-<ul>
-<li>A daily puzzle with a gentle streak, plus 30 days of back issues</li>
-<li>A criss-cross word puzzle every Sunday</li>
-<li>Make your own puzzle from family names or favourite things</li>
-<li>500 puzzles in 25 themed sections. Works offline.</li>
-</ul>
-<footer><a href="privacy.html">Privacy policy</a></footer>
-</main></body></html>
+<p class="note">Free for Android, supported by ads. Works offline. Try today's sample puzzle below.</p>
+</section>
+
+<section class="pz" id="ws" aria-labelledby="wst">
+<div class="pzbar"><p class="k">Today's puzzle · try it here</p><p class="pzp"><span id="wsp"></span><i id="wsbar"></i></p></div>
+<div class="pzbody">
+<div class="boardcol">
+<p class="read" id="wsr" aria-live="polite"></p>
+<div class="board"><div class="grid" id="wsg" role="application"></div><svg id="wso" aria-hidden="true"></svg></div>
+<p class="done" id="wsdone" aria-live="polite"></p>
+</div>
+<div class="side">
+<h2 id="wst">In the garden</h2>
+<ol class="words" id="wsl"></ol>
+<div class="seg" id="wssize" role="group" aria-label="Print size"><button type="button" data-n="7" aria-pressed="true">7×7</button><button type="button" data-n="9" aria-pressed="false">9×9</button><button type="button" data-n="11" aria-pressed="false">11×11</button></div>
+<p class="note" id="wsn"></p>
+<div class="row"><button type="button" class="tg" id="wseasy" aria-pressed="true">Easy: forwards only</button><button type="button" class="tg" id="wsclue" aria-pressed="false">Clue edition</button></div>
+<div class="row"><button type="button" class="tg" id="wsnight" aria-pressed="false">Night edition</button><button type="button" class="tg" id="wshint">Show me one</button></div>
+<div class="week"><p class="note">This week · streak <b id="wkn">12</b></p><div class="wk" id="wk"></div></div>
+</div>
+</div>
+<form class="mine" id="wsm">
+<label for="wsmi"><b>Make your own.</b> Type family names or favourite things, separated by commas.</label>
+<div class="row"><input id="wsmi" maxlength="120" autocomplete="off" placeholder="Grandma, Biscuit, Lisbon, Garden"><button class="cta sm">Set my puzzle</button></div>
+<p class="note"><span id="wsmsg" aria-live="polite"></span> <button type="button" class="link" id="wsback" hidden>Back to today's puzzle</button></p>
+</form>
+</section>
+
+<section class="cols">
+<article data-rv><h2>Made for tired eyes</h2>
+<ul><li>Huge (7×7), large (9×9) or standard (11×11) grids</li><li>High-contrast type, no timer, no tiny buttons</li><li>A night edition with dark pages for evening play</li><li>Easy mode keeps every word reading forwards</li></ul></article>
+<article data-rv><h2>Something new every day</h2>
+<ul><li>A daily puzzle with a gentle streak, plus 30 days of back issues</li><li>A criss-cross word puzzle every Sunday</li><li>Make your own puzzle from family names or favourite things</li><li>500 puzzles in 25 themed sections. Works offline.</li></ul></article>
+</section>
+
+<section class="shots"><h2>In the app</h2><div class="strip">
+<figure data-rv><img src="shots/01-home.png" loading="lazy" alt="Front page with today's puzzle and streak"><figcaption>A. The front page</figcaption></figure>
+<figure data-rv><img src="shots/02-play.png" loading="lazy" alt="A puzzle in play"><figcaption>B. Big, clear letters</figcaption></figure>
+<figure data-rv><img src="shots/03-size.png" loading="lazy" alt="Choosing the grid size"><figcaption>C. Pick your print size</figcaption></figure>
+<figure data-rv><img src="shots/04-cross.png" loading="lazy" alt="Sunday criss-cross"><figcaption>D. Sunday criss-cross</figcaption></figure>
+<figure data-rv><img src="shots/06-night.png" loading="lazy" alt="Night edition"><figcaption>E. Night edition</figcaption></figure>
+</div></section>
+</main>
+<footer><span>© 2026 Samridha Shrestha · MadAxe Studios</span><nav aria-label="More"><a href="privacy.html">Privacy policy</a><a href="../">More apps</a></nav></footer>
+</div>
+<script src="play.js" defer></script>
+</body>
+</html>
