@@ -20,6 +20,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="fonts/IBMPlexSansCondensed_700Bold.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="stylesheet" href="site.css">
+<script>document.documentElement.className="js"</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Tide Chart & Fishing Times","operatingSystem":"Android","applicationCategory":"WeatherApplication","url":"https://apps.samridhashrestha.com.np/tides/","downloadUrl":"https://play.google.com/store/apps/details?id=com.samridha.tides","image":"https://apps.samridhashrestha.com.np/tides/icon.png","screenshot":"https://apps.samridhashrestha.com.np/tides/shots/01-today.png","description":"High and low tide times, tide charts and solunar fishing times for 3,200 NOAA tide stations, calculated offline on the phone. Tide alerts, live NOAA water levels and a home-screen widget.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Person","name":"Samridha Shrestha","url":"https://samridhashrestha.com.np/"},"publisher":{"@type":"Organization","name":"MadAxe Studios"}}
 </script>
@@ -40,22 +41,40 @@
 <div class="phone"><img src="shots/01-today.png" width="1080" height="1920" alt="Today screen: the tide is coming in, high tide around 2:30 this afternoon"></div>
 </section>
 
+<ul class="stats"><li data-rv><b data-n="3200">3,200</b><span>NOAA tide stations</span></li><li data-rv><b data-n="5600">5,600</b><span>coastal towns to search</span></li><li data-rv><b data-n="0">0</b><span>bars of signal needed</span></li><li data-rv><b data-n="7">7</b><span>days ahead, free</span></li></ul>
+
+<section class="tide" aria-labelledby="tc-h">
+<h2 id="tc-h">Read the tide at any minute</h2>
+<p class="k">Example station · pick a day, drag the chart, drag your level</p>
+<div class="days" id="days" role="group" aria-label="Pick a day; each shows its fishing rating"></div>
+<p class="read" id="tc-read" aria-hidden="true"></p>
+<svg id="tc" viewBox="0 0 1000 300" role="slider" tabindex="0" aria-label="Example tide chart, time of day" aria-valuemin="0" aria-valuemax="24"></svg>
+<p class="lvread" id="tc-lv"></p>
+<p class="key"><span class="kmaj"></span>Major bite time <span class="kmin"></span>Minor bite time <span class="klv"></span>Your level</p>
+<div class="inst">
+<figure><svg id="clock" viewBox="0 0 120 120" aria-hidden="true"></svg><figcaption><b>Tide clock</b><span id="ck-say"></span></figcaption></figure>
+<figure><svg id="staff" viewBox="0 0 120 260" aria-hidden="true"></svg><figcaption><b>At the dock</b><span>The same water on a tide staff, in feet, with your level.</span></figcaption></figure>
+<figure><svg id="moon" viewBox="0 0 200 200" role="slider" tabindex="0" aria-label="Moon position around the earth" aria-valuemin="0" aria-valuemax="359"></svg><figcaption><b>Drag the moon</b><span id="mn-say"></span><button type="button" class="reset" id="mn-reset" hidden>Back to tonight&#39;s moon</button></figcaption></figure>
+</div>
+<p class="note">Illustrative curves, not a real station; the moon starts at tonight&#39;s real phase. The app does this with NOAA predictions for your nearest of 3,200 stations.</p>
+</section>
+
 <h2 id="features">What it does</h2>
 <div class="cols">
-<div><h3>Tide times in words</h3><p>"The tide is coming in. High tide around 2:30 this afternoon." A tide clock and a countdown to the next high or low.</p></div>
-<div><h3>A tide chart you can read</h3><p>Drag along the chart to read the water level at any minute, with night shading and fishing periods marked.</p></div>
-<div><h3>Best fishing times</h3><p>Solunar bite times for every day and a rating from slow to excellent, so you can pick the best day this week.</p></div>
-<div><h3>Tides near you</h3><p>The nearest station from your approximate location (never uploaded), or search 5,600 coastal towns.</p></div>
-<div><h3>Live NOAA water level</h3><p>At gauged stations, today's measured level next to the prediction, so you see when wind pushes the water up.</p></div>
-<div><h3>Alerts and widget</h3><p>A heads-up before high or low tide, an alert when the water crosses your level, and a home-screen widget.</p></div>
+<div data-rv><h3>Tide times in words</h3><p>"The tide is coming in. High tide around 2:30 this afternoon." A tide clock and a countdown to the next high or low.</p></div>
+<div data-rv><h3>A tide chart you can read</h3><p>Drag along the chart to read the water level at any minute, with night shading and fishing periods marked.</p></div>
+<div data-rv><h3>Best fishing times</h3><p>Solunar bite times for every day and a rating from slow to excellent, so you can pick the best day this week.</p></div>
+<div data-rv><h3>Tides near you</h3><p>The nearest station from your approximate location (never uploaded), or search 5,600 coastal towns.</p></div>
+<div data-rv><h3>Live NOAA water level</h3><p>At gauged stations, today's measured level next to the prediction, so you see when wind pushes the water up.</p></div>
+<div data-rv><h3>Alerts and widget</h3><p>A heads-up before high or low tide, an alert when the water crosses your level, and a home-screen widget.</p></div>
 </div>
 
 <h2>Screens</h2>
 <div class="shots">
-<figure><img src="shots/01-today.png" width="1080" height="1920" loading="lazy" alt="Today's tide in words and on a tide clock"><figcaption>Today's tide</figcaption></figure>
-<figure><img src="shots/02-day.png" width="1080" height="1920" loading="lazy" alt="An excellent day for fishing with bite times"><figcaption>Fishing days</figcaption></figure>
-<figure><img src="shots/03-fishing.png" width="1080" height="1920" loading="lazy" alt="Tide chart with high and low tides"><figcaption>Tide chart</figcaption></figure>
-<figure><img src="shots/08-home.png" width="1080" height="1920" loading="lazy" alt="Home-screen tide widget"><figcaption>Widget</figcaption></figure>
+<figure data-rv><img src="shots/01-today.png" width="1080" height="1920" loading="lazy" alt="Today's tide in words and on a tide clock"><figcaption>Today's tide</figcaption></figure>
+<figure data-rv><img src="shots/02-day.png" width="1080" height="1920" loading="lazy" alt="An excellent day for fishing with bite times"><figcaption>Fishing days</figcaption></figure>
+<figure data-rv><img src="shots/03-fishing.png" width="1080" height="1920" loading="lazy" alt="Tide chart with high and low tides"><figcaption>Tide chart</figcaption></figure>
+<figure data-rv><img src="shots/08-home.png" width="1080" height="1920" loading="lazy" alt="Home-screen tide widget"><figcaption>Widget</figcaption></figure>
 </div>
 
 <h2 id="faq">Questions</h2>
@@ -70,5 +89,6 @@
 <nav aria-label="More"><a href="privacy.html">Privacy</a><a href="../">More apps</a><a href="mailto:samridhashrestha10@gmail.com">Contact</a></nav>
 </footer>
 </div>
+<script src="motion.js" defer></script>
 </body>
 </html>

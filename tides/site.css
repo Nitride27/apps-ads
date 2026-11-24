@@ -33,3 +33,87 @@ summary{cursor:pointer;font-weight:700}
 .art-page h2{font-size:26px;margin-top:34px}
 footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding:30px 0 40px;margin-top:40px;border-top:3px double var(--rule);color:var(--muted);font-size:15px}
 footer nav{display:flex;gap:16px}
+.stats{list-style:none;margin:8px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);border-top:3px double var(--rule);border-bottom:1px solid var(--rule)}
+.stats li{padding:16px 14px 16px 0;border-right:1px solid color-mix(in srgb,var(--rule) 25%,transparent)}
+.stats li+li{padding-left:14px}.stats li:last-child{border-right:0}
+.stats b{display:block;font:700 clamp(30px,5vw,46px)/1 Cond;font-variant-numeric:tabular-nums}
+.stats span{font:500 12px Mono;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+@media (max-width:760px){.stats{grid-template-columns:1fr 1fr}.stats li:nth-child(2){border-right:0}.stats li:nth-child(3){padding-left:0}.stats li:nth-child(n+3){border-top:1px solid color-mix(in srgb,var(--rule) 25%,transparent)}}
+.tide{position:relative}
+.days{display:grid;grid-template-columns:repeat(7,1fr);margin:18px 0 6px;border:1px solid var(--rule)}
+.days button{all:unset;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 2px;border-right:1px solid color-mix(in srgb,var(--rule) 25%,transparent);transition:opacity .4s,transform .4s,background .25s,color .25s;-webkit-tap-highlight-color:transparent}
+.days button:last-child{border:0}
+.days button span,.days small{font:500 11px Mono;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.days button b{font:700 26px/1 Cond;font-variant-numeric:tabular-nums}
+.days .r{display:flex;gap:2px}.days .r i{width:7px;height:12px;border:1px solid var(--ink);transition:background .3s}
+.days [data-r="0"] .r i:nth-child(-n+1),.days [data-r="1"] .r i:nth-child(-n+2),.days [data-r="2"] .r i:nth-child(-n+3),.days [data-r="3"] .r i{background:var(--mag);border-color:var(--mag)}
+.days button:hover{background:color-mix(in srgb,var(--ink) 6%,transparent)}
+.days button[aria-pressed=true]{background:var(--ink);color:var(--paper)}
+.days button[aria-pressed=true] span,.days button[aria-pressed=true] small{color:var(--paper)}
+.days button[aria-pressed=true] .r i{border-color:var(--paper)}
+.days button:focus-visible{outline:2px solid var(--mag);outline-offset:-4px}
+.days button:nth-child(2){transition-delay:50ms}.days button:nth-child(3){transition-delay:100ms}.days button:nth-child(4){transition-delay:150ms}.days button:nth-child(5){transition-delay:200ms}.days button:nth-child(6){transition-delay:250ms}.days button:nth-child(7){transition-delay:300ms}
+.lvread{margin:4px 0;font-size:17px;color:var(--muted);min-height:1.6em}.lvread b{color:var(--mag)}
+.key{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;margin:0;font:500 12px Mono;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.key span{display:inline-block;width:18px;height:7px;margin-right:-10px}
+.kmaj{background:var(--mag)}.kmin{background:color-mix(in srgb,var(--mag) 45%,transparent)}.key .klv{height:0;border-top:2px dashed var(--mag)}
+.inst{display:grid;grid-template-columns:1fr .8fr 1.2fr;margin-top:28px;border-top:1px solid var(--rule)}
+.inst figure{margin:0;padding:20px 20px 10px 0;display:flex;gap:16px;align-items:flex-end}
+.inst figure+figure{padding-left:20px;border-left:1px solid color-mix(in srgb,var(--rule) 25%,transparent)}
+.inst svg{flex:none;overflow:visible}
+#clock{width:120px}#staff{width:96px;overflow:hidden!important}#moon{width:170px;cursor:grab;touch-action:none;outline:none}#moon.grab{cursor:grabbing}
+#moon:focus-visible{outline:2px solid var(--mag);outline-offset:4px}
+.inst figcaption{display:flex;flex-direction:column;gap:4px;font-size:16px;color:var(--muted);line-height:1.35;padding-bottom:6px}
+.inst figcaption b{font:500 13px Mono;letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
+.reset{all:unset;cursor:pointer;margin-top:4px;font:500 12px Mono;letter-spacing:.06em;text-transform:uppercase;color:var(--mag);text-decoration:underline}
+.reset[hidden]{display:none}
+@media (max-width:860px){.inst{grid-template-columns:1fr}.inst figure+figure{padding-left:0;border-left:0;border-top:1px solid color-mix(in srgb,var(--rule) 25%,transparent)}}
+#clock .face{fill:var(--paper)}#clock .cw{fill:var(--water)}#clock .rim{fill:none;stroke:var(--ink);stroke-width:2}
+#clock .tk{stroke:var(--ink);stroke-width:1.5}#clock text{font:500 9px Mono;letter-spacing:.1em;fill:var(--muted)}
+#clock .hand{stroke:var(--mag);stroke-width:3;stroke-linecap:round}#clock .hub{fill:var(--mag)}
+#staff .post{fill:color-mix(in srgb,var(--ink) 30%,var(--paper))}#staff .board{fill:var(--paper);stroke:var(--ink);stroke-width:1.5}
+#staff .mk{stroke:var(--ink);stroke-width:1.5}#staff text{font:500 15px Mono;fill:var(--muted)}
+#staff .wv{fill:color-mix(in srgb,var(--water) 80%,transparent);stroke:var(--ink);stroke-width:1.2}
+#staff .bed{fill:var(--ink)}#staff .slv line{stroke:var(--mag);stroke-width:2;stroke-dasharray:4 3}#staff .slv text{fill:var(--mag);font-size:10px}
+#moon .ray{stroke:var(--muted);stroke-width:1.5}#moon .rayh{fill:var(--muted)}#moon text{font:500 10px Mono;letter-spacing:.1em;fill:var(--muted)}
+#moon .orbit{fill:none;stroke:var(--ink);stroke-dasharray:2 5;opacity:.5}
+#moon .bulge{fill:var(--water);stroke:var(--ink);stroke-width:1}
+#moon .earth{fill:var(--ink)}#moon .dark{fill:var(--ink);stroke:var(--ink)}#moon .lit{fill:var(--paper);stroke:var(--ink);stroke-width:1}
+#tc .abv{fill:color-mix(in srgb,var(--mag) 18%,transparent)}
+#tc .bites .maj{fill:var(--mag)}#tc .bites .min{fill:color-mix(in srgb,var(--mag) 45%,transparent)}
+#tc .lvg line{stroke:var(--mag);stroke-width:2;stroke-dasharray:8 6}
+#tc .lvh{cursor:ns-resize;outline:none}#tc .lvh rect{fill:var(--mag)}#tc .lvh .hit{fill:transparent}#tc .lvh text{fill:var(--paper);font-size:14px}
+#tc .lvh:focus-visible rect:not(.hit){stroke:var(--ink);stroke-width:3}
+
+.read{display:flex;gap:18px;align-items:baseline;margin:14px 0 4px;min-height:1.6em;font:500 15px Mono;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.read b{font:700 30px/1 Cond;letter-spacing:0;text-transform:none;color:var(--ink);font-variant-numeric:tabular-nums}
+.read .dir{color:var(--mag)}
+#tc{display:block;width:100%;height:auto;margin:30px 0 6px;cursor:ew-resize;touch-action:pan-y;outline:none;overflow:visible}
+#tc:focus-visible{outline:2px solid var(--mag);outline-offset:6px}
+#tc .night{fill:color-mix(in srgb,var(--ink) 7%,transparent)}
+#tc .water{fill:var(--water);transition:clip-path 1.4s cubic-bezier(.2,.7,.2,1) .2s;clip-path:inset(0)}
+#tc .curve{fill:none;stroke:var(--ink);stroke-width:3;stroke-dasharray:1;stroke-dashoffset:0;transition:stroke-dashoffset 1.6s cubic-bezier(.4,0,.2,1)}
+#tc .tick{stroke:var(--ink)}
+#tc text{font:500 15px Mono;letter-spacing:.06em;fill:var(--muted)}
+#tc .ex circle{fill:var(--paper);stroke:var(--ink);stroke-width:2.5}
+#tc .ex text{fill:var(--ink);transition:opacity .4s 1.4s}
+#tc .ex circle{transition:opacity .4s 1.4s}
+#tc .now{stroke:var(--mag);stroke-width:2;stroke-dasharray:4 5}
+#tc .nowlab{fill:var(--mag)}
+#tc .cur{stroke:var(--ink);stroke-width:1}
+#tc .dot{fill:var(--mag);stroke:var(--paper);stroke-width:3}
+@media (prefers-reduced-motion:no-preference){
+.js .tide:not(.in) .curve{stroke-dashoffset:1}
+.js .tide:not(.in) .water{clip-path:inset(100% 0 0)}
+.js .tide:not(.in) .ex>*,.js .tide:not(.in) .bites,.js .tide:not(.in) .lvg,.js .tide:not(.in) .days button{opacity:0}
+.js .tide:not(.in) .days button{transform:translateY(8px)}
+#tc .bites,#tc .lvg{transition:opacity .5s 1.6s}
+#staff .wv{animation:swell 3.2s linear infinite}
+@keyframes swell{to{transform:translateX(40px)}}
+.js [data-rv]{opacity:0;transform:translateY(14px);transition:opacity .6s,transform .6s cubic-bezier(.2,.7,.2,1)}
+.js [data-rv].in{opacity:1;transform:none}
+details::details-content{block-size:0;overflow:hidden;transition:block-size .3s,content-visibility .3s allow-discrete}
+details[open]::details-content{block-size:auto}
+:root{interpolate-size:allow-keywords}
+}
+@media (max-width:600px){#tc text{font-size:28px;letter-spacing:0}#tc .ex text{font-size:24px}#tc .lab,#tc .tick{display:none}#tc .lvh text{font-size:17px}.days button b{font-size:20px}.days small{display:none}}

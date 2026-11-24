@@ -20,6 +20,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="fonts/BricolageGrotesque-ExtraBold.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="stylesheet" href="site.css">
+<script>document.documentElement.className="js"</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Habit Tracker: Resolution 2027","operatingSystem":"Android","applicationCategory":"HealthApplication","url":"https://apps.samridhashrestha.com.np/resolutions/","downloadUrl":"https://play.google.com/store/apps/details?id=com.giftdraw.resolutions","image":"https://apps.samridhashrestha.com.np/resolutions/icon.png","screenshot":"https://apps.samridhashrestha.com.np/resolutions/shots/today.png","description":"Habit tracker with one-tap check-ins, streaks, reminders, a home-screen widget, yearly stats and challenges to share with friends. No account; data stays on the phone.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Person","name":"Samridha Shrestha","url":"https://samridhashrestha.com.np/"},"publisher":{"@type":"Organization","name":"MadAxe Studios"}}
 </script>
@@ -40,22 +41,60 @@
 <div class="phone"><img src="shots/today.png" width="1080" height="1920" alt="Today screen with habits for reading, water, exercise and meditation, each with a streak"></div>
 </section>
 
+<section class="try">
+<div data-rv>
+<h2>Try a day. <mark>Tap to check in.</mark></h2>
+<p class="lead">This is the Today screen. Tap a habit to tick it off; water counts taps. Some streaks are one day from a milestone. Busy day? Freeze a streak instead of losing it.</p>
+<p class="stamp" id="perfect" aria-live="polite"><span>Perfect day</span></p>
+</div>
+<div class="demo card" id="demo" data-rv>
+<div class="dhead"><b id="dcount" aria-live="polite"></b><span id="dfz"></span></div>
+<div class="segs" id="dsegs" aria-hidden="true"></div>
+<ul id="dlist"></ul>
+<div class="ideas" id="ideas"><span>Add an idea</span><button type="button" data-sub="5 minutes">Journal</button><button type="button" data-sub="Every day">No-spend day</button><button type="button" data-sub="Weeknights">Sleep by 11</button></div>
+</div>
+</section>
+
+<section class="yr card" data-rv aria-labelledby="yr-h">
+<div class="yhead"><h3 id="yr-h">Your year, one square a day</h3><span class="note" id="ystat"></span></div>
+<div class="ywrap"><div class="ygrid" id="year" aria-hidden="true"></div><p class="tip" id="ytip" hidden></p></div>
+<p class="note">Example data. Tap or hover a square. Today's square fills in as you check in above.</p>
+<div class="wkrow"><div class="wk" id="wk" aria-hidden="true"></div><p class="wkbest" id="wkbest"></p></div>
+</section>
+
 <h2 id="features">Small daily steps, a big year</h2>
 <div class="cards">
-<div class="card"><h3>Start in seconds</h3><p>Pick from 30 resolution ideas, like drinking water, reading 20 pages or a no-spend day, or make your own.</p></div>
-<div class="card"><h3>Track it your way</h3><p>A simple check-off, a count (8 glasses) or an amount (20 pages, 10,000 steps). Daily, weekdays, 3 times a week or every few days.</p></div>
-<div class="card"><h3>Streaks that forgive</h3><p>Current and best streaks, a habit strength score, milestones from 3 days to a year, and a streak freeze for the day life gets in the way.</p></div>
-<div class="card"><h3>Home-screen widget</h3><p>See today's habits and tick them off without opening the app. Light and dark.</p></div>
-<div class="card"><h3>Reminders on time</h3><p>Only on days the habit is due, and never for something you already did.</p></div>
-<div class="card"><h3>Do it with a friend</h3><p>Send a challenge by text or WhatsApp. Your friend pastes it in and you both start the same habit.</p></div>
+<div class="card" data-rv><h3>Start in seconds</h3><p>Pick from 30 resolution ideas, like drinking water, reading 20 pages or a no-spend day, or make your own.</p></div>
+<div class="card" data-rv><h3>Track it your way</h3><p>A simple check-off, a count (8 glasses) or an amount (20 pages, 10,000 steps). Daily, weekdays, 3 times a week or every few days.</p></div>
+<div class="card" data-rv><h3>Streaks that forgive</h3><p>Current and best streaks, a habit strength score, milestones from 3 days to a year, and a streak freeze for the day life gets in the way.</p></div>
+<div class="card" data-rv><h3>Home-screen widget</h3><p>See today's habits and tick them off without opening the app. Light and dark.</p></div>
+<div class="card" data-rv><h3>Reminders on time</h3><p>Only on days the habit is due, and never for something you already did.</p></div>
+<div class="card" data-rv><h3>Do it with a friend</h3><p>Send a challenge by text or WhatsApp. Your friend pastes it in and you both start the same habit.</p></div>
 </div>
+
+<section class="sim card" data-rv aria-labelledby="sim-h">
+<div class="simhead"><div><h3 id="sim-h">Miss a day. See what happens.</h3><p class="note">Tap the days below to mark them done or missed. A plain streak drops to zero. Habit strength only dips, so one bad day doesn't erase a good month.</p></div>
+<div class="simleg"><span class="a">Streak <b id="sims">0</b></span><span class="b">Strength <b id="simk">0</b></span></div></div>
+<svg id="simg" viewBox="0 0 600 180" preserveAspectRatio="none" aria-hidden="true"></svg>
+<div class="simdays" id="simdays" role="group" aria-label="28 days, pressed means done"></div>
+</section>
 
 <h2>See your whole year</h2>
 <div class="shots">
-<figure><img src="shots/today.png" width="1080" height="1920" loading="lazy" alt="Today's habits with streak counts"><figcaption>Today at a glance</figcaption></figure>
-<figure><img src="shots/streaks.png" width="1080" height="1920" loading="lazy" alt="Habit detail with current and best streak and a history calendar"><figcaption>Streaks and history</figcaption></figure>
-<figure><img src="shots/year.png" width="1080" height="1920" loading="lazy" alt="Year stats with perfect days and strongest weekdays"><figcaption>Your year in numbers</figcaption></figure>
+<figure data-rv><img src="shots/today.png" width="1080" height="1920" loading="lazy" alt="Today's habits with streak counts"><figcaption>Today at a glance</figcaption></figure>
+<figure data-rv><img src="shots/streaks.png" width="1080" height="1920" loading="lazy" alt="Habit detail with current and best streak and a history calendar"><figcaption>Streaks and history</figcaption></figure>
+<figure data-rv><img src="shots/year.png" width="1080" height="1920" loading="lazy" alt="Year stats with perfect days and strongest weekdays"><figcaption>Your year in numbers</figcaption></figure>
 </div>
+
+<section class="chal">
+<div data-rv>
+<h2 id="ch-h">Better <mark>with a friend</mark></h2>
+<p class="lead">Pick a habit and how long. We write the invite; you send it however you like.</p>
+<div class="pick" id="chh" role="group" aria-label="Habit"><button type="button" aria-pressed="true">Read 20 pages</button><button type="button" aria-pressed="false">Walk 10,000 steps</button><button type="button" aria-pressed="false">No sugar</button><button type="button" aria-pressed="false">Meditate</button></div>
+<div class="pick" id="chd" role="group" aria-label="Length"><button type="button" data-v="7" aria-pressed="false">7 days</button><button type="button" data-v="30" aria-pressed="true">30 days</button><button type="button" data-v="100" aria-pressed="false">100 days</button></div>
+</div>
+<figure class="phonemsg card" data-rv aria-labelledby="ch-h"><figcaption>To: a friend</figcaption><p class="bubble" id="chm" aria-live="polite"></p><button type="button" class="cta sm" id="chc">Copy message</button></figure>
+</section>
 
 <h2 id="faq">Questions</h2>
 <details><summary>Do I need an account?</summary><p>No. Open the app and add a habit. There is nothing to sign up for.</p></details>
@@ -70,5 +109,6 @@
 <nav aria-label="More"><a href="privacy.html">Privacy</a><a href="../">More apps</a><a href="mailto:samridhashrestha10@gmail.com">Contact</a></nav>
 </footer>
 </div>
+<script src="motion.js" defer></script>
 </body>
 </html>
